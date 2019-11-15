@@ -8,13 +8,15 @@ var temperature;
 temperature = Number(prompt("Veuillez entrer la température"));
 
 
-
-    if (temperature > -10 ) {
-        if (temperature <= -40) {
-            alert("Ahhhh il fait froid!");
-        }
+if ( temperature <= -10 ) {
+    if (temperature >=-40) {
+        alert("Ahhhh il fait froid!");
     }
+}
 
+else if (temperature <= -41) {
+    alert("Game over");
+}
 
 else {
  alert("Enfin une belle journée!" );
