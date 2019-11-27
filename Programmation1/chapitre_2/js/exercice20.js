@@ -2,20 +2,21 @@
  * Created by Francisca on 2019-11-14.
  */
 
-var montant;
-var escompte;
-var total;
+var age;
 
-montant = Number(prompt("Saisissez un montant de vente"));
-escompte = montant * 12 / 100;
-total = montant - escompte;
 
-if(montant >=500 ) {
-    document.write( "Votre taux escompte est de " + escompte + " $");
+age = Number(prompt("Saisissez votre age"));
+
+
+if(age >=18 ) {
+    document.write( "Adulte");
 }
 
+else if(age >= 12 && age <=17 )
+    document.write( "Adolescent");
+
 else {
-    document.write( "Votre montant est inférieur à 500$ vous n'avez pas droit à un escompte");
+    document.write( "Enfant");
 }
 
 

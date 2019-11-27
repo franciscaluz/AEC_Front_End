@@ -1,0 +1,13 @@
+body {
+    color: #000000;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.woman {
+    color: magenta;
+}
+
+.man {
+    color: green;
+}

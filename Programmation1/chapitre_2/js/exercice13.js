@@ -2,28 +2,28 @@
  * Created by Francisca on 2019-11-14.
  */
 
-var direction;
+var A;
+var B;
 
-direction = (prompt("Saisissez une lettre de commande"));
+A = Number(prompt("Saisissez un chiffre A"));
+B = Number(prompt("Saisissez un chiffre B"));
 
-if(direction === "w") {
-    alert("Avancer");
+if(A > B) {
+    document.write( B + " & " + A);
 }
 
-else if(direction === "a") {
-    alert("Gauche");
-}
-
-else if(direction === "s") {
-    alert("Droite");
-}
-
-else if(direction === "d") {
-    alert("Reculer");
+else if(A < B) {
+    document.write( A + " & " + B);
 }
 
 else {
-    alert("Erreur! Recommencez!");
+    if( A === B) {
+        alert("Erreur! Les deux chiffres ne doivent pas être identiques!");
+    }
+    else {
+        alert("Erreur! Vos données saisies sont invalides!");
+    }
+
 }
 
 

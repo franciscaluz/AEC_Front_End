@@ -2,31 +2,25 @@
  * Created by Francisca on 2019-11-14.
  */
 
-var A;
-var B;
+var longueur;
+var largeur;
+var perimetre;
+var surface;
 
-A = Number(prompt("Saisissez un chiffre A"));
-B = Number(prompt("Saisissez un chiffre B"));
-C = Number(prompt("Saisissez un chiffre C"));
 
-if(A > B && B > C) {
-    document.write( C + " & " + B + " & " + A);
+longueur = Number(prompt("Saisissez la longueur"));
+largeur = Number(prompt("Saisissez la largeur"));
+perimetre = longueur + largeur * 2 ;
+surface = longueur * largeur;
+
+if(perimetre >= 100) {
+    document.write( "la surface de votre rectangle est " + surface);
 }
-
-else if(A < B && B < C) {
-    document.write( A + " & " + B + " & " + C);
-}
-
 
 else {
-    if( A === B || B === C) {
-        alert("Erreur! Les chiffres ne doivent pas être identiques!");
-    }
-    else {
-        alert("Erreur! Vos données saisies sont invalides!");
-    }
-
+    alert("Votre perimetre est inférieur à 100");
 }
+
 
 
 

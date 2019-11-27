@@ -2,40 +2,21 @@
  * Created by Francisca on 2019-11-14.
  */
 
-var A;
-var B;
-var C;
-var D;
-var somme;
-var produit;
-var differenceA;
-var differenceB;
+var lettre;
 
 
-A = Number(prompt("Saisissez un chiffre A"));
-B = Number(prompt("Saisissez un chiffre B"));
-somme = A + B;
-produit = A * B;
-differenceA = A - B;
-differenceB = B - A;
+lettre = (prompt("Saisissez une lettre sur votre clavier"));
 
-
-if(A >= 10 && B >= 10) {
-    document.write( "la somme totale est " + somme);
-}
-
-else if(A < 10 && B < 10) {
-    document.write( "le produit est " + produit);
+if(lettre.toUpperCase() === "A" || lettre.toUpperCase()=== "E" || lettre.toUpperCase()=== "I" || lettre.toUpperCase()=== "O" || lettre.toUpperCase()=== "U" || lettre.toUpperCase()=== "Y" ) {
+    document.write( "voyelle");
 }
 
 else {
-    if(A >= 10 && B < 10 || A < 10 && B >= 10) {
-        if(A > B) {
-            document.write( "la difference entre A et B est " + differenceA);
-        }
-        else {
-            document.write( "la difference entre B et A est " + differenceB);
-        }
+    if(lettre >= 0 || lettre < 0 ) {
+        alert("Cette saisie est erronnée.  Veuillez rentrer une lettre !");
+    }
+    else {
+        document.write("Consonne");
     }
 }
 

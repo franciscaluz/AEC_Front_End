@@ -2,23 +2,41 @@
  * Created by Francisca on 2019-11-14.
  */
 
-var longueur;
-var largeur;
-var perimetre;
-var surface;
+var A;
+var B;
+var C;
+var D;
+var somme;
+var produit;
+var differenceA;
+var differenceB;
 
 
-longueur = Number(prompt("Saisissez la longueur"));
-largeur = Number(prompt("Saisissez la largeur"));
-perimetre = longueur + largeur * 2 ;
-surface = longueur * largeur;
+A = Number(prompt("Saisissez un chiffre A"));
+B = Number(prompt("Saisissez un chiffre B"));
+somme = A + B;
+produit = A * B;
+differenceA = A - B;
+differenceB = B - A;
 
-if(perimetre >= 100) {
-    document.write( "la surface de votre rectangle est " + surface);
+
+if(A >= 10 && B >= 10) {
+    document.write( "la somme totale est " + somme);
+}
+
+else if(A < 10 && B < 10) {
+    document.write( "le produit est " + produit);
 }
 
 else {
-    alert("Votre perimetre est inférieur à 100");
+    if(A >= 10 && B < 10 || A < 10 && B >= 10) {
+        if(A > B) {
+            document.write( "la difference entre A et B est " + differenceA);
+        }
+        else {
+            document.write( "la difference entre B et A est " + differenceB);
+        }
+    }
 }
 
 
