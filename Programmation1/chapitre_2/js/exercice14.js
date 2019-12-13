@@ -14,7 +14,10 @@ if(A > B) {
     if (B > C) {
         document.write( C + " & " + B + " & " + A);
     }
-    if(B < C) {
+    if (C > A) {
+        document.write( B + " & " +  A + " & "+ C);
+    }
+    else if (B < C) {
         document.write( B + " & " +  C + " & "+ A);
     }
 }

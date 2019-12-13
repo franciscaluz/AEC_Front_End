@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84c38969-b799-4aad-9999-5e567af09438" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/.idea/chapitre_3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_5.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice12.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice13.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice13.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/exercice14.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice15.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice15.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice16.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice16.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice17.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice17.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice18.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice18.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice19.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice19.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice20.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice20.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -69,7 +66,13 @@
       <workItem from="1574295929231" duration="13362000" />
       <workItem from="1574520396619" duration="10442000" />
       <workItem from="1574731854008" duration="6634000" />
-      <workItem from="1574821554836" duration="5192000" />
+      <workItem from="1574821554836" duration="5511000" />
+      <workItem from="1574985277354" duration="4525000" />
+      <workItem from="1575506097383" duration="595000" />
+      <workItem from="1575586357196" duration="328000" />
+      <workItem from="1575587239430" duration="2257000" />
+      <workItem from="1576190055978" duration="2126000" />
+      <workItem from="1576199745271" duration="602000" />
     </task>
     <task id="LOCAL-00001" summary="exercice 5 modification">
       <created>1573785163228</created>
