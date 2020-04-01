@@ -2,48 +2,70 @@
  * Created by Francisca on 2020-01-13.
  */
 
+// L’AGENCE DE VOYAGES
+//
+// Créez une classe Activité
+// Une activité a un nom
+// Une activité a un coût
+//
+// Créez une classe Voyage
+// Un voyage a une destination
+// Un voyage a prix pour billet avion
+// Un voyage un tableau d’activités
+//
+// Créez une classe Personne
+// Une personne a un nom
+// Une personne a un voyage
+//
+// Instanciez l’activité “Golden Knights hockey” 125$
+// Instanciez l’activité “Raiders football” 200$
+// Instanciez l’activité “Tournoi de poker” 500$
+//
+// Instanciez le voyage “Las Vegas” 400$ avec les 3 activités précédentes
+//
+// Instanciez la personne “Shany Carle” avec le voyage précédent
+//
+// Faites afficher toutes ces informations à l’écran. Vous devez en plus afficher le coût total pour le voyage (le billet d’avion et les activités).
 
 
-class MonnaieVirtuelle {
-    constructor(nomMonnaie, valeurUSD, actif) {
-        this.nomMonnaie = nomMonnaie;
-        this.valeurUSD = valeurUSD;
-        this.actif = actif;
-        this.actifUSD = this.actif * this.valeurUSD;
+
+class Activites {
+    constructor(nomActivite, cout) {
+        this.nomActivite = nomActivite;
+        this.cout = cout;
+    }
+}
+
+class Voyages{
+    constructor(destination, prixBilletAvion,tableauActivites) {
+        this.destination = destination;
+        this.prixBilletAvion = prixBilletAvion;
+        this.tableauActivites = tableauActivites;
+    }
+}
+
+class Personne{
+    constructor(nom, voyage) {
+        this.nom = nom;
+        this.voyage = voyage;
     }
 }
 
 
-class Portefeuille {
-    constructor(nomProprio, TableauMonnaie) {
-        this.nomProprio = nomProprio;
-        this.TableauMonnaie = TableauMonnaie;
-    }
+let Activite1 = new Activites("Golden Knights Hockey", 125);
+let Activite2 = new Activites("Raiders Football", 200);
+let Activite3 = new Activites("Tournoi Poker", 500);
 
-    ValeurDuPortefeuille() {
-        let tableau = 0;
-        for (let i = 0; i < MonnaieVirtuelle.lenght; i++) {
-            tableau += MonnaieVirtuelle[i];
-        }
-    }
+let tabActivites = [Activite1, Activite2, Activite3];
 
-}
+let Voyage1 = new Voyages("Las Vegas", 400, tabActivites);
+let Personne1 = new Personne("Shany Carle", "Las Vegas");
+let total = Activite1.cout + Activite2.cout + Activite3.cout + Voyage1.prixBilletAvion;
 
-let Bitcoin = new MonnaieVirtuelle("Bitcoin", "9730", "6", " ");
-let Ethereum = new MonnaieVirtuelle("Ethereum", "194", "20", " ");
-let Litecoin = new MonnaieVirtuelle("Litecoin", "58", "10", " ");
-
-let tabMonnaie = [Bitcoin, Ethereum, Litecoin];
-
-document.write(tabMonnaie[1]);
+document.write("Le voyage de "+ Personne1.nom + " à "+ Personne1.voyage + " est d'un montant total de " + total + " $ ");
 
 
-//
-//
-//
-// let ShanyCarle = new Portefeuille(tabMonnaie);
-//
-// let MonPortefeuille = ShanyCarle.ValeurDuPortefeuille();
+
 
 
 

@@ -2,50 +2,86 @@
  * Created by Francisca on 2020-01-13.
  */
 
+// Vous demandez au client le type de Jeep
+// Sport 33290$
+// SportS 37240$
+// Havane 39235).
+// Vous demandez ensuite le terme (24, 48, 60 ou 84) mois.
+//     Vous demandez la couleur, si c’est rouge ou vert, ajoutez 1399$ au prix du véhicule.
+//     Vous demandez si la transmission est manuelle (0$), automatique (1500$) ou automatique 8 vitesses (2400$).
 //
-// Vous devez calculer les dommages de l’attaque Darkest Lariat du pokémon Incineroar.
-// Pour cela, il faut lire le type du pokémon adverse. Si c’est de type eau, les dommages seront doublés
-// car les pokémons du type eau ont une faiblesse contre le feu.
-//
-// Il faut ensuite faire deux pile ou face. Pour cela, il faut générer un nombre aléatoire entre 0 et 1.
-// Si c’est face (1), l’attaque fait 100 de dégâts. Si c’est faux l’attaque fait 0 dégât. Répétez les opérations pour le second lancé.
-//
-// Exemple :
-// type = “eau” face face → 400 de dégâts
-// type = “ténèbre” pile face → 100 dégâts
+// Calculez une taxe de 15%.
+// Le taux d’intérêt est toujours 0%
+// Affichez le paiement mensuel incluant la taxe et un résumé de la transaction.
 
 
-let attaque1 = 0;
-let attaque2 = 0;
-let total = 0;
-let lance1 = Math.floor(Math.random() * 2);
-let lance2 = Math.floor(Math.random() * 2);
+let prix = 0;
+let prixCouleur = 0;
+let prixTransmission = 0;
+let mensualite = 0;
 
-if(lance1 === 1 ) {
-    lance1 = "face";
-    attaque1 = 100;
-} else {
-    lance1 = "pile ";
-    attaque1 = 0;
-}
+    let type = prompt("Quel type de jeep desirez-vous : sport, sport-s ou havane?").toUpperCase();
+    if (type === "SPORT") {
+        prix = 33290;
+    } else if (type === "SPORT-S") {
+        prix = 37240;
+    } else if (type === "HAVANE") {
+        prix = 39235;
+    } else {
+        alert("Valeur incorrecte");
+    }
 
-if(lance2 === 1) {
-    lance2 = "face ";
-    attaque2 = 100;
-} else {
-    lance2 = "pile ";
-    attaque2=  0;
-}
+    let terme = Number(prompt("Quel type de mensualité désirez-vous : 24, 48, 60 ou 84?"));
+    if (terme === 24) {
+        mensualite = 24;
+    } else if (terme === 48) {
+        mensualite = 48;
+    } else if (terme === 60) {
+        mensualite = 60;
+    } else if (terme === 84) {
+        mensualite = 84;
+    } else {
+        mensualite = 0;
+    }
 
-let type = prompt("Quel est le type du Pokémon adversaire?");
+    let couleur = prompt("Quelle couleur désirez-vous").toUpperCase();
+     if (couleur === "VERT" || couleur === "ROUGE") {
+        prixCouleur= 1399;
+     } else {
+         prixCouleur= 0;
+     }
 
-if(type === 'eau') {
-    total =  attaque1 * 2 + attaque2 * 2;
-} else {
-    total = attaque1 + attaque2;
-}
+    let transmission = prompt("Désirez-vous la transmission manuelle,  automatique ou automatique 8 vitesses?").toUpperCase();
+    if (transmission === "AUTOMATIQUE") {
+        prixTransmission= 1500;
+    } else if (transmission === "AUTOMATIQUE 8 VITESSES") {
+        prixTransmission= 2400;
+    } else {
+        prixTransmission= 0;
+    }
 
-document.write("type = " + type + " - "  + lance1 + " / " + lance2 + " = " +  total + " point de dégâts" );
+    let total = prix + prixCouleur + prixTransmission;
+    let taxes = total * 1.15;
+    let grandTotal = (total + taxes) / mensualite;
+
+
+    document.write("Jeep " + type + " = " + prix + " $" + "<br>");
+    document.write("Sur un terme de = " + mensualite + " mois " + "<br>");
+    document.write("Couleur " + couleur + " = "+  prixCouleur +" $ <br>");
+    document.write("Transmission " + transmission +" = "+ prixTransmission + " $ <br>");
+    document.write("TOTAL = " + total  + " $ <br>");
+    document.write("TAXES = " + taxes  + " $ <br>");
+    document.write("TOTAL PAR MOIS = " + grandTotal  + " $ <br>");
+
+
+
+
+
+
+
+
+
+
 
 
 

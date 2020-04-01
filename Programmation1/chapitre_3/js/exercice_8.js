@@ -2,14 +2,13 @@
  * Created by Francisca on 2019-12-12.
  */
 
-var nbMots = -1;
-var mot = "";
+var celcius;
 
-while (mot != "patate"){
-    mot = prompt("Entrez un mot : ");
-    nbMots++;
+for(var f=-40;f<=40;f+=5){
+    celcius = (5/9) * (f-32);
+    document.write(f + " Fahrenheits = " + celcius.toFixed(2) + " Celcius<br>");
 }
-document.write("Vous avez entré " + nbMots + " mots AVANT patate");
+
 
 
 

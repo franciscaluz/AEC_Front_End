@@ -2,9 +2,14 @@
  * Created by Francisca on 2019-12-12.
  */
 
-for (var i =0; i<15;i++){
-    document.write("ATTENTION <br>");
+var nbMots = -1;
+var mot = "";
+
+while (mot != "patate"){
+    mot = prompt("Entrez un mot : ");
+    nbMots++;
 }
+document.write("Vous avez entré " + nbMots + " mots AVANT patate");
 
 
 

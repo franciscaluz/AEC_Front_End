@@ -2,38 +2,19 @@
  * Created by Francisca on 2020-01-13.
  */
 
-class joueurHockey {
-    constructor(nom,nbButs,nbPasses) {
-        this.nom = nom;
-        this.nbButs= nbButs;
-        this.nbPasses= nbPasses;
-    }
+// Utilisez une variable nommée nb et 2 boucles for imbriquées pour produire le résultat suivant à l’aide  d’un document.write.
 
-    Total(){
-       return(this.nbButs + this.nbPasses);
+let nb = -5;
+
+for(let i= 0; i < 10; i++) {
+    for(let j=0; j <20; j++){
+        nb = nb + 5;
+        document.write(nb + " ");
     }
+    document.write(nb + "<br>");
 }
 
-class equipe {
-    constructor(nom,joueur1, joueur2, joueur3) {
-        this.nom = nom;
-        this.joueur1 = j1;
-        this.joueur2 = j2;
-        this.joueur3 = j3;
-    }
 
-    AfficherAlignement(){
-        document.write(this.joueur1.nom + " " + this.joueur2.nom + " " + this.joueur3.com);
-    }
-
-    AfficherPointsTotaux(){
-        return(this.joueur1.Total() + this.joueur2.Total() + this.joueur3.Total());
-    }
-}
-
-let SudneyCrosby = new joueurHockey("Sydney Crosy", 454, 787);
-let MarioLemieux = new joueurHockey ("Mario Lemieux", 690, 1033);
-let JaromirJagr = new joueurHockey("Jaromir Jagr", 766, 1155);
 
 
 

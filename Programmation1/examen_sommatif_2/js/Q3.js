@@ -1,39 +1,36 @@
 /**
  * Created by Francisca on 2020-01-13.
  */
+//
+// Créez un tableau nommé tabChance qui contient 100 nombres aléatoires entre 1 et 200. (4 points)
+// Demandez un nombre à l’usager entre 1 et 200. (1 point)
+// Parcourez le tableau pour savoir si le nombre se trouve dans le tableau et confirmez la réponse à l’usager. (5 points)
 
-class joueurHockey {
-    constructor(nom,nbButs,nbPasses) {
-        this.nom = nom;
-        this.nbButs= nbButs;
-        this.nbPasses= nbPasses;
-    }
+let tabChance = [];
+let saisie = Number(prompt("Saisissez un chiffre entre 1 et 200"));
+let chance = false;
 
-    Total(){
-       return(this.nbButs + this.nbPasses);
+for(let i=0; i<100; i++) {
+    tabChance[i] = Math.floor(Math.random() * 200);
+    document.write(tabChance[i] + " ");
+}
+
+for(let j=0; j<tabChance.length; j++) {
+    if (saisie === tabChance[j]) {
+        chance = true;
     }
 }
 
-class equipe {
-    constructor(nom,joueur1, joueur2, joueur3) {
-        this.nom = nom;
-        this.joueur1 = j1;
-        this.joueur2 = j2;
-        this.joueur3 = j3;
-    }
-
-    AfficherAlignement(){
-        document.write(this.joueur1.nom + " " + this.joueur2.nom + " " + this.joueur3.com);
-    }
-
-    AfficherPointsTotaux(){
-        return(this.joueur1.Total() + this.joueur2.Total() + this.joueur3.Total());
-    }
+if (chance === true) {
+    alert("Vous avez de la chance!")
 }
 
-let SudneyCrosby = new joueurHockey("Sydney Crosy", 454, 787);
-let MarioLemieux = new joueurHockey ("Mario Lemieux", 690, 1033);
-let JaromirJagr = new joueurHockey("Jaromir Jagr", 766, 1155);
+else {
+    alert("Vous avez perdu...:(")
+}
+
+
+
 
 
 

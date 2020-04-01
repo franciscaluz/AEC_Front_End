@@ -1,33 +1,46 @@
 /**
  * Created by Francisca on 2020-01-13.
  */
-//
-// Créez un tableau nommé tabChance qui contient 100 nombres aléatoires entre 1 et 200. (4 points)
-// Demandez un nombre à l’usager entre 1 et 200. (1 point)
-// Parcourez le tableau pour savoir si le nombre se trouve dans le tableau et confirmez la réponse à l’usager. (5 points)
+let mot = String.fromCharCode(68,65,68);
+let totalDAD = 0;
+let totalE = 0;
+let totalVoyelle = 0;
+let tabLettres = "";
+let tabChiffres = [];
+let min = 65;
+let max = 90;
 
-let tabChance = [];
-let saisie = Number(prompt("Saisissez un chiffre entre 1 et 200"));
-let chance = false;
+for(let i = 0; i < 10000; i++) {
+    tabChiffres[i] = Math.floor((Math.random() * (max - min)) + min);
+    tabLettres = String.fromCharCode(tabChiffres[i]);
 
-for(let i=0; i<100; i++) {
-    tabChance[i] = Math.floor(Math.random() * 200);
-    document.write(tabChance[i] + " ");
-}
+    document.write(tabLettres + " ");
 
-for(let j=0; j<tabChance.length; j++) {
-    if (saisie === tabChance[j]) {
-        chance = true;
+    for (j=0; j<tabChiffres.length; j++) {
+        if (tabLettres === mot ) {
+            totalDAD++;
+        }
     }
+
+    if(tabChiffres[i] === 69) {
+        totalE++;
+    }
+
+    if (tabChiffres[i] === 65 || tabChiffres[i] === 69 || tabChiffres[i] === 73 || tabChiffres[i] === 79 || tabChiffres[i] === 85 || tabChiffres[i] === 89) {
+        totalVoyelle++;
+    }
+
 }
 
-if (chance === true) {
-    alert("Vous avez de la chance!")
-}
+document.write("<p>Total nombre de lettre E : " +  totalE + "</p>");
+document.write("Total nombre de voyelles : " +  totalVoyelle + "<br>");
+document.write("Nombre de mot " + mot + " : " + totalDAD);
 
-else {
-    alert("Vous avez perdu...:(")
-}
+
+
+
+
+
 
 
 

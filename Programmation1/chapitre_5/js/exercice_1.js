@@ -1,21 +1,40 @@
 /**
  * Created by Francisca on 2020-01-13.
  */
-//
-// Créez un tableau qui contient les 12 mois de l’année et affichez-le sans utiliser une boucle.
 
-var mois = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"];
+class joueurHockey {
+    constructor(nom,nbButs,nbPasses) {
+        this.nom = nom;
+        this.nbButs= nbButs;
+        this.nbPasses= nbPasses;
+    }
+
+    Total(){
+       return(this.nbButs + this.nbPasses);
+    }
+}
+
+class equipe {
+    constructor(nom,joueur1, joueur2, joueur3) {
+        this.nom = nom;
+        this.joueur1 = j1;
+        this.joueur2 = j2;
+        this.joueur3 = j3;
+    }
+
+    AfficherAlignement(){
+        document.write(this.joueur1.nom + " " + this.joueur2.nom + " " + this.joueur3.com);
+    }
+
+    AfficherPointsTotaux(){
+        return(this.joueur1.Total() + this.joueur2.Total() + this.joueur3.Total());
+    }
+}
+
+let SudneyCrosby = new joueurHockey("Sydney Crosy", 454, 787);
+let MarioLemieux = new joueurHockey ("Mario Lemieux", 690, 1033);
+let JaromirJagr = new joueurHockey("Jaromir Jagr", 766, 1155);
 
 
-document.write(mois[0] + "<br>");
-document.write(mois[1] + "<br>");
-document.write(mois[2] + "<br>");
-document.write(mois[3] + "<br>");
-document.write(mois[4] + "<br>");
-document.write(mois[5] + "<br>");
-document.write(mois[6] + "<br>");
-document.write(mois[7] + "<br>");
-document.write(mois[8] + "<br>");
-document.write(mois[9] + "<br>");
-document.write(mois[10] + "<br>");
-document.write(mois[11] + "<br>");
+
+

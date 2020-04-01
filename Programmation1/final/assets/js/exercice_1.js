@@ -1,20 +1,28 @@
-$('#stormBlanc').attr('title' ,  'Pas facile la vie de Stormtrooper');
-$('#stormBlanc').attr('alt' ,  'image d’un stormtrooper blanc');
-$('#stormBlanc').attr('src', 'images/nouveauStorm.jpeg');
-$('#fontAChanger').attr('class', 'fas fa-fighter-jet');
+$('#first_form').submit(function(e) {
+    e.preventDefault();
+    var myInput = $('#lettres').val();
+    var alphabet = /^[a-zA-Z]+$/;
 
+    $("#form1-error").hide();
 
-$('.row4 h1').css('font-size', '4rem');
-$('.orange').css('opacity', '0.8');
-$('.fondNoir').css('background-color', "darkgray");
-$('.fondBlanc').css('background-color', "lightgray");
+    if (myInput.length < 3) {
+        $("#form1-error").show().append('Votre mot doit contenir un minimum de 3 caractères!');
+        return false;
+    }
 
+    if(myInput.match(alphabet)) {
+        $('.letter-wrapper').hide();
+        for(let i=0; i < myInput.length; i++) {
+            // let path = "images/letters/" + myInput[i] + "/" + myInput[i] + "1";
+            $('.letter-wrapper').show();
+            $('.result-image').attr('src', "images/letters/" + myInput[i] + "/" + myInput[i] + "1");
+        }
 
-$('.row4 h1').html('Vive les Stormtroopers');
-$('.parallax3 p').html('Père de Luke Skywalker');
+    } else {
+        $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
+    }
 
-$('.parallax2 p').hide();
-
+});
 
 
 

@@ -2,12 +2,13 @@
  * Created by Francisca on 2019-12-12.
  */
 
-var celcius;
+var fahrenheits;
 
-for(var f=-40;f<=40;f+=5){
-    celcius = (5/9) * (f-32);
-    document.write(f + " Fahrenheits = " + celcius.toFixed(2) + " Celcius<br>");
+for(var c=10;c<=20;c++){
+    fahrenheits = (c * (9/5)) + 32;
+    document.write(c + " Celcius = " + fahrenheits.toFixed(2) + " Fahrenheits<br>");
 }
+
 
 
 

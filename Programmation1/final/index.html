@@ -1,11 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+    <title>Projet final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
-    <title>Chapitre 5</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<h1>Examen sommatif 2 - 6 février 2020</h1>
-<script src="js/Q4.js"></script>
+<div class="container">
+    <header>
+        <div class="header-wrapper text-center">
+            <h1>Projet Final</h1>
+            <h3>Technique de Programmation Web</h3>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-wrapper">
+            <h2>Créez votre mot Photociti</h2>
+            <section class="form-content">
+                <div class="form-wrapper">
+                    <form id="first_form" method="post" action="">
+                        <label for="lettres">Entrez votre mot (Utilisez * pour les caractères spéciaux.)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   placeholder="Entrez un mot entre 3 et 12 caractères"
+                                   aria-label="lettres" aria-describedby="button-addon2" id="lettres" name="lettres"
+                                   maxlength="12" required
+                            >
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit" id="button-addon2" value="submit">Créer mon mot</button>
+                            </div>
+                        </div>
+                        <small id="help-text-1" class="form-text text-muted">
+                            Doit contenir un minimum de 3 lettres et un maximum de 12 lettres.
+                        </small>
+                        <div class="error-text" id="form1-error"></div>
+                    </form>
+                </div>
+            </section>
+            <section class="result-content">
+                <div class="result-wrapper">
+                    <div class="result">
+                        <div class="row no-gutters result-row">
+                            <div class="col result-col">
+                                <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" class="result-link">
+                                    <img src="assets/images/letters/J/J1.jpg" alt="" class="img-fluid result-image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Selectionnez une photo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="carouselExampleControls" class="carousel" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row no-gutters">
+                                            <div class="col">
+                                                <img src="assets/images/letters/J/J1.jpg" class="img-fluid" alt="...">
+                                            </div>
+                                            <div class="col">
+                                                <img src="assets/images/letters/J/J2.jpg" class="img-fluid" alt="...">
+                                            </div>
+                                            <div class="col">
+                                                <img src="assets/images/letters/J/J3.jpg" class="img-fluid" alt="...">
+                                            </div>
+                                            <div class="col">
+                                                <img src="assets/images/letters/J/J4.jpg" class="img-fluid" alt="...">
+                                            </div>
+                                            <div class="col">
+                                                <img src="assets/images/letters/J/J5.jpg" class="img-fluid" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper text-center">
+            <small>Projet Final | Francisca Vargas | 5 Avril 2020 </small>
+        </div>
+    </footer>
+
+</div>
+
+
+<script src="assets/js/jquery-3.4.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="assets/js/exercice_1.js"></script>
 </body>
 </html>

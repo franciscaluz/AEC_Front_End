@@ -3,15 +3,23 @@
  */
 
 var nombreAleatoire = 0;
-var nb = 0;
+var compteurA = 0;
+var compteurB = 0;
 
 do{
     nombreAleatoire = Number(prompt("Veuillez entrez un chiffre aléatoire. Entrez le chiffre 0 pour terminer"));
-    nb = nb + nombreAleatoire;
+
+    if(nombreAleatoire > 0) {
+        compteurA++;
+    }
+    else if(nombreAleatoire < 0 ) {
+        compteurB++;
+    }
 
 }while(nombreAleatoire != 0);
 
-document.write(nb);
+document.write("<p>Nombre de valeurs positives : " + compteurA +"</p>");
+document.write("<p>Nombre de valeurs negatives : " + compteurB +"</p>");
 
 
 

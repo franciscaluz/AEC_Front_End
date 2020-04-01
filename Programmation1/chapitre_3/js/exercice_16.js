@@ -2,24 +2,27 @@
  * Created by Francisca on 2019-12-12.
  */
 
-var nombreAleatoire = 0;
+var nbAleatoire= 0;
+var nb = 0;
 var compteurA = 0;
 var compteurB = 0;
 
-do{
-    nombreAleatoire = Number(prompt("Veuillez entrez un chiffre aléatoire. Entrez le chiffre 0 pour terminer"));
+for(var i=0; i < 10; i++){
+    nb = Math.floor(Math.random() * 2);
+    nombreAleatoire = Number(prompt("Veuillez entrez un chiffre aléatoire entre 0 et 1."));
 
-    if(nombreAleatoire > 0) {
-        compteurA++;
+    if(nb === nbAleatoire){
+        alert("Vous avez gagné");
+        compteurA+=nombreAleatoire;
     }
-    else if(nombreAleatoire < 0 ) {
-        compteurB++;
+    else {
+        alert("Vous avez perdu");
+        compteurB+=nombreAleatoire;
     }
+}
 
-}while(nombreAleatoire != 0);
-
-document.write("<p>Nombre de valeurs positives : " + compteurA +"</p>");
-document.write("<p>Nombre de valeurs negatives : " + compteurB +"</p>");
+document.write("<p>Nombre victoires : " + compteurA +"</p>");
+document.write("<p>Nombre défaites : " + compteurB +"</p>");
 
 
 

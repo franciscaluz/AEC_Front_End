@@ -2,15 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84c38969-b799-4aad-9999-5e567af09438" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/.idea/chapitre_3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_10.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_11.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_12.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_13.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_14.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_15.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_16.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_17.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_18.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_19.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_20.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_21.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_4/.idea/Chapitre4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_5/.idea/Chapitre4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapitre_5/js/exercice_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/.idea/examen_sommatif_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/js/Q1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/js/Q2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/js/Q3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examen_sommatif_2/js/Q4.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/exercice14.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/exercice14.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapitre_3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../chapitre_3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapitre_3/js/exercice_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapitre_3/js/exercice_5.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chapitre_3/js/exercice_5.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +97,11 @@
       <workItem from="1575586357196" duration="328000" />
       <workItem from="1575587239430" duration="2257000" />
       <workItem from="1576190055978" duration="2126000" />
-      <workItem from="1576199745271" duration="602000" />
+      <workItem from="1576199745271" duration="871000" />
+      <workItem from="1578445131382" duration="356000" />
+      <workItem from="1578529848612" duration="1993000" />
+      <workItem from="1578540737081" duration="596000" />
+      <workItem from="1581037646819" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="exercice 5 modification">
       <created>1573785163228</created>
