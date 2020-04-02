@@ -37,12 +37,12 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: center center;
 }
-.result-link img {
-    border: 2px solid #ffffff;
+.result-col {
+    margin-left: -1px;
 }
 
-.letter-wrapper {
-    margin-left: -1px;
+.result-link img {
+    border: 2px solid #ffffff;
 }
 
 .error-text{
