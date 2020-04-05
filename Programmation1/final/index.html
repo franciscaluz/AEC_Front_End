@@ -21,16 +21,17 @@
 
     <main>
         <div class="page-wrapper">
+            <h6 class="step-title">étape 1</h6>
             <h2>Créez votre mot Photociti</h2>
             <section class="form-content">
                 <div class="form-wrapper">
-                    <form id="first_form" method="post" action="">
+                    <form action="" id="form1">
                         <label for="lettres">Entrez votre mot (Utilisez * pour les caractères spéciaux.)</label>
                         <div class="input-group">
                             <input type="text" class="form-control"
                                    placeholder="Entrez un mot entre 3 et 12 caractères"
                                    aria-label="lettres" aria-describedby="button-addon2" id="lettres" name="lettres"
-                                   maxlength="12" required
+                                   required
                             >
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" type="submit" id="button-addon2" value="submit">Créer mon mot</button>
@@ -45,29 +46,59 @@
             </section>
             <section class="result-content">
                 <div class="result-wrapper">
-                    <div class="result">
-                        <div class="row result-row">
-                            <div class="col result-col">
-                                <!--                                <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" class="result-link">-->
-                                <!--                                    <img src="" alt="" class="img-fluid result-image">-->
-                                <!--                                </a>-->
+                    <div class="result" id="bg-result">
+                        <div class="row result-row" id="result-row-id">
+                            <div class="col default-col">
+                                <img src="assets/images/letters/P/P1.jpg" alt="" class="img-fluid result-image">
+                            </div>
+                            <div class="col default-col">
+                                <img src="assets/images/letters/H/H1.jpg" alt="" class="img-fluid result-image">
+                            </div>
+                            <div class="col default-col">
+                                <img src="assets/images/letters/O/O1.jpg" alt="" class="img-fluid result-image">
+                            </div>
+                            <div class="col default-col">
+                                <img src="assets/images/letters/T/T1.jpg" alt="" class="img-fluid result-image">
+                            </div>
+                            <div class="col default-col">
+                                <img src="assets/images/letters/O/O2.jpg" alt="" class="img-fluid result-image">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="background">
+            <section class="background" id="section-background">
+                <h6 class="step-title">étape 2</h6>
                 <h2>Changez l'arrière-plan</h2>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                        <input type="radio" name="options" id="option1" checked> Active
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/blanc.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option1" value="white"> Blanc
                     </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option2"> Radio
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/bleu.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option2" value="blue"> Bleu
                     </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option3"> Radio
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/bleuFonce.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option3" value="darkblue"> Bleu foncé
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/gris.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option4" value="gray"> Gris
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/noir.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option5" value="black"> Noir
+                    </label>
+                    <label class="btn btn-outline-dark active">
+                        <img src="assets/images/background/rose.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option6" checked value="pink"> Rose
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <img src="assets/images/background/rouge.jpg" alt="" class="img-fluid">
+                        <input type="radio" name="options" id="option7" value="red"> Rouge
                     </label>
                 </div>
             </section>
@@ -90,16 +121,16 @@
                                                 <div class="col modal-col">
                                                     <img src="assets/images/letters/J/J1.jpg" class="img-fluid" alt="...">
                                                 </div>
-                                                <div class="col">
+                                                <div class="col modal-col">
                                                     <img src="assets/images/letters/J/J2.jpg" class="img-fluid" alt="...">
                                                 </div>
-                                                <div class="col">
+                                                <div class="col modal-col">
                                                     <img src="assets/images/letters/J/J3.jpg" class="img-fluid" alt="...">
                                                 </div>
-                                                <div class="col">
+                                                <div class="col modal-col">
                                                     <img src="assets/images/letters/J/J4.jpg" class="img-fluid" alt="...">
                                                 </div>
-                                                <div class="col">
+                                                <div class="col modal-col">
                                                     <img src="assets/images/letters/J/J5.jpg" class="img-fluid" alt="...">
                                                 </div>
                                             </div>
