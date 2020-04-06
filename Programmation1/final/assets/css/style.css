@@ -51,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
 }
 
+.result-col, .modal-col {
+    text-align: center;
+}
+
 .result-link img, .default-col img {
     border: 2px solid #ffffff;
 }

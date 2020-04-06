@@ -28,7 +28,6 @@
 // Faites afficher toutes ces informations à l’écran. Vous devez en plus afficher le coût total pour le voyage (le billet d’avion et les activités).
 
 
-
 class Activites {
     constructor(nomActivite, cout) {
         this.nomActivite = nomActivite;
@@ -42,6 +41,15 @@ class Voyages{
         this.prixBilletAvion = prixBilletAvion;
         this.tableauActivites = tableauActivites;
     }
+
+    GrandTotal(){
+        let total = 0;
+        for (let i = 0; i<this.tableauActivites.length; i++){
+            total+= this.tableauActivites[i].cout;
+            console.log(total);
+        }
+        return total + this.prixBilletAvion;
+    }
 }
 
 class Personne{
@@ -51,7 +59,6 @@ class Personne{
     }
 }
 
-
 let Activite1 = new Activites("Golden Knights Hockey", 125);
 let Activite2 = new Activites("Raiders Football", 200);
 let Activite3 = new Activites("Tournoi Poker", 500);
@@ -59,10 +66,9 @@ let Activite3 = new Activites("Tournoi Poker", 500);
 let tabActivites = [Activite1, Activite2, Activite3];
 
 let Voyage1 = new Voyages("Las Vegas", 400, tabActivites);
-let Personne1 = new Personne("Shany Carle", "Las Vegas");
-let total = Activite1.cout + Activite2.cout + Activite3.cout + Voyage1.prixBilletAvion;
+let Personne1 = new Personne("Shany Carle", Voyage1);
 
-document.write("Le voyage de "+ Personne1.nom + " à "+ Personne1.voyage + " est d'un montant total de " + total + " $ ");
+document.write("Le voyage de "+ Personne1.nom + " à "+ Personne1.voyage.destination + " est d'un montant total de " + Personne1.voyage.GrandTotal() + " $ ");
 
 
 

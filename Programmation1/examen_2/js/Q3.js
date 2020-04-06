@@ -16,12 +16,6 @@ for(let i = 0; i < 10000; i++) {
 
     document.write(tabLettres + " ");
 
-    for (j=0; j<tabChiffres.length; j++) {
-        if (tabLettres === mot ) {
-            totalDAD++;
-        }
-    }
-
     if(tabChiffres[i] === 69) {
         totalE++;
     }
@@ -29,12 +23,30 @@ for(let i = 0; i < 10000; i++) {
     if (tabChiffres[i] === 65 || tabChiffres[i] === 69 || tabChiffres[i] === 73 || tabChiffres[i] === 79 || tabChiffres[i] === 85 || tabChiffres[i] === 89) {
         totalVoyelle++;
     }
+}
 
+for (let i = 0; i < tabChiffres.length;i++){
+    if (mot === String.fromCharCode(tabChiffres[i], tabChiffres[i + 1], tabChiffres[i + 2])) {
+        totalDAD++;
+    }
 }
 
 document.write("<p>Total nombre de lettre E : " +  totalE + "</p>");
 document.write("Total nombre de voyelles : " +  totalVoyelle + "<br>");
 document.write("Nombre de mot " + mot + " : " + totalDAD);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

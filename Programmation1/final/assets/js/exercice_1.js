@@ -3,10 +3,11 @@ let form1Valid = false;
 $('#form1').submit(function(e) {
     e.preventDefault();
     var myInput = $('#lettres').val();
-    let tabInput = myInput.split('');
 
     $("#form1-error").hide();
     $('.result-col').hide();
+
+    // ERROR MESSAGES
 
     if (myInput.length < 3) {
         $("#form1-error").show().append('Votre mot doit contenir un minimum de 3 caractères!');
@@ -18,44 +19,62 @@ $('#form1').submit(function(e) {
         $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
         form1Valid = false;
     } else {
+        form1Valid = true;
+        // LETTER PHOTO LOOP
         for (let i = 0; i < myInput.length; i++) {
-            $('.default-col').hide();
             let path = "assets/images/letters/" + myInput[i] + "/" + myInput[i] + "1.jpg";
-            var divCol = '<div class="col result-col" id="IdCol">' +
+            let divCol = '<div class="col result-col" id="IdCol">' +
                 '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link">' +
-                '        <img src="' + path + '" alt="" class="img-fluid result-image" />' +
+                '        <img src="' + path + '" alt="" class="img-fluid result-image" id="IdImg" />' +
                 '    </a>' +
                 '</div>';
+            let modalCol = '<div class="col modal-col" id="ModalColId">' +
+                '        <img src="' + path + '" alt="" class="img-fluid result-image" id="IdImg" />' +
+                '</div>';
+            let srcpath = 1;
 
             $('.result-row').append(divCol);
 
-            // if (myInput[i] === "é" || myInput[i] === "è" || myInput[i] === "ê" || myInput[i] === "ë" ) {
-            //     var divCol = '<div class="col result-col" id="IdCol">' +
-            //         '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link">' +
-            //         '        <img src="assets/images/letters/E/E1.jpg" alt="" class="img-fluid result-image" />' +
-            //         '    </a>' +
-            //         '</div>';
-            //
-            //     $('.result-row').append(divCol);
-            // }
+            if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë" ) {
+                $('#IdImg').attr('src', 'assets/images/letters/E/E1.jpg');
+            }
+            else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
+                $('#IdImg').attr('src', path).replace(path, 'assets/images/letters/A/A1.jpg' );
+            }
+            else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
+                $('#IdImg').attr('src', 'assets/images/letters/A/A1.jpg');
+            }
+            else if (myInput.charAt(i) === "&") {
+                $('#IdImg').attr('src', 'assets/images/letters/CS/CS1.jpg');
+            }
+            else {
+            }
+            // MODAL CAROUSEL LOOP
+            for (let j = 0; j < 5; j++) {
+                srcpath+=1;
+                $('.modal-row').append(modalCol);
+                $("#ModalImg").attr( 'src', 'assets/images/letters/' + myInput[i] + "/" + myInput[i] + srcpath[i] + '.jpg' );
+            }
         }
-
-        form1Valid = true;
-
     }
     CheckFormulaire();
 
 });
 
 $('#section-background').hide();
+$('.default-col').show();
+
 function CheckFormulaire(){
+    if(form1Valid === false) {
+        $('.default-col').show();
+
+    }
     if(form1Valid === true){
         $('#section-background').show();
-    } else{
-        $('#section-background').hide();
+        $('.default-col').hide();
+
     }
 }
-
 
 function ContientChiffre(str) {
     return (/[0-9]/.test(str));
@@ -91,76 +110,8 @@ $radios.change(function() {
     }
 });
 
+$('#btn-print').click(function(){
+    $(".result-content").print();
+});
 
 
-// path_pattern = 'images/letters/<letter>/<letter>1';
-// for(var i=0; i < myInput.length; i++) {
-//     path = path_pattern.replace('<letter>',  myInput[i]);
-// }
-
-// let motUsagerValid = false;
-//
-// $("#form1-error").hide();
-// $('.result-col').hide();
-//
-// $( "#form1" ).submit(function(e) {
-//     e.preventDefault();
-//     let nomUsager  = $( "#lettres" ).val().split('');
-//
-//     if(nomUsager.length < 3){
-//         $("#form1-error").show().append('Votre mot doit contenir un minimum de 3 caractères! ');
-//         motUsagerValid = false;
-//     } else if(nomUsager.length > 12){
-//         $("#form1-error").show().append('Votre mot doit contenir un maximum de 12 caractères! ');
-//         motUsagerValid = false;
-//     } else if (nomUsager.length = ContientChiffre(nomUsager)){
-//         $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres! ');
-//         motUsagerValid = false;
-//     } else {
-//         motUsagerValid = true;
-//     }
-//
-//     // CheckFormulaire();
-// });
-//
-// if (motUsagerValid === true) {
-//     for (let i = 0; i < nomUsager.length; i++) {
-//         var path = "assets/images/letters/" + nomUsager[i] + "/" + nomUsager[i] + "1.jpg";
-//         $('.default-col').hide();
-//         $('.result-row').append('<div class="col col result"><a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" class="result-link"><img src="" alt="" class="img-fluid result-image"></a></div>');
-//         $('.result-image').attr('src', path);
-//
-//         if(nomUsager[i] === "é") {
-//             $('.result-image').attr('src','assets/images/letters/E/E1.jpg');
-//         }
-//     }
-// }
-
-
-// $.each(tabInput, function (index, value) {
-//     // alert(index + ': ' + value);
-//     let path = "assets/images/letters/" + value.toUpperCase() + "/" + value.toUpperCase() + "1.jpg";
-//     $('.default-col').hide();
-//
-//     var divCol = '<div class="col result-col" id="IdCol">' +
-//         '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link">' +
-//         '        <img src="' + path + '" alt="" class="img-fluid result-image" />' +
-//         '    </a>' +
-//         '</div>';
-//
-//     $('.result-row').append(divCol);
-// });
-//
-// var dir = "assets/images/letters/";
-// var fileextension = ".jpg";
-//
-// var i = 1;
-// var n = 5;
-//
-// for(j=1;j<n;j++){
-//     imageloop(i);
-// };
-//
-// function imageloop(i){
-//     $("<img />").attr('src', dir + myInput[i] + i + fileextension ).appendTo(".modal-col");
-// }
