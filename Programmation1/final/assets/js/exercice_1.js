@@ -8,7 +8,7 @@ $('#form1').submit(function(e) {
     $('.result-col').hide();
 
     // ERROR MESSAGES
-
+    $('#form1-error').empty();
     if (myInput.length < 3) {
         $("#form1-error").show().append('Votre mot doit contenir un minimum de 3 caractères!');
         form1Valid = false;
@@ -20,40 +20,30 @@ $('#form1').submit(function(e) {
         form1Valid = false;
     } else {
         form1Valid = true;
+
         // LETTER PHOTO LOOP
+
         for (let i = 0; i < myInput.length; i++) {
             let path = "assets/images/letters/" + myInput[i] + "/" + myInput[i] + "1.jpg";
             let divCol = '<div class="col result-col" id="IdCol">' +
-                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link">' +
-                '        <img src="' + path + '" alt="" class="img-fluid result-image" id="IdImg" />' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link img-class" onclick=set_modal_images("'+ myInput[i]+'")>' +
+                '        <img src="' + path + '" alt="" class="img-fluid result-image img-class' + i + '"/>' +
                 '    </a>' +
                 '</div>';
-            let modalCol = '<div class="col modal-col" id="ModalColId">' +
-                '        <img src="' + path + '" alt="" class="img-fluid result-image" id="IdImg" />' +
-                '</div>';
-            let srcpath = 1;
 
             $('.result-row').append(divCol);
 
             if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë" ) {
-                $('#IdImg').attr('src', 'assets/images/letters/E/E1.jpg');
+                $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
             }
             else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
-                $('#IdImg').attr('src', path).replace(path, 'assets/images/letters/A/A1.jpg' );
+                $('.img-class' + i).attr('src', path).replace(path, 'assets/images/letters/A/A1.jpg' );
             }
             else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
-                $('#IdImg').attr('src', 'assets/images/letters/A/A1.jpg');
+                $('.img-class'+ i).attr('src', 'assets/images/letters/A/A1.jpg');
             }
             else if (myInput.charAt(i) === "&") {
-                $('#IdImg').attr('src', 'assets/images/letters/CS/CS1.jpg');
-            }
-            else {
-            }
-            // MODAL CAROUSEL LOOP
-            for (let j = 0; j < 5; j++) {
-                srcpath+=1;
-                $('.modal-row').append(modalCol);
-                $("#ModalImg").attr( 'src', 'assets/images/letters/' + myInput[i] + "/" + myInput[i] + srcpath[i] + '.jpg' );
+                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg');
             }
         }
     }
@@ -79,6 +69,20 @@ function CheckFormulaire(){
 function ContientChiffre(str) {
     return (/[0-9]/.test(str));
 }
+
+function ContientCaracteres(str) {
+    return (/[$%/_@#§!(){}°*€£-]/.test(str));
+}
+
+function set_modal_images(lettre) {
+    $('.modal-row').empty();
+    for (let j = 1; j <= 5; j++) {
+        let modalCol = '<div class="col modal-col" id="ModalColId">' +
+            ' <img src="" alt="" class="img-fluid result-image img-class' + j + '"/>' +
+            '</div>';
+        $('.modal-row').append(modalCol); $('.modal-col .img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' ); }
+}
+
 
 var $radios = $('input[name="options"]');
 $radios.change(function() {
