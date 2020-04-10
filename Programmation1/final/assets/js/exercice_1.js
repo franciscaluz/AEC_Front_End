@@ -26,7 +26,7 @@ $('#form1').submit(function(e) {
         for (let i = 0; i < myInput.length; i++) {
             let path = "assets/images/letters/" + myInput[i] + "/" + myInput[i] + "1.jpg";
             let divCol = '<div class="col result-col" id="IdCol">' +
-                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link img-class" onclick=set_modal_images("'+ myInput[i]+'")>' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link img-class" onclick=setModalImages("'+ myInput[i]+'")>' +
                 '        <img src="' + path + '" alt="" class="img-fluid result-image img-class' + i + '"/>' +
                 '    </a>' +
                 '</div>';
@@ -51,6 +51,7 @@ $('#form1').submit(function(e) {
 
 });
 
+
 $('#section-background').hide();
 $('.default-col').show();
 
@@ -74,14 +75,26 @@ function ContientCaracteres(str) {
     return (/[$%/_@#§!(){}°*€£-]/.test(str));
 }
 
-function set_modal_images(lettre) {
+function setModalImages() {
     $('.modal-row').empty();
     for (let j = 1; j <= 5; j++) {
         let modalCol = '<div class="col modal-col" id="ModalColId">' +
+            ' <input type="radio" name="new-pic" value="'+ j + '">' +
             ' <img src="" alt="" class="img-fluid result-image img-class' + j + '"/>' +
             '</div>';
-        $('.modal-row').append(modalCol); $('.modal-col .img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' ); }
+        $('.modal-row').append(modalCol); $('.modal-col .img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' );
+    }
 }
+
+$('#form2').submit(function(e) {
+    e.preventDefault();
+    var radioValue = $("input[name='new-pic']:checked").val();
+
+    if(radioValue){
+        $('.result-col .result-image').attr('src', 'assets/images/letters/E/E1.jpg');
+    }
+
+});
 
 
 var $radios = $('input[name="options"]');
@@ -117,5 +130,3 @@ $radios.change(function() {
 $('#btn-print').click(function(){
     $(".result-content").print();
 });
-
-
