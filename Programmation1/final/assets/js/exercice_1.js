@@ -1,4 +1,5 @@
 let form1Valid = false;
+var selectedLetter;
 
 $('#form1').submit(function(e) {
     e.preventDefault();
@@ -27,7 +28,7 @@ $('#form1').submit(function(e) {
             let path = "assets/images/letters/" + myInput[i] + "/" + myInput[i] + "1.jpg";
             let divCol = '<div class="col result-col" id="IdCol">' +
                 '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="IdLink" class="result-link img-class" onclick=setModalImages("'+ myInput[i]+'")>' +
-                '        <img src="' + path + '" alt="" class="img-fluid result-image img-class' + i + '"/>' +
+                '        <img src="' + path + '" alt="" class="img-fluid result-image img-class' + i + ' result-image-' + myInput[i] +'"/>' +
                 '    </a>' +
                 '</div>';
 
@@ -75,7 +76,8 @@ function ContientCaracteres(str) {
     return (/[$%/_@#§!(){}°*€£-]/.test(str));
 }
 
-function setModalImages() {
+function setModalImages(lettre) {
+    selectedLetter = lettre;
     $('.modal-row').empty();
     for (let j = 1; j <= 5; j++) {
         let modalCol = '<div class="col modal-col" id="ModalColId">' +
@@ -89,11 +91,9 @@ function setModalImages() {
 $('#form2').submit(function(e) {
     e.preventDefault();
     var radioValue = $("input[name='new-pic']:checked").val();
-
     if(radioValue){
-        $('.result-col .result-image').attr('src', 'assets/images/letters/E/E1.jpg');
+        $('.result-col .result-image' + selectedLetter).attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radioValue + '.jpg' );
     }
-
 });
 
 
