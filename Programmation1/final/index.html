@@ -11,15 +11,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<div class="container">
-    <header>
+
+<header>
+    <div class="container">
         <div class="header-wrapper text-center">
             <h1>Projet Final</h1>
             <h3>Technique de Programmation Web</h3>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main>
+<main>
+    <div class="container">
         <div class="page-wrapper">
             <h6 class="step-title">étape 1</h6>
             <h2>Créez votre mot Photociti</h2>
@@ -45,9 +48,9 @@
                 </div>
             </section>
             <section class="result-content">
-                <div class="result-wrapper">
+                <div class="result-wrapper" id="printTable">
                     <div class="result" id="bg-result">
-                        <div class="row result-row" id="result-row-id">
+                        <div class="row result-row">
                             <div class="col default-col">
                                 <img src="assets/images/letters/P/P1.jpg" alt="" class="img-fluid result-image">
                             </div>
@@ -105,7 +108,7 @@
             <section class="print" id="section-print">
                 <h6 class="step-title">étape 3</h6>
                 <h2>Imprimez votre canvas</h2>
-                <button class="btn btn-dark" id="btn-print" type="button">Imprimer</button>
+                <button class="btn btn-dark js-print-link" onclick="PrintElem('#printTable')" type="button">Imprimer</button>
             </section>
 
             <!-- Modal -->
@@ -137,20 +140,22 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                <button type="submit" id="form2Submit" class="btn btn-dark">Changer la Photo</button>
+                                <button type="submit" id="form2Submit" class="btn btn-dark">Choisir cette Photo</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    <footer>
+    </div>
+</main>
+<footer>
+    <div class="container">
         <div class="footer-wrapper text-center">
             <small>Projet Final | Francisca Vargas | 5 Avril 2020 </small>
         </div>
-    </footer>
-
+    </div>
+</footer>
 </div>
 
 

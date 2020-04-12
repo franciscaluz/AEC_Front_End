@@ -1,5 +1,11 @@
+* {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/
+}
+
 html,body {
     margin:0;
+    width: 100%;
     height:100%;
     font-family: 'Nunito', sans-serif;
 }
@@ -27,13 +33,14 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
 }
 
-.form-content {
+section {
     margin-bottom: 50px;
 }
 
-.result-content {
-    margin-bottom: 80px;
-}
+
+/*.result-content {*/
+/*    margin-bottom: 80px;*/
+/*}*/
 
 .result-wrapper {
     border: 1px solid #eeeeee;
@@ -66,8 +73,32 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0.25rem;
 }
 
+.modal-col input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+.modal-col label:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.modal-col input[type="radio"]:focus + label,
+.modal-col input[type="radio"]:checked + label {
+    opacity: 0.6;
+    border: 2px solid red;
+}
+
+
 .background {
     margin-bottom: 80px;
+    opacity: 1;
+}
+
+.background.disabled, .print.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    transition: all 0.3s ease;
 }
 
 .btn-group .btn {
@@ -85,6 +116,23 @@ h1, h2, h3, h4, h5, h6 {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+.print {
+    opacity: 1;
+}
+
+footer {
+    width: 100%;
+    background: #eeeeee;
+}
+
+@media print {
+
+    body {
+        max-width:8.2in;
+    }
+
 }
 
 
