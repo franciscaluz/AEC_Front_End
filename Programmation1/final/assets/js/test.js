@@ -59,7 +59,9 @@ $('#form1').submit(function(e) {
 
             $(".result-col a").click(function() {
                 var index = $(".result-col a").index(this);
+                // $(this).find('.result-image').addClass("selected").siblings('a > img').removeClass('selected');
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
+                console.log("Index " + index + " was clicked");
             });
         }
     }
@@ -90,7 +92,26 @@ function ContientCaracteres(str) {
     return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
 }
 
+
+
 function setModalImages(lettre) {
+
+    // $('.result-link').each(function() {
+    //     let selector = $(this).attr('id');
+    //     selectorTab.push(selector);
+    //     // console.log(selectorTab)
+    // });
+    // $.each(selectorTab,function() {
+    //     console.log('this is ' + this);
+    //     $(this).index('')
+    // });
+
+    // var newItems = $.map(selectorTab, function(i) {
+    //     return i + 1;
+    //     // console.log(newItems);
+    // });
+
+
     $('.modal-row').empty();
     selectedLetter = lettre;
 
@@ -110,6 +131,7 @@ function setModalImages(lettre) {
             $('.modal-col .modal-img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' );
         }
     }
+
 }
 
 //GET NEW IMAGE FROM MODAL
@@ -120,10 +142,10 @@ $('#form2').submit(function(e) {
 
     if(radio){
         if(hasCaracter === true) {
-            $('.selected .result-image-' + selectedLetter).attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
+            $('.selected .result-image').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
         }
         else{
-            $('.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
+            $( '.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
         }
     }
     $('#exampleModal').modal('toggle');
