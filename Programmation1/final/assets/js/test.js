@@ -1,5 +1,6 @@
 let form1Valid = false;
 let hasCaracter = false;
+let isSpecial = false;
 let selectedLetter;
 
 // CREATE CANVAS FORM
@@ -24,8 +25,12 @@ $('#form1').submit(function(e) {
         $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
         form1Valid = false;
     } else if (myInput.length === ContientCaracteres(myInput)) {
-        $("#form1-error").show().append('Remplacez votre caractère special par "*".');
-        form1Valid = false;
+        if($(myInput).indexOf('*') === -1) {
+            $("#form1-error").show().append('Remplacez votre caractère special par "*".');
+            form1Valid = false;
+        } else {
+            form1Valid = true;
+        }
 
     } else {
         form1Valid = true;
@@ -61,7 +66,18 @@ $('#form1').submit(function(e) {
                 var index = $(".result-col a").index(this);
                 // $(this).find('.result-image').addClass("selected").siblings('a > img').removeClass('selected');
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
-                console.log("Index " + index + " was clicked");
+
+                if (hasCaracter === true) {
+                    $(this).addClass("special").parent().siblings().children().removeClass('special');
+                    isSpecial === true;
+                }
+                else {
+
+                }
+                // else if ($(this).hasClass('special')) {
+                //     isSpecial = true;
+                // }
+                // console.log("Index " + index + " was clicked");
             });
         }
     }
@@ -89,29 +105,13 @@ function ContientChiffre(str) {
 }
 
 function ContientCaracteres(str) {
-    return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
+    // return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
+    return (/[^A-Z-a-z-0-9]{1,}/g.test(str));
+    // return (/\D+/.test(str));
+
 }
 
-
-
 function setModalImages(lettre) {
-
-    // $('.result-link').each(function() {
-    //     let selector = $(this).attr('id');
-    //     selectorTab.push(selector);
-    //     // console.log(selectorTab)
-    // });
-    // $.each(selectorTab,function() {
-    //     console.log('this is ' + this);
-    //     $(this).index('')
-    // });
-
-    // var newItems = $.map(selectorTab, function(i) {
-    //     return i + 1;
-    //     // console.log(newItems);
-    // });
-
-
     $('.modal-row').empty();
     selectedLetter = lettre;
 
@@ -124,7 +124,7 @@ function setModalImages(lettre) {
 
         $('.modal-row').append(modalCol);
 
-        if(hasCaracter === true) {
+        if($('.selected').hasClass('special')) {
             $('.modal-col .modal-img-class'+ j).attr( 'src', 'assets/images/letters/CS/CS'+ j +'.jpg' );
         }
         else {
@@ -141,8 +141,9 @@ $('#form2').submit(function(e) {
     let radio = $("input[name='new-pic']:checked").val();
 
     if(radio){
-        if(hasCaracter === true) {
-            $('.selected .result-image').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
+
+        if($('.result-image').hasClass('special')) {
+            $('.special .result-image').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
         }
         else{
             $( '.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
@@ -200,3 +201,18 @@ function printData() {
 $('.js-print-link').on('click',function(){
     printData();
 });
+
+// $('.result-link').each(function() {
+//     let selector = $(this).attr('id');
+//     selectorTab.push(selector);
+//     // console.log(selectorTab)
+// });
+// $.each(selectorTab,function() {
+//     console.log('this is ' + this);
+//     $(this).index('')
+// });
+
+// var newItems = $.map(selectorTab, function(i) {
+//     return i + 1;
+//     // console.log(newItems);
+// });

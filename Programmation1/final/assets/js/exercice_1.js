@@ -6,7 +6,7 @@ let selectedLetter;
 
 $('#form1').submit(function(e) {
     e.preventDefault();
-    var myInput = $('#lettres').val();
+    let myInput = $('#lettres').val();
 
     $("#form1-error").hide();
     $('.result-col').hide();
@@ -117,7 +117,6 @@ function setModalImages(lettre) {
 $('#form2').submit(function(e) {
     e.preventDefault();
     let radio = $("input[name='new-pic']:checked").val();
-
     if(radio){
         if(hasCaracter === true) {
             $('.selected .result-image-' + selectedLetter).attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
