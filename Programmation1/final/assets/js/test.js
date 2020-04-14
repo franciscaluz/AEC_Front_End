@@ -1,13 +1,12 @@
 let form1Valid = false;
-let hasCaracter = false;
-let isSpecial = false;
+let hasCharacter = false;
 let selectedLetter;
 
 // CREATE CANVAS FORM
 
 $('#form1').submit(function(e) {
     e.preventDefault();
-    var myInput = $('#lettres').val();
+    let myInput = $('#lettres').val();
 
     $("#form1-error").hide();
     $('.result-col').hide();
@@ -21,17 +20,9 @@ $('#form1').submit(function(e) {
     } else if (myInput.length > 12) {
         $("#form1-error").show().append('Votre mot doit contenir un maximum de 12 caractères!');
         form1Valid = false;
-    } else if (myInput.length === ContientChiffre(myInput)) {
-        $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
+    } else if(/^[a-zA-Z *\u00E0-\u00FC]+$/.test(myInput) === false) {
+        $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres et remplacez vos caractères speciaux par "*"!');
         form1Valid = false;
-    } else if (myInput.length === ContientCaracteres(myInput)) {
-        if($(myInput).indexOf('*') === -1) {
-            $("#form1-error").show().append('Remplacez votre caractère special par "*".');
-            form1Valid = false;
-        } else {
-            form1Valid = true;
-        }
-
     } else {
         form1Valid = true;
 
@@ -50,34 +41,22 @@ $('#form1').submit(function(e) {
 
             if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë" ) {
                 $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
-            }
-            else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
-                $('.img-class' + i).attr('src', path).replace(path, 'assets/images/letters/A/A1.jpg' );
-            }
-            else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
+            } else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
+                $('.img-class' + i).attr('src', 'assets/images/letters/A/A1.jpg' );
+            } else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
                 $('.img-class'+ i).attr('src', 'assets/images/letters/U/U1.jpg');
-            }
-            else if (myInput.charAt(i) === "*") {
-                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg');
-                hasCaracter= true;
+            } else if (myInput.charAt(i) === "*") {
+                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg').addClass('special');
             }
 
             $(".result-col a").click(function() {
-                var index = $(".result-col a").index(this);
-                // $(this).find('.result-image').addClass("selected").siblings('a > img').removeClass('selected');
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
-
-                if (hasCaracter === true) {
-                    $(this).addClass("special").parent().siblings().children().removeClass('special');
-                    isSpecial === true;
+                if($(this).children('special')){
+                    hasCharacter = true;
+                } else{
+                    hasCharacter = false;
                 }
-                else {
 
-                }
-                // else if ($(this).hasClass('special')) {
-                //     isSpecial = true;
-                // }
-                // console.log("Index " + index + " was clicked");
             });
         }
     }
@@ -100,20 +79,10 @@ function CheckFormulaire(){
     }
 }
 
-function ContientChiffre(str) {
-    return (/[0-9]/.test(str));
-}
-
-function ContientCaracteres(str) {
-    // return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
-    return (/[^A-Z-a-z-0-9]{1,}/g.test(str));
-    // return (/\D+/.test(str));
-
-}
-
 function setModalImages(lettre) {
     $('.modal-row').empty();
     selectedLetter = lettre;
+    console.log(hasCharacter);
 
     for (let j = 1; j <= 5; j++) {
         let modalCol =
@@ -124,14 +93,13 @@ function setModalImages(lettre) {
 
         $('.modal-row').append(modalCol);
 
-        if($('.selected').hasClass('special')) {
+        if(hasCharacter === true) {
             $('.modal-col .modal-img-class'+ j).attr( 'src', 'assets/images/letters/CS/CS'+ j +'.jpg' );
         }
         else {
             $('.modal-col .modal-img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' );
         }
     }
-
 }
 
 //GET NEW IMAGE FROM MODAL
@@ -139,14 +107,12 @@ function setModalImages(lettre) {
 $('#form2').submit(function(e) {
     e.preventDefault();
     let radio = $("input[name='new-pic']:checked").val();
-
     if(radio){
-
-        if($('.result-image').hasClass('special')) {
-            $('.special .result-image').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
+        if(hasCharacter === true) {
+            $('.selected .result-image-' + selectedLetter + '.special').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
         }
         else{
-            $( '.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
+            $('.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
         }
     }
     $('#exampleModal').modal('toggle');
@@ -216,3 +182,51 @@ $('.js-print-link').on('click',function(){
 //     return i + 1;
 //     // console.log(newItems);
 // });
+
+// else if(myInput.length === ContientSymbolesEtChiffres(myInput))  {
+//     chiffres = /[0-9]+$/;
+//     symboles = /^[A-Za-z *]+$/;
+//
+//     if(chiffres.test(myInput)) {
+//         console.log('false');
+//         form1Valid = false;
+//     }
+//     if(symboles.test(myInput)) {
+//         console.log('false');
+//         form1Valid = false;
+//     }
+//
+// }
+
+
+
+// else if ($(this).hasClass('special')) {
+//     isSpecial = true;
+// }
+// console.log("Index " + index + " was clicked");
+
+// } else if (myInput.length === ContientChiffre(myInput)) {
+//     $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
+//     form1Valid = false;
+//     return false;
+// } else if (myInput.length === ContientCaracteres(myInput)) {
+//     // if((myInput.charAt(i) === ! "*")) {
+//     //     $("#form1-error").show().append('Remplacez votre caractère special par "*".');
+//     //     form1Valid = false;
+//     // }
+//
+//     if($('#lettres').indexOf('*') === -1) {
+//         $("#form1-error").show().append('Remplacez votre caractère special par "*".');
+//         form1Valid = false;
+//         console.log('lol')
+//     } else {
+//         form1Valid = true;
+//     }
+
+// function ContientChiffre(str) {
+//     return (/[0-9]/.test(str));
+// }
+//
+// function ContientCaracteres(str) {
+//     return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
+// }

@@ -1,5 +1,5 @@
 let form1Valid = false;
-let hasCaracter = false;
+let hasCharacter = false;
 let selectedLetter;
 
 // CREATE CANVAS FORM
@@ -20,13 +20,9 @@ $('#form1').submit(function(e) {
     } else if (myInput.length > 12) {
         $("#form1-error").show().append('Votre mot doit contenir un maximum de 12 caractères!');
         form1Valid = false;
-    } else if (myInput.length === ContientChiffre(myInput)) {
-        $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres!');
+    } else if(/^[a-zA-Z *\u00E0-\u00FC]+$/.test(myInput) === false) {
+        $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres et remplacez vos caractères speciaux par "*"!');
         form1Valid = false;
-    } else if (myInput.length === ContientCaracteres(myInput)) {
-        $("#form1-error").show().append('Remplacez votre caractère special par "*".');
-        form1Valid = false;
-
     } else {
         form1Valid = true;
 
@@ -45,27 +41,26 @@ $('#form1').submit(function(e) {
 
             if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë" ) {
                 $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
-            }
-            else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
-                $('.img-class' + i).attr('src', path).replace(path, 'assets/images/letters/A/A1.jpg' );
-            }
-            else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
+            } else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
+                $('.img-class' + i).attr('src', 'assets/images/letters/A/A1.jpg' );
+            } else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
                 $('.img-class'+ i).attr('src', 'assets/images/letters/U/U1.jpg');
-            }
-            else if (myInput.charAt(i) === "*") {
-                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg');
-                hasCaracter= true;
+            } else if (myInput.charAt(i) === "*") {
+                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg').addClass('special');
             }
 
             $(".result-col a").click(function() {
-                var index = $(".result-col a").index(this);
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
+                if($(this).children('result-image').hasClass('special')) {
+                    hasCharacter = true;
+                }else {
+                    hasCharacter = false;
+                }
             });
         }
     }
     CheckFormulaire();
 });
-
 
 $('#section-background').addClass('disabled');
 $('#section-print').addClass('disabled');
@@ -82,17 +77,10 @@ function CheckFormulaire(){
     }
 }
 
-function ContientChiffre(str) {
-    return (/[0-9]/.test(str));
-}
-
-function ContientCaracteres(str) {
-    return (/[$%/_@#§!(){}°€£;:,?^]/.test(str));
-}
-
 function setModalImages(lettre) {
     $('.modal-row').empty();
     selectedLetter = lettre;
+    console.log(hasCharacter);
 
     for (let j = 1; j <= 5; j++) {
         let modalCol =
@@ -103,10 +91,9 @@ function setModalImages(lettre) {
 
         $('.modal-row').append(modalCol);
 
-        if(hasCaracter === true) {
+        if(hasCharacter === true) {
             $('.modal-col .modal-img-class'+ j).attr( 'src', 'assets/images/letters/CS/CS'+ j +'.jpg' );
-        }
-        else {
+        } else {
             $('.modal-col .modal-img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' );
         }
     }
@@ -118,8 +105,8 @@ $('#form2').submit(function(e) {
     e.preventDefault();
     let radio = $("input[name='new-pic']:checked").val();
     if(radio){
-        if(hasCaracter === true) {
-            $('.selected .result-image-' + selectedLetter).attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
+        if(hasCharacter === true) {
+            $('.selected .result-image-' + selectedLetter + '.special').attr( 'src', 'assets/images/letters/CS/CS' + radio + '.jpg' );
         }
         else{
             $('.selected .result-image').attr( 'src', 'assets/images/letters/' + selectedLetter + "/" + selectedLetter + radio + '.jpg' );
@@ -136,26 +123,19 @@ $radios.change(function() {
 
     if(radioValue === "white") {
         $('#bg-result').css('background-image', 'url("assets/images/background/blanc.jpg")');
-    }
-    else if(radioValue === "blue") {
+    } else if(radioValue === "blue") {
         $('#bg-result').css('background-image', 'url("assets/images/background/bleu.jpg")');
-    }
-    else if(radioValue === "darkblue") {
+    } else if(radioValue === "darkblue") {
         $('#bg-result').css('background-image', 'url("assets/images/background/bleuFonce.jpg")');
-    }
-    else if(radioValue === "gray") {
+    } else if(radioValue === "gray") {
         $('#bg-result').css('background-image', 'url("assets/images/background/gris.jpg")');
-    }
-    else if(radioValue === "black") {
+    } else if(radioValue === "black") {
         $('#bg-result').css('background-image', 'url("assets/images/background/noir.jpg")');
-    }
-    else if(radioValue === "pink") {
+    } else if(radioValue === "pink") {
         $('#bg-result').css('background-image', 'url("assets/images/background/rose.jpg")');
-    }
-    else if(radioValue === "red") {
+    } else if(radioValue === "red") {
         $('#bg-result').css('background-image', 'url("assets/images/background/rouge.jpg")');
-    }
-    else {
+    } else {
         $('#bg-result').css('background-image', 'url("assets/images/background/rose.jpg")');
     }
 
