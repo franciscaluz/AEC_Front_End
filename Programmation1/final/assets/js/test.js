@@ -51,18 +51,16 @@ $('#form1').submit(function(e) {
 
             $(".result-col a").click(function() {
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
-                if($(this).children('special')){
+                if($(this).children('result-image').hasClass('special')) {
                     hasCharacter = true;
-                } else{
+                }else {
                     hasCharacter = false;
                 }
-
             });
         }
     }
     CheckFormulaire();
 });
-
 
 $('#section-background').addClass('disabled');
 $('#section-print').addClass('disabled');
@@ -95,8 +93,7 @@ function setModalImages(lettre) {
 
         if(hasCharacter === true) {
             $('.modal-col .modal-img-class'+ j).attr( 'src', 'assets/images/letters/CS/CS'+ j +'.jpg' );
-        }
-        else {
+        } else {
             $('.modal-col .modal-img-class' + j).attr( 'src', 'assets/images/letters/' + lettre + "/" + lettre + j + '.jpg' );
         }
     }
@@ -126,26 +123,19 @@ $radios.change(function() {
 
     if(radioValue === "white") {
         $('#bg-result').css('background-image', 'url("assets/images/background/blanc.jpg")');
-    }
-    else if(radioValue === "blue") {
+    } else if(radioValue === "blue") {
         $('#bg-result').css('background-image', 'url("assets/images/background/bleu.jpg")');
-    }
-    else if(radioValue === "darkblue") {
+    } else if(radioValue === "darkblue") {
         $('#bg-result').css('background-image', 'url("assets/images/background/bleuFonce.jpg")');
-    }
-    else if(radioValue === "gray") {
+    } else if(radioValue === "gray") {
         $('#bg-result').css('background-image', 'url("assets/images/background/gris.jpg")');
-    }
-    else if(radioValue === "black") {
+    } else if(radioValue === "black") {
         $('#bg-result').css('background-image', 'url("assets/images/background/noir.jpg")');
-    }
-    else if(radioValue === "pink") {
+    } else if(radioValue === "pink") {
         $('#bg-result').css('background-image', 'url("assets/images/background/rose.jpg")');
-    }
-    else if(radioValue === "red") {
+    } else if(radioValue === "red") {
         $('#bg-result').css('background-image', 'url("assets/images/background/rouge.jpg")');
-    }
-    else {
+    } else {
         $('#bg-result').css('background-image', 'url("assets/images/background/rose.jpg")');
     }
 
@@ -167,7 +157,6 @@ function printData() {
 $('.js-print-link').on('click',function(){
     printData();
 });
-
 // $('.result-link').each(function() {
 //     let selector = $(this).attr('id');
 //     selectorTab.push(selector);
