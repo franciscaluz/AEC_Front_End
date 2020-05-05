@@ -7,7 +7,6 @@ let selectedLetter;
 $('#form1').submit(function(e) {
     e.preventDefault();
     let myInput = $('#lettres').val().toUpperCase();
-    console.log(myInput);
 
     $("#form1-error").hide();
     $('.result-col').hide();
@@ -117,7 +116,6 @@ function CheckFormulaire(){
 function setModalImages(lettre) {
     $('.modal-row').empty();
     selectedLetter = lettre;
-    console.log(hasCharacter);
 
     for (let j = 1; j <= 5; j++) {
         let modalCol =
