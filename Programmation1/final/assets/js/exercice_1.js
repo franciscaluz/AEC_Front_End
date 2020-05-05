@@ -182,8 +182,8 @@ $radios.change(function() {
 // PRINT RESULTS
 function printData() {
     let divToPrint=document.getElementById("printTable").innerHTML;
-    newWin= window.open("", '');
-    newWin.document.write('<html lang="fr"><head><title>Projet final</title><link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="all"><link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all"></head>');
+    newWin= window.open("",'printTable', 'height=400,width=600');
+    newWin.document.write('<html lang="fr"><head><title>Projet final</title><link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css" media="all"><link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="all"></head>');
     newWin.document.write('<body><div class="container">' + divToPrint + '</div><script src="assets/js/jquery-3.4.1.js"></script><script src="bootstrap/js/bootstrap.js"></script><script src="assets/js/exercice_1.js"></script></body></html>');
     newWin.print();
     newWin.close();
