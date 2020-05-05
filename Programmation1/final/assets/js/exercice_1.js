@@ -6,7 +6,7 @@ let selectedLetter;
 
 $('#form1').submit(function(e) {
     e.preventDefault();
-    let myInput = $('#lettres').val();
+    let myInput = $('#lettres').val().toUpperCase();
 
     $("#form1-error").hide();
     $('.result-col').hide();
@@ -37,17 +37,31 @@ $('#form1').submit(function(e) {
                 '    </a>' +
                 '</div>';
 
-            $('.result-row').append(divCol);
+            let SpecialPath = "assets/images/letters/CS/CS1.jpg";
+            let SpecialdivCol =
+                '<div class="col result-col">' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-'+ i +'" class="result-link" onclick=setModalImages("CS")>' +
+                '        <img src="' + SpecialPath + '" alt="" class="img-fluid result-image img-class-CS' + ' result-image-CS"/>' +
+                '    </a>' +
+                '</div>';
 
-            if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë" ) {
-                $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
-            } else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
-                $('.img-class' + i).attr('src', 'assets/images/letters/A/A1.jpg' );
-            } else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
-                $('.img-class'+ i).attr('src', 'assets/images/letters/U/U1.jpg');
-            } else if (myInput.charAt(i) === "*") {
-                $('.img-class' + i ).attr('src', 'assets/images/letters/CS/CS1.jpg').addClass('special');
+            if (myInput.charAt(i) === "*") {
+                $('.result-row').append(SpecialdivCol);
             }
+            else {
+                $('.result-row').append(divCol);
+
+                if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë") {
+                    $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
+
+                } else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
+                    $('.img-class' + i).attr('src', 'assets/images/letters/A/A1.jpg');
+
+                } else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
+                    $('.img-class' + i).attr('src', 'assets/images/letters/U/U1.jpg');
+                }
+            }
+
 
             $(".result-col a").click(function() {
                 $(this).addClass("selected").parent().siblings().children().removeClass('selected');
@@ -148,7 +162,7 @@ $radios.change(function() {
 function printData() {
     let divToPrint=document.getElementById("printTable").innerHTML;
     newWin= window.open("", '');
-    newWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="all"><link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all"></head>');
+    newWin.document.write('<html lang="fr"><head><title>Projet final</title><link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" media="all"><link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all"></head>');
     newWin.document.write('<body><div class="container">' + divToPrint + '</div><script src="assets/js/jquery-3.4.1.js"></script><script src="bootstrap/js/bootstrap.js"></script><script src="assets/js/exercice_1.js"></script></body></html>');
     newWin.print();
     newWin.close();
