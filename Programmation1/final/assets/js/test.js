@@ -21,7 +21,7 @@ $('#form1').submit(function(e) {
     } else if (myInput.length > 12) {
         $("#form1-error").show().append('Votre mot doit contenir un maximum de 12 caractères!');
         form1Valid = false;
-    } else if(/^[a-zA-Z *\u00E0-\u00FC]+$/.test(myInput) === false) {
+    } else if(/^([A-Za-zÀ-ÖØ-öø-ÿ*])+$/.test(myInput) === false) {
         $("#form1-error").show().append('Votre mot ne doit pas contenir de chiffres et remplacez vos caractères speciaux par "*"!');
         form1Valid = false;
     } else {
@@ -41,26 +41,46 @@ $('#form1').submit(function(e) {
             let SpecialPath = "assets/images/letters/CS/CS1.jpg";
             let SpecialdivCol =
                 '<div class="col result-col">' +
-                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-'+ i +'" class="result-link" onclick=setModalImages("CS")>' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-CS" class="result-link" onclick=setModalImages("CS")>' +
                 '        <img src="' + SpecialPath + '" alt="" class="img-fluid result-image img-class-CS' + ' result-image-CS"/>' +
+                '    </a>' +
+                '</div>';
+
+            let EPath = "assets/images/letters/E/E1.jpg";
+            let ECol =
+                '<div class="col result-col">' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-E" class="result-link" onclick=setModalImages("E")>' +
+                '        <img src="' + EPath + '" alt="" class="img-fluid result-image img-class-E' + ' result-image-E"/>' +
+                '    </a>' +
+                '</div>';
+
+            let APath = "assets/images/letters/A/A1.jpg";
+            let ACol =
+                '<div class="col result-col">' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-A" class="result-link" onclick=setModalImages("A")>' +
+                '        <img src="' + APath + '" alt="" class="img-fluid result-image img-class-A' + ' result-image-A"/>' +
+                '    </a>' +
+                '</div>';
+            let UPath = "assets/images/letters/U/U1.jpg";
+            let UCol =
+                '<div class="col result-col">' +
+                '    <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal" id="modal-U" class="result-link" onclick=setModalImages("U")>' +
+                '        <img src="' + UPath + '" alt="" class="img-fluid result-image img-class-U' + ' result-image-U"/>' +
                 '    </a>' +
                 '</div>';
 
             if (myInput.charAt(i) === "*") {
                 $('.result-row').append(SpecialdivCol);
-            }
-            else {
+            } else if (myInput.charAt(i) === "É" || myInput.charAt(i) === "È" || myInput.charAt(i) === "Ê" || myInput.charAt(i) === "Ë") {
+                $('.result-row').append(ECol);
+
+            } else if (myInput.charAt(i) === "À" || myInput.charAt(i) === "Â") {
+                $('.result-row').append(ACol);
+
+            } else if (myInput.charAt(i) === "Ù" || myInput.charAt(i) === "Û" || myInput.charAt(i) === "Ü") {
+                $('.result-row').append(UCol);
+            } else {
                 $('.result-row').append(divCol);
-
-                if (myInput.charAt(i) === "é" || myInput.charAt(i) === "è" || myInput.charAt(i) === "ê" || myInput.charAt(i) === "ë") {
-                    $('.img-class' + i).attr('src', 'assets/images/letters/E/E1.jpg');
-
-                } else if (myInput.charAt(i) === "à" || myInput.charAt(i) === "â") {
-                    $('.img-class' + i).attr('src', 'assets/images/letters/A/A1.jpg');
-
-                } else if (myInput.charAt(i) === "ù" || myInput.charAt(i) === "û" || myInput.charAt(i) === "ü") {
-                    $('.img-class' + i).attr('src', 'assets/images/letters/U/U1.jpg');
-                }
             }
 
             $(".result-col a").click(function() {
