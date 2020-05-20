@@ -2,17 +2,11 @@ import React, { PureComponent } from 'react';
 import BaseScreen from './BaseScreen';
 import { Jumbotron, Button } from 'react-bootstrap'
 import VideoThumbnail from '../components/VideoThumbnail'
+import VideoList from '../components/VideoList';
 
 class HomepageScreen extends PureComponent {
 
     render() {
-
-
-        const categories = ['suspens', 'drame', 'comedie', 'action', 'Romance', 'Documentaire'];
-        const tvShowsList = [];
-        for (var i=0; i < 6; i++) {
-            tvShowsList.push(<VideoThumbnail/>)
-        } 
 
         return (
             <BaseScreen>
@@ -27,14 +21,7 @@ class HomepageScreen extends PureComponent {
                     </p>
                 </Jumbotron>
                 
-                {categories.map((value, index) => {
-                    return <section>
-                        <h1 key={index}>{value}</h1>
-                        <div class="row row-cols-1 row-cols-sm-3  row-cols-xl-6 ">
-                        {tvShowsList}
-                        </div>
-                        </section>
-                })}               
+                <VideoList/>
                 
             </BaseScreen>
 

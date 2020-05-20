@@ -6,20 +6,17 @@ import showImage from '../assets/show.jpg'
 class VideoSingle extends PureComponent {
 
     render() {
+        
         return (
             <Wrapper className='col'>
                 <a href='video-single'>
                     <div class="card">
-                        <img src={showImage} class="card-img-top" alt="show
-                        
-                        "/>
+                        <img src={showImage} class="card-img-top" alt="show"/>
                         <div class="card-body">
                             <h5 class="card-title">Titre de Film</h5>
                         </div>
                     </div>
                 </a>
-                
-
             </Wrapper>
         )
     }
