@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import store from 'store';
 import isLoggedIn from './is_logged_in';
 import styled from "styled-components/macro";
@@ -35,7 +35,7 @@ const Navigation = ({ history }) => {
   );
 }
 
-export default Navigation;
+export default withRouter(Navigation);
 const Wrapper = styled.div`
 
 .navbar {

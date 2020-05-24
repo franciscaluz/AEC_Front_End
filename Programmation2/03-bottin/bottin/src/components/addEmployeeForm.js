@@ -3,6 +3,8 @@ import styled from "styled-components/macro";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 class AddEmployeeForm extends PureComponent {
+
+
     render() {
         return (
             <Wrapper>
@@ -17,7 +19,7 @@ class AddEmployeeForm extends PureComponent {
                                     </Form.Label>
                                     <Form.Control type="text"
                                         placeholder="Prénom Nom"
-                                        name='newName'
+                                        name='name'
                                         required
                                     />
                                 </Form.Group>
@@ -28,20 +30,20 @@ class AddEmployeeForm extends PureComponent {
                                     </Form.Label>
                                     <Form.Control type="email"
                                         placeholder="email@user.com"
-                                        name='newEmail'
+                                        name='email'
                                         required
                                     />
                                 </Form.Group>
                             </Col>
                             <Col sm={6}>
-                                <Form.Group controlId="newFunction">
+                                <Form.Group controlId="newOccupation">
                                     <Form.Label>
                                         Poste Occupé
                                 <span className='input-required'> *</span>
                                     </Form.Label>
                                     <Form.Control type="text"
                                         placeholder="Poste"
-                                        name='newFunction'
+                                        name='occupation'
                                         required
                                     />
                                 </Form.Group>
@@ -53,7 +55,7 @@ class AddEmployeeForm extends PureComponent {
                                     <Form.Control type="tel"
                                         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                         placeholder="514-555-5555"
-                                        name='newPhone'
+                                        name='phone'
                                         required />
                                 </Form.Group>
                             </Col>
@@ -65,13 +67,13 @@ class AddEmployeeForm extends PureComponent {
                                     </Form.Label>
                                     <Form.Control type="text"
                                         placeholder="Adresse"
-                                        name='newAddress'
+                                        name='address'
                                         required />
                                 </Form.Group>
                             </Col>
                         </Row>
                         <Form.Control.Feedback>
-                            Votre adresse et mot de passe sont incorrects.
+                            Ce champ est invalide.
                         </Form.Control.Feedback>
                     </fieldset>
                     <div className='form-btn-container'>

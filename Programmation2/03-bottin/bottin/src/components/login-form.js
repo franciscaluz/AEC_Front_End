@@ -2,47 +2,30 @@ import React, { PureComponent } from 'react';
 import store from 'store';
 import styled from "styled-components/macro";
 import { Form, Button } from "react-bootstrap";
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import isLoggedIn from './is_logged_in';
 
 class LoginForm extends PureComponent {
     constructor(props) {
         super(props);
-
-        this.state = {
-            username: '',
-            password: '',
-            error: false
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.handleConnexion = this.handleConnexion.bind(this);
     }
-
-    onSubmit(e) {
-        e.preventDefault();
-        const { username, password } = this.state;
+    handleConnexion() {
+        let connecter = false;
         const { history } = this.props;
 
-        this.setState({ error: false });
+        const email = document.getElementById('userEmail').value;
+        const password = document.getElementById('userPassword').value;
 
-        if (!(username === 'user@a.com' && password === 'a')) {
-            this.setState({ error: true })
+        if (email.toLowerCase() === "user@a.com" && password === "a") {
+            connecter = true;
+
+            store.set('loggedIn', true);
+            history.push('/home');
         }
-
-        history.push('/home');
-        store.set('loggedIn', true);
-    }
-
-    handleChange(input, value) {
-        this.setState({
-            [input]: value
-        })
     }
 
     render() {
-
-        /* const { error } = this.state; */
 
         if (isLoggedIn()) {
             return <Redirect to='/home' />
@@ -50,7 +33,7 @@ class LoginForm extends PureComponent {
 
         return (
             <Wrapper>
-                <Form onSubmit={this.onSubmit}>
+                <Form>
                     <fieldset>
                         <Form.Group controlId="userEmail">
                             <Form.Label>
@@ -59,8 +42,6 @@ class LoginForm extends PureComponent {
                             </Form.Label>
                             <Form.Control type="email"
                                 placeholder="email@user.com"
-                                name='username'
-                                onChange={this.handleChange}
                                 required
                             />
                         </Form.Group>
@@ -71,15 +52,13 @@ class LoginForm extends PureComponent {
                             </Form.Label>
                             <Form.Control type="password"
                                 placeholder="Mot de passe"
-                                name='password'
-                                onChange={this.handleChange}
                                 required />
                         </Form.Group>
-                        {this.state.error && <Form.Control.Feedback>
+                        <Form.Control.Feedback>
                             Votre adresse et mot de passe sont incorrects.
-                        </Form.Control.Feedback>}
+                        </Form.Control.Feedback>
                     </fieldset>
-                    <Button variant="primary" type="submit" block>
+                    <Button variant="primary" type="submit" block onClick={this.handleConnexion}>
                         Connexion
                     </Button>
                 </Form>
@@ -88,5 +67,5 @@ class LoginForm extends PureComponent {
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
 const Wrapper = styled.div``

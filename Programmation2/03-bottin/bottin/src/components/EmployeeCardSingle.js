@@ -93,8 +93,7 @@ const Wrapper = styled.div`
     display: block;
     height: 150px;
     width: 100%;
-    background-color: #CC262D;
-
+    background: #cccccc;
 }
 
 `
