@@ -50,7 +50,7 @@ const Wrapper = styled.div`
   height: 100%;
   border-radius: 7.5px;
   border: none;
-  box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
   overflow: hidden;
   .card-body {
       padding: 0;
@@ -70,7 +70,7 @@ const Wrapper = styled.div`
   .card-subtitle {
     color: #9a9a9a;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
 
 .employee-card-single-img {
     display: block;
-    height: 150px;
+    height: 100px;
     width: 100%;
     background: #cccccc;
 }

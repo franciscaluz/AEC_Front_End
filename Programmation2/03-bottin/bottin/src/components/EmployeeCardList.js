@@ -5,7 +5,7 @@ import EmployeeCardSingle from "../components/EmployeeCardSingle";
 class EmployeeCardList extends PureComponent {
   render() {
     return (
-      <Wrapper className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3  row-cols-xl-5">
+      <Wrapper className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5" id='employee-list'>
         <EmployeeCardSingle
           color='#eeeeee'
           name="Shany Carl"
@@ -63,4 +63,10 @@ export default EmployeeCardList;
 
 const Wrapper = styled.div`
   align-items: stretch;
+
+
+  #display-data{
+    margin-top:12px;
+    background: #e5e5e5;
+    padding:1px;
 `

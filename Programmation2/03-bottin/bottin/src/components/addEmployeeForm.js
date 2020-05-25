@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import styled from "styled-components/macro";
 import { Form, Button, Row, Col } from "react-bootstrap";
+// import EmployeeCardSingle from './EmployeeCardSingle';
 
 class AddEmployeeForm extends PureComponent {
-
 
     render() {
         return (
