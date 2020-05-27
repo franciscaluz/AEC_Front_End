@@ -6,11 +6,12 @@ import IcnPhone from '../assets/icn-phone.svg';
 import IcnAddress from '../assets/icn-home.svg';
 
 class EmployeeCardSingle extends PureComponent {
+
   render() {
     const { name, title, email, telephone, address } = this.props;
 
     return (
-      <Wrapper className="col">
+      <Wrapper className="col" >
         <Card className='employee-card-single'>
           <div className='employee-card-single-img'></div>
           <Card.Body>

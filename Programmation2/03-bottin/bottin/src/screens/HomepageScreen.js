@@ -2,9 +2,7 @@ import React, { PureComponent } from "react";
 import styled from "styled-components/macro";
 import BaseScreen from "./BaseScreen";
 import EmployeeCardList from "../components/EmployeeCardList";
-import { Form, FormControl, InputGroup, Button, } from "react-bootstrap";
-import Search from "../assets/icn-search.svg";
-import AddEmployeeModal from "../components/addEmployeeModal";
+import FilterForm from "../components/FilterForm";
 
 class HomepageScreen extends PureComponent {
   render() {
@@ -13,19 +11,9 @@ class HomepageScreen extends PureComponent {
         <Wrapper className='directory'>
           <div className='directory-header'>
             <h1>Annuaire Employés</h1>
-            <Form inline>
-              <InputGroup className="mb-0 input-search">
-                <FormControl type="text" placeholder="Rechercher" className="" />
-                <InputGroup.Append>
-                  <Button variant="primary" type='submit'>
-                    <img src={Search} alt="search" className="img-fluid" />
-                  </Button>
-                </InputGroup.Append>
-              </InputGroup>
-            </Form>
+            <FilterForm onChange={this.handleChange} />
           </div>
           <EmployeeCardList />
-          <AddEmployeeModal />
         </Wrapper>
       </BaseScreen>
     );
