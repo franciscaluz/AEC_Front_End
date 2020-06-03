@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$montserrat: 'Montserrat', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+$red: #FF21B2;
+$body-color: #2A364E;
+$theme-blue: #29C5FE;
+$theme-pink: #FF21B2; 
+$white : #ffffff;
+$black : #000000;
+
+body {
+    font-family: $montserrat;
+    font-weight: 300;
+    color: $body-color;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $montserrat !important;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 991.98px){
+    h1, .h1 {
+        font-size: 2rem;
+    }
+    h3, .h3 {
+        font-size: 1.25rem;
+    }
+}
+
+.btn {
+    font-family: $montserrat;
+    font-weight: 900;
+    font-size: 1rem;
+    min-width: 120px;
+    border-radius: 50px;
+
+    &:focus {
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    &.btn-primary {
+        background: $theme-pink;
+        border-color: $theme-pink;
+
+        &:active, &:not(:disabled):not(.disabled):active {
+            background: darken($color: $theme-pink, $amount: 10%);
+            border-color: darken($color: $theme-pink, $amount: 10%);
+        }
+    }
+    &.btn-outline-primary {
+        border-color: $theme-pink;
+        background : transparent;
+        color: $theme-pink;
+    }
+    &.btn-icon {
+        min-width: auto;
+        border: none;
+        background-color: inherit;
+        border-radius: 0;
+    }
+}
+
+a {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+
+    &.primary-link {
+        &:after {
+            content: '';
+            height: 2px;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            background: $body-color;
+            transition: 0.2s;
+        }
+        &:hover {
+            color: $body-color;
+            text-decoration: none;
+            &:after {
+            width: 100%;
+            }
+        }
+    }
+}
+
+.page-content {
+    width: 100%;
+    height: auto !important;
+    min-height: calc(100vh - 80px);
+    padding-left: 6%;
+    padding-right: 6%;
+    margin: 0 auto;
+}
+
+//FORM
+fieldset {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border-top: 0;
+    border-left:0;
+    border-right: 0;
+    border-bottom: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    font-weight: 300;
+
+    &:focus {
+        border-bottom-color: $body-color; 
+        outline: 0;
+        box-shadow: none;
+    }
+}
+.form-control::placeholder {
+    color: #cccccc;
+}
+
+.form-label {
+    font-weight: 700;
+    font-family: $montserrat;
+}
+
+.input-required {
+    color: $theme-pink;
+    font-weight: bold;
+}
+
+.input-search {
+    .form-control {
+        border-radius: 0;
+        border-bottom: 2px solid $body-color;
+        padding: 0;
+        background-image: url('./assets/icn-search.svg');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 20px 20px;
+    }
+
+    .btn {
+        min-width: auto !important;
+        padding: .375rem 2rem;
+    }
+}
+
+// IMAGES
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: ($height / $width) * 100%;
+    }
+    > .img-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #eeeeee;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+
+  .card-img {
+    @include aspect-ratio(1,1);
+    border-radius: 8px;
+    } 
+  
+

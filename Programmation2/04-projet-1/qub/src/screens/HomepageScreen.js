@@ -1,9 +1,11 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components/macro";
 import BaseScreen from "./BaseScreen";
-import EmployeeCardList, { employees } from "../components/EmployeeCardList";
+import { employees } from '../constant';
+import EmployeeCardList from "../components/EmployeeCardList";
 import FilterForm from "../components/FilterForm";
-import EmployeeCardSingle from "../components/EmployeeCardSingle";
+import EmployeeCardSingle from "../components/albumCardSingle";
+import { Container } from "react-bootstrap";
 
 class HomepageScreen extends PureComponent {
   constructor(props) {
@@ -22,22 +24,24 @@ class HomepageScreen extends PureComponent {
     return (
       <BaseScreen>
         <Wrapper className='directory'>
-          <div className='directory-header'>
-            <h1>Annuaire Employés</h1>
-            <FilterForm setFilterStr={val => this.setState({ filterStr: val })} />
-          </div>
-          <EmployeeCardList>
-            {filteredStaffList.map((item, index) => (
-              <EmployeeCardSingle key={index}
-                name={item.name}
-                title={item.title}
-                email={item.email}
-                telephone={item.telephone}
-                address={item.address}
-              />
-            ))}
+          <Container fluid>
+            <div className='directory-header'>
+              <h1>Albums</h1>
+              <FilterForm setFilterStr={val => this.setState({ filterStr: val })} />
+            </div>
+            <EmployeeCardList>
+              {filteredStaffList.map((item, index) => (
+                <EmployeeCardSingle key={index}
+                  name={item.name}
+                  title={item.title}
+                  email={item.email}
+                  telephone={item.telephone}
+                  address={item.address}
+                />
+              ))}
 
-          </EmployeeCardList>
+            </EmployeeCardList>
+          </Container>
         </Wrapper>
       </BaseScreen>
     );
@@ -47,16 +51,13 @@ class HomepageScreen extends PureComponent {
 export default HomepageScreen;
 const Wrapper = styled.div`
 margin: 0 auto;
-padding-right: 15px;
-padding-left: 15px;
 
 .directory-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 60px;
   margin-bottom: 30px;
-  //padding-bottom: 30px;
-  //border-bottom: 1px solid #CC262D;
 
   h1 {
     margin-bottom: 0;
