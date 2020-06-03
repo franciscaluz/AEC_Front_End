@@ -1,47 +1,80 @@
-import JoyDivision from "./assets/album-joy-division.png"
-export const employees = [
+import joy from './assets/album-joy-division.png';
+import kendrick from './assets/album-kendrick-lamar.png';
+import miles from './assets/album-miles-davis.png';
+import tyler from './assets/album-tyler-creator.png';
+import cure from './assets/album-the-cure.png';
+import david from './assets/album-david-bowie.png';
+import tame from './assets/album-tame-impala.png';
+import johnny from './assets/album-johnny-cash.png';
+
+export const albums = [
     {
         name: "Joy Division",
         title: "Unknown Pleasures",
-        background: { JoyDivision },
+        background: `url(${joy})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51',
+        trackList: '',
     },
 
     {
         name: "Kendrick Lamar",
-        title: "Developpeur Front-End",
-        background: "./assets/album-kendrick-lamar.png"
+        title: "To Pimp a Butterfly",
+        background: `url(${kendrick})`,
+        year: '2015',
+        tracks: '16',
+        length: '78:51'
     },
 
     {
         name: "Miles Davis",
         title: "Bitches Brew",
-        background: "./assets/album-miles-davis.png"
+        background: `url(${miles})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
 
     {
         name: "Tyler, The Creator",
         title: "IGOR",
-        background: ""
+        background: `url(${tyler})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
     {
         name: "The Cure",
         title: "Boys Don't Cry",
-        background: ""
+        background: `url(${cure})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
     {
         name: "David Bowie",
         title: "Aladdin Sane",
-        background: ""
+        background: `url(${david})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
     {
         name: "Tame Impala",
         title: "Currents",
-        background: ""
+        background: `url(${tame})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
     {
         name: "Johnny Cash",
         title: "The Man Comes Around",
-        background: ""
+        background: `url(${johnny})`,
+        year: '1984',
+        tracks: '16',
+        length: '78:51'
     },
 ];
 

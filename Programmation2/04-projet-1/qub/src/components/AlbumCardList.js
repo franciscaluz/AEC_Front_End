@@ -1,16 +1,14 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components/macro";
-import { employees } from "../constant"
-import EmployeeCardSingle from "./albumCardSingle";
+import { albums } from "../constant"
+import AlbumCardSingle from "./AlbumCardSingle";
 
-
-
-class EmployeeCardList extends PureComponent {
+class AlbumCardList extends PureComponent {
   render() {
 
-    const employeeList = employees.map((item, index) => {
+    const AlbumList = albums.map((item, index) => {
       return (
-        <EmployeeCardSingle key={index}
+        <AlbumCardSingle key={index}
           name={item.name}
           title={item.title}
           background={item.background}
@@ -21,14 +19,12 @@ class EmployeeCardList extends PureComponent {
 
     return (
       <Wrapper className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id='employee-list'>
-        {employeeList}
+        {AlbumList}
       </Wrapper>
     )
   }
 }
 
-export default EmployeeCardList;
+export default AlbumCardList;
 
-const Wrapper = styled.div`
-  align-items: stretch;
-`
+const Wrapper = styled.div``

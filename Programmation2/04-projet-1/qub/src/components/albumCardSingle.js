@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Card } from "react-bootstrap";
+import { albums } from "../constant";
 
-const albumCardSingle = ({ name, title, background }) => {
+/* const backgroundImage = `url(${albums[0].background})`; */
+const AlbumCardSingle = ({ name, title, background }) => {
   return (
     <Wrapper className="col" >
       <Card className='album-card-single'>
         <div className='card-img'>
-          <div className='img-wrapper'></div>
+          <div className='img-wrapper' style={{ backgroundImage: background }}></div>
         </div>
         <Card.ImgOverlay>
           <div className='album-info'>
@@ -24,7 +26,7 @@ const albumCardSingle = ({ name, title, background }) => {
   )
 }
 
-export default albumCardSingle
+export default AlbumCardSingle
 
 const Wrapper = styled.div`
 margin-bottom: 30px;
@@ -60,8 +62,8 @@ margin-bottom: 30px;
 }
 
 .img-wrapper {
-/*   background-image: url('${props => props.background}'); */
-/*   background: ${props => 'url(${props.background})'}; */
+/*   background-image: url(${props => props.background}); */
+/* background-image: url(${albums[0].background}); */
 }
 
 .album-card-single-img {

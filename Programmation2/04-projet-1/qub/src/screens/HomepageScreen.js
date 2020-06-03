@@ -1,10 +1,10 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components/macro";
 import BaseScreen from "./BaseScreen";
-import { employees } from '../constant';
-import EmployeeCardList from "../components/EmployeeCardList";
+import { albums } from '../constant';
+import AlbumCardList from "../components/AlbumCardList";
 import FilterForm from "../components/FilterForm";
-import EmployeeCardSingle from "../components/albumCardSingle";
+import AlbumCardSingle from "../components/AlbumCardSingle";
 import { Container } from "react-bootstrap";
 
 class HomepageScreen extends PureComponent {
@@ -17,9 +17,9 @@ class HomepageScreen extends PureComponent {
   }
 
   render() {
-    /* const List = this.state.employees; */
-    const filteredStaffList = employees.filter(employees =>
-      employees.name.toLowerCase().includes(this.state.filterStr.toLowerCase())
+    const List = this.state.albums;
+    const filteredStaffList = albums.filter(albums =>
+      albums.name.toLowerCase().includes(this.state.filterStr.toLowerCase())
     )
     return (
       <BaseScreen>
@@ -29,9 +29,9 @@ class HomepageScreen extends PureComponent {
               <h1>Albums</h1>
               <FilterForm setFilterStr={val => this.setState({ filterStr: val })} />
             </div>
-            <EmployeeCardList>
+            <AlbumCardList>
               {filteredStaffList.map((item, index) => (
-                <EmployeeCardSingle key={index}
+                <AlbumCardSingle key={index}
                   name={item.name}
                   title={item.title}
                   email={item.email}
@@ -40,7 +40,7 @@ class HomepageScreen extends PureComponent {
                 />
               ))}
 
-            </EmployeeCardList>
+            </AlbumCardList>
           </Container>
         </Wrapper>
       </BaseScreen>
