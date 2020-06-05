@@ -25,7 +25,7 @@ const Navigation = ({ history }) => {
         <Nav>
           <Nav.Link>Aide</Nav.Link>
           <Nav.Link>Télécharger</Nav.Link>
-          <Nav.Link onClick={handleLogout(history)}>
+          <Nav.Link onClick={handleLogout(history)} className="primary-link">
             Déconnexion
           </Nav.Link>
         </Nav>
@@ -49,6 +49,7 @@ const Wrapper = styled.div`
 
   .navbar-nav {
     margin-left: auto;
+    flex-direction : row;
   }
 
   .nav-link {
@@ -56,9 +57,21 @@ const Wrapper = styled.div`
       transition: all .2s ease;
       font-family : 'Montserrat', sans-serif;
       color: #2A364E;
+      padding: 0;
+      margin-right: 15px;
+
+      &:not(:last-child) {
+          pointer-events : none;
+      }
+
+      &:nth-child(2){
+        border-right: 2px solid;
+        padding-right:15px; 
+      }
+
 
       &:hover {
-          background: ;
+          color: inherit;
       }
   }
 }

@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components/macro";
-import { Form, FormControl, FormGroup, Button, } from "react-bootstrap";
-import Search from "../assets/icn-search.svg";
+import { Form, FormControl, FormGroup } from "react-bootstrap";
 
 class FilterForm extends PureComponent {
 
@@ -22,5 +21,10 @@ class FilterForm extends PureComponent {
 
 export default FilterForm;
 const Wrapper = styled.div`
+width: 100%;
+
+form {
+    width: 100%;
+}
 
 `

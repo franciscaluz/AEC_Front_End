@@ -11,14 +11,14 @@ class LoginForm extends PureComponent {
         this.handleConnexion = this.handleConnexion.bind(this);
     }
     handleConnexion() {
-        let connecter = false;
+        /*         let connecter = false; */
         const { history } = this.props;
 
         const email = document.getElementById('userEmail').value;
         const password = document.getElementById('userPassword').value;
 
         if (email.toLowerCase() === "user@a.com" && password === "a") {
-            connecter = true;
+            /*             connecter = true; */
 
             store.set('loggedIn', true);
             history.push('/home');

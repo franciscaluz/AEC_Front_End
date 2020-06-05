@@ -2,16 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginScreen from './screens/LoginScreen';
 import HomepageScreen from './screens/HomepageScreen';
-import AlbumSingleScreen from './screens/AlbumSingleScreen'
-
+import AlbumScreen from './screens/AlbumScreen';
+import AlbumLyricsScreen from './screens/AlbumLyricsScreen';
 
 const AppRouter = (props) => {
+
     return (
         <Router>
             <Switch>
                 <Route path="/" exact component={LoginScreen} />
                 <Route path="/home" exact component={HomepageScreen} />
-                <Route path="/album-single" exact component={AlbumSingleScreen} />
+                <Route path={`/album/:albumId`} component={AlbumScreen} />
+                <Route path="/lyrics" component={AlbumLyricsScreen} />
 
             </Switch>
         </Router>

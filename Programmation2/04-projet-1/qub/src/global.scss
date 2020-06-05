@@ -2,8 +2,6 @@
 
 $montserrat: 'Montserrat', sans-serif;
 $roboto: 'Roboto', sans-serif;
-
-$red: #FF21B2;
 $body-color: #2A364E;
 $theme-blue: #29C5FE;
 $theme-pink: #FF21B2; 
@@ -28,8 +26,21 @@ h1, h2, h3, h4, h5, h6,
     h1, .h1 {
         font-size: 2rem;
     }
+
+    h2, .h2 {
+
+    }
     h3, .h3 {
         font-size: 1.25rem;
+    }
+    h4, .h4 {
+
+    }
+    h5, .h5 {
+        
+    }
+    h6, .h6 {
+        
     }
 }
 
@@ -56,8 +67,13 @@ h1, h2, h3, h4, h5, h6,
     }
     &.btn-outline-primary {
         border-color: $theme-pink;
-        background : transparent;
+        background : $white;
         color: $theme-pink;
+
+        &:active, &:not(:disabled):not(.disabled):active {
+            background: darken($color: $theme-pink, $amount: 10%);
+            border-color: darken($color: $theme-pink, $amount: 10%);
+        }
     }
     &.btn-icon {
         min-width: auto;
@@ -97,9 +113,11 @@ a {
     width: 100%;
     height: auto !important;
     min-height: calc(100vh - 80px);
-    padding-left: 6%;
-    padding-right: 6%;
+    padding: 60px 6% 0;
     margin: 0 auto;
+    @media (max-width: 991.98px){
+        padding-top: 30px
+    }
 }
 
 //FORM
@@ -107,7 +125,12 @@ fieldset {
     margin-bottom: 15px;
 }
 
+.form-group {
+    width: 100%;
+}
+
 .form-control {
+    width: 100%;
     border-radius: 8px;
     border-top: 0;
     border-left:0;
@@ -138,6 +161,7 @@ fieldset {
 
 .input-search {
     .form-control {
+        width: 100%;
         border-radius: 0;
         border-bottom: 2px solid $body-color;
         padding: 0;
@@ -145,11 +169,6 @@ fieldset {
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 20px 20px;
-    }
-
-    .btn {
-        min-width: auto !important;
-        padding: .375rem 2rem;
     }
 }
 

@@ -1,13 +1,12 @@
 import React from "react";
+import { withRouter, Link } from 'react-router-dom'
 import styled from "styled-components/macro";
 import { Card } from "react-bootstrap";
-import { albums } from "../constant";
 
-/* const backgroundImage = `url(${albums[0].background})`; */
-const AlbumCardSingle = ({ name, title, background }) => {
+const AlbumCardSingle = ({ id, idTitle, name, title, background }) => {
   return (
     <Wrapper className="col" >
-      <Card className='album-card-single'>
+      <Link to={`/album/${id}/${idTitle}`} className='album-card-single'>
         <div className='card-img'>
           <div className='img-wrapper' style={{ backgroundImage: background }}></div>
         </div>
@@ -21,22 +20,32 @@ const AlbumCardSingle = ({ name, title, background }) => {
             </div>
           </div>
         </Card.ImgOverlay>
-      </Card>
+      </Link>
     </Wrapper >
   )
 }
 
-export default AlbumCardSingle
+
+export default withRouter(AlbumCardSingle)
 
 const Wrapper = styled.div`
 margin-bottom: 30px;
 
 .album-card-single {
+  display: block;
+  width:100%;
   height: 100%;
   border-radius: 7.5px;
   border: none;
   box-shadow: none;
   overflow: hidden;
+
+  &:hover {
+    .album-info-inner {
+      transform: translate(0, 0);
+    }
+  }
+
     .card-body {
         padding: 0;
     }
@@ -51,7 +60,7 @@ margin-bottom: 30px;
 
   .h6 {
     margin-bottom: 0;
-    color: #ffffff;
+    color: #ffffff !important;
   }
 
   .card-subtitle {
@@ -59,11 +68,6 @@ margin-bottom: 30px;
     text-transform: uppercase;
     font-size: 10px;
   }
-}
-
-.img-wrapper {
-/*   background-image: url(${props => props.background}); */
-/* background-image: url(${albums[0].background}); */
 }
 
 .album-card-single-img {
@@ -97,11 +101,6 @@ margin-bottom: 30px;
     color: #ffffff;
     transform: translate(0, 100%);
     transition: all 0.3s ease;
-  }
-  &:hover {
-    .album-info-inner {
-      transform: translate(0, 0);
-    }
   }
 }
 `
