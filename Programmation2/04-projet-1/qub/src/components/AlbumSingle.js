@@ -17,20 +17,23 @@ class AlbumSingle extends PureComponent {
               <div className="card-img">
                 <div className='img-wrapper' style={{ backgroundImage: albumMatch.background }}></div>
               </div>
-              <p className="text-uppercase mb-0"><strong>Album</strong></p>
+              <p className="text-uppercase">Album</p>
               <h1 className="mb-0">{albumMatch.title}</h1>
-              <h4 className="mb-0">{albumMatch.name}</h4>
-              <ul className="list-unstyled d-flex justify-content-between flex-row h6">
+              <h5>Par {albumMatch.name}</h5>
+              <ul className="album-info h6">
                 <li className="">{albumMatch.year}</li>
                 <li className="">{albumMatch.tracks} Chansons</li>
-                <li className="">{albumMatch.length}</li>
+                <li className="">{albumMatch.length} min</li>
               </ul>
               <Link to="/" className="btn btn-outline-primary">
-                Retour à la page principale
+                Retour
             </Link>
-
             </Col>
             <Col md={7} lg={8} xl={9}>
+              <div className="tracklist-header">
+                <Link to="#" className="btn btn-primary">Lecture</Link>
+              </div>
+
               <div className="table-responsive">
                 <table className="table">
                   <thead>
@@ -75,76 +78,32 @@ class AlbumSingle extends PureComponent {
 export default withRouter(AlbumSingle)
 
 const Wrapper = styled.div`
-margin-bottom: 30px;
-
-.album-card-single {
-  height: 100%;
-  border-radius: 7.5px;
-  border: none;
-  box-shadow: none;
-  overflow: hidden;
-
-  &:hover {
-    .album-info-inner {
-      transform: translate(0, 0);
-    }
-  }
-
-    .card-body {
-        padding: 0;
-    }
+.card-img {
+  margin-bottom: 30px;
 }
 
 .album-info {
-  padding: .75rem 1.25rem;
+  padding-left: 0;
+  list-style:none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  .h5 {
-    margin-bottom: 10px;
-  }
+  li {
+    margin-right: 15px;
+    border-right: 2px solid;
+    padding-right: 15px;
 
-  .h6 {
-    margin-bottom: 0;
-    color: #ffffff;
-  }
-
-  .card-subtitle {
-    color: #9a9a9a;
-    text-transform: uppercase;
-    font-size: 10px;
-  }
-}
-
-.album-card-single-img {
-  display: block;
-  width: 100%;
-  height: 345px;
-}
-
-.card-img-overlay {
-  top: unset;
-  bottom: 0;
-  height: 100%;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-
-  .album-info {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  .album-info-inner {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: #FF21B2;
-    padding: 1.25rem;
-    color: #ffffff;
-    transform: translate(0, 100%);
-    transition: all 0.3s ease;
+    &:last-child{
+      border-right:0;
+      padding-right: 0;
+      margin-right:0;
+    }
   }
 }
+
+.tracklist-header {
+  margin-bottom: 15px;
+}
+
 `

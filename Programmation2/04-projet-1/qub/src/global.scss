@@ -70,7 +70,8 @@ h1, h2, h3, h4, h5, h6,
         background : $white;
         color: $theme-pink;
 
-        &:active, &:not(:disabled):not(.disabled):active {
+        &:hover {
+            color: $white;
             background: darken($color: $theme-pink, $amount: 10%);
             border-color: darken($color: $theme-pink, $amount: 10%);
         }
@@ -113,10 +114,18 @@ a {
     width: 100%;
     height: auto !important;
     min-height: calc(100vh - 80px);
-    padding: 60px 6% 0;
+    padding: 60px 6%;
     margin: 0 auto;
     @media (max-width: 991.98px){
-        padding-top: 30px
+        padding-top: 30px;
+    }
+    @media (max-width: 767.98px){
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    @media (max-width: 574.98px){
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
