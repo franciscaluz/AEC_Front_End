@@ -6,24 +6,46 @@ import { Container, Row, Col } from "react-bootstrap";
 
 
 class AlbumSingle extends PureComponent {
+
   render() {
-    const { match, location, history } = this.props;
-    const albumMatch = albums.find(({ id }) => id === match.params.albumId)
+    const { name, title, year, length, background, tracks, tracklist } = this.props;
+
+    let list = tracklist.map(function (index) {
+      if (tracklist.lyrics === 0) {
+        return (
+          < tr >
+            <td key={index}>{tracklist.song}</td>
+            <td key={index}>{tracklist.lyrics}Non disponible</td>
+          </tr >
+        )
+      } else {
+        return (
+          <tr>
+            <td key={index}>{tracklist.song}</td>
+            <td key={index}>
+              {tracklist.lyrics}
+              <Link to="/lyrics/${id}/${idTitle}/${tracklist.song}" className="btn btn-primary">Voir</Link>
+            </td>
+          </tr >
+        )
+      }
+    })
+
     return (
-      < Wrapper >
+      <Wrapper >
         <Container fluid>
           <Row>
             <Col md={5} lg={4} xl={3}>
               <div className="card-img">
-                <div className='img-wrapper' style={{ backgroundImage: albumMatch.background }}></div>
+                <div className='img-wrapper' style={{ backgroundImage: background }}></div>
               </div>
               <p className="text-uppercase">Album</p>
-              <h1 className="mb-0">{albumMatch.title}</h1>
-              <h5>Par {albumMatch.name}</h5>
+              <h1 className="mb-0">{title}</h1>
+              <h5>Par {name}</h5>
               <ul className="album-info h6">
-                <li className="">{albumMatch.year}</li>
-                <li className="">{albumMatch.tracks} Chansons</li>
-                <li className="">{albumMatch.length} min</li>
+                <li className="">{year}</li>
+                <li className="">{tracks} Chansons</li>
+                <li className="">{length} min</li>
               </ul>
               <Link to="/" className="btn btn-outline-primary">
                 Retour
@@ -46,7 +68,7 @@ class AlbumSingle extends PureComponent {
                   <tbody>
                     <tr>
                       <th scope="row">2</th>
-                      <td>Jacob</td>
+                      {this.props.tracklist}
                       <td></td>
                     </tr>
                   </tbody>
@@ -55,7 +77,7 @@ class AlbumSingle extends PureComponent {
             </Col>
           </Row>
         </Container>
-      </Wrapper>
+      </Wrapper >
     );
   }
 }
