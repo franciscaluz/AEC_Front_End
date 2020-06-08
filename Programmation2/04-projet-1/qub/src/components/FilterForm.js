@@ -11,7 +11,7 @@ class FilterForm extends PureComponent {
             <Wrapper>
                 <Form inline>
                     <FormGroup className="mb-0 input-search">
-                        <FormControl type="search" placeholder="Rechercher" onChange={e => setFilterStr(e.target.value)} />
+                        <FormControl type="search" placeholder="Rechercher par artiste ou album" onChange={e => setFilterStr(e.target.value)} />
                     </FormGroup>
                 </Form>
             </Wrapper>

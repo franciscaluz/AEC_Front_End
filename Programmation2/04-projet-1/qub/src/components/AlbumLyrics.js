@@ -1,114 +1,66 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React, { PureComponent } from "react";
+import { withRouter, Link } from 'react-router-dom';
 import styled from "styled-components/macro";
+import { albums } from '../constant';
 import { Container, Row, Col } from "react-bootstrap";
 
-const AlbumSingle = ({ id, idTitle, name, title, background, year, tracks, length, tracklist }) => {
-  return (
-    <Wrapper>
-      <Container fluid>
-        <div className='page-header'>
-          <Row>
-            <Col md={5} lg={4} xl={3}>
-              <div className="card-img">
-                <div className='img-wrapper' style={{ backgroundImage: background }}></div>
-              </div>
-              <p className="text-uppercase mb-0"><strong>Album</strong></p>
-              <h1 className="mb-0">{title}</h1>
-              <h4 className="mb-0">{name}</h4>
-              <ul className="list-unstyled d-flex flex-row h6">
-                <li className="">{year}</li>
-                <li className="">{tracks} Chansons</li>
-                <li className="">{length}</li>
-              </ul>
-              <Link to="/home" className="btn btn-outline-primary">
-                Retour à la page principale
-              </Link>
+class AlbumLyrics extends PureComponent {
 
-            </Col>
-            <Col md={7} lg={8} xl={9}>
+  render() {
+    const { match, history, location } = this.props;
+    const albumMatch = albums.find(({ id }) => id === match.params.albumId)
+    /* const songMatch = albums.find(({ id }) => id === match.params.lyricsId) */
+    return (
+      <Wrapper >
+        <h2>{albumMatch.name}</h2>
+        <h2>{location.pathname}</h2>
 
-            </Col>
-          </Row>
-        </div>
-      </Container>
-    </Wrapper>
-  )
+      </Wrapper >
+    );
+  }
 }
 
-export default AlbumSingle
+export default withRouter(AlbumLyrics)
 
 const Wrapper = styled.div`
-margin-bottom: 30px;
-
-.album-card-single {
-  height: 100%;
-  border-radius: 7.5px;
-  border: none;
-  box-shadow: none;
-  overflow: hidden;
-
-  &:hover {
-    .album-info-inner {
-      transform: translate(0, 0);
-    }
-  }
-
-    .card-body {
-        padding: 0;
-    }
+.card-img {
+  margin-bottom: 30px;
 }
 
 .album-info {
-  padding: .75rem 1.25rem;
+  padding-left: 0;
+  list-style:none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  .h5 {
-    margin-bottom: 10px;
+  li {
+    margin-right: 15px;
+    border-right: 2px solid;
+    padding-right: 15px;
+
+    &:last-child{
+      border-right:0;
+      padding-right: 0;
+      margin-right:0;
+    }
   }
+}
 
-  .h6 {
-    margin-bottom: 0;
-    color: #ffffff;
-  }
+.tracklist-header {
+  margin-bottom: 15px;
+}
 
-  .card-subtitle {
-    color: #9a9a9a;
-    text-transform: uppercase;
-    font-size: 10px;
+.table {
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  td, th {
+    &:nth-child(2){
+
+    }
   }
 }
 
-.album-card-single-img {
-  display: block;
-  width: 100%;
-  height: 345px;
-}
-
-.card-img-overlay {
-  top: unset;
-  bottom: 0;
-  height: 100%;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-
-  .album-info {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  .album-info-inner {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: #FF21B2;
-    padding: 1.25rem;
-    color: #ffffff;
-    transform: translate(0, 100%);
-    transition: all 0.3s ease;
-  }
-}
 `
+

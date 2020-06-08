@@ -11,7 +11,6 @@ class AlbumCardList extends PureComponent {
       const artist = item.name.toLowerCase()
       const title = item.title.toLowerCase()
       const normalizedSearch = search.toLowerCase()
-
       if (artist.includes(normalizedSearch) || title.includes(normalizedSearch)) {
         return (
           <AlbumCardSingle key={index}
@@ -21,7 +20,10 @@ class AlbumCardList extends PureComponent {
             title={item.title}
             background={item.background}
           />
+
         )
+      } else {
+        return
       }
     })
 

@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import LoginForm from '../components/login-form';
 import Logo from '../assets/logo-random.svg';
 import loginBackground from '../assets/login-bg.png';
+import LoginModal from '../components/LoginModal'
 
 
 class LoginScreen extends PureComponent {
@@ -17,10 +18,10 @@ class LoginScreen extends PureComponent {
                             <h3>Connexion</h3>
                             <LoginForm />
                             <div className='form-link-wrapper'>
-                                <a href='/' className='primary-link'>Mot de passe oublié?</a>
+                                <p><LoginModal /></p>
+                                <a href='#' className='white-link'>Créér un compte</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </Wrapper>
@@ -75,7 +76,11 @@ height:100vh;
     }
 
     .form-link-wrapper {
+        margin-top: 30px;
         text-align: center;
+        p {
+            margin-bottom: 0.5rem;
+        }
     }
 }
 
@@ -89,6 +94,10 @@ height:100vh;
     .auth-wrapper {
         padding-top: 30px;
         align-items: flex-start;
+    }
+
+    .auth-content {
+        padding: 30px 15px;
     }
 
     .content-right h1 {

@@ -1,56 +1,31 @@
-## Présentation du mandat 
+# PROJET 1 #
 
-En cette période d'isolement, François Legault et Alexandre Taillefer vous ont contacté pour créer le nouveau NetFlix Québécois, BecFlix. Pour l'instant votre mandat est de créer l'interface "front-end". 
+## `Présentation du mandat` 
 
-## Organisation du projet 
+Après l’échec fulgurant de QUB musique, le gouvernement du Québec vous demande de programmer l’interface d’un nouveau Spotify québécois.
 
-    * Créez un nouveau projet nommé becflix. 
-    * Installez et importez Bootstrap. 
-    * Créez le dossier components dans src. 
-    * Créez le dossier App dans components. 
-    * Déplacez le fichier App.js, App.cs et App.test.js dans le dossier App. 
-    * Créez un dossier img et déplacez-y le logo de React. 
-    * Modifiez les importations dans le haut du fichier App.js. 
-    * Modifiez les importations dans le haut du fichier index.js. 
-    * Testez votre configuration. 
+La gestion de l’interface est laissée à votre discrétion.
 
-## Composant TvShow 
+Voici la grille de correction :
 
-    * Créez un dossier TvShow sous le dossier components. 
-    * Créez le fichier TvShow.js. 
-    * Créez la classe TvShow qui extends React.Component. 
-    * Créez une variable nommée image de type objet qui contient le src, le alt et le title. 
-    * Dans le render, il faut retourner une colonne de type lg="2" . 
-    * Cette colonne contient une image fluide. Utilisez la variable plus haut. 
-    * Testez votre composant dans APP. 
+## `Fonctionnement de l'application` 
 
- 
+    * La connexion fonctionne et permet d’afficher le catalogue. (5 points)
+    * La déconnexion cache le catalogue et ramène à la page connexion. (4 points) 
+    * La barre de recherche dans le catalogue recherche à la fois le nom de l’artiste et le nom de l’album et affiche les résultats attendus. (5 points) 
+    * Il y a un effet hover sur les albums. (2 points) 
+    * Un clic sur un album amène à la page de l’album. (1 point) 
+    * Un clic sur une chanson amène à la page des paroles. (2 points)
+    * On peut reculer de la page paroles à la page de l’album. (1 point)
+    * On peut reculer de la page album à la page du catalogue. (1 point)
+    * Un props par défaut a été mis en place lorsque les paroles d’une chanson ne sont pas disponibles. (2 points)
+    *  Votre site est publié sur GitHub (1 point).
 
-## Composant Categorie 
+## `Création des objets (données) (5points)`
 
-    * Créez un dossier Categorie sous le dossier components. 
-    * Créez le fichier Categorie.js. 
-    * Créez la classe Categorie qui extends React.Component. 
-    * Créez une variable nommée nomCategorie qui contient "Suspense'" 
-    * Dans le render :  
-
-        ** Retournez
-            ** Une Row un h1 qui contient la valeur de votre variable nomCategorie. 
-            ** Une Row qui contient 6 composants TvShow 
-
-    * Testez votre composant dans APP. 
-
-## Composant Catalogue 
-
-    * Votre Catalalogue retourne 6 composants Categorie. 
-
-## Composant App 
-
-    * Le composant App retourne un container-fluid qui contient l'en-tête avec le logo de BecFlix et un composant de type Catalogue. 
-
-    * Faites le nécessaire pour publier sur GitHub le code et le build. 
-
- 
+    * Il y a 6 albums dans votre application avec du contenu réel. 
+    * Il y a AU MINIMUM 2 chansons avec les paroles. 
+   
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -18,7 +18,7 @@ export const albums = [
         tracks: '10',
         length: '39:28',
         trackList: [
-            { song: "Disorder", lyrics: [] },
+            { song: "Disorder", lyrics: ['blabla'] },
             { song: "Day of the Lords", lyrics: [] },
             { song: "Candidate", lyrics: [] },
             { song: "Insight", lyrics: [] },
