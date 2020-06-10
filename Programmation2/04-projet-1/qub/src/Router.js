@@ -13,10 +13,15 @@ const AppRouter = (props) => {
                 <Route path="/" exact component={LoginScreen} />
                 <Route path="/home" exact component={HomepageScreen} />
                 <Route path={`/album/:albumId`} component={AlbumScreen} />
-                <Route path={`/albums/:albumId/:lyricsId`} component={AlbumLyricsScreen} />
+                <Route path={`/lyrics/:albumId/:lyricsId`} component={AlbumLyricsScreen} />
             </Switch>
         </Router>
     );
 }
 
 export default AppRouter;
+
+{/* <Route path='/album' component={Album}>
+<Route path='/album/:albumId' component={AlbumScreen} />
+<Route path='album/:albumId/:somethin' component={AlbumLyricsScreen} />
+</Route> */}

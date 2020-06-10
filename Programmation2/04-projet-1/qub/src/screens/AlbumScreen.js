@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import styled from "styled-components/macro";
 import { albums } from '../constant';
 import BaseScreen from "./BaseScreen";
-import AlbumBase from "../components/AlbumBase";
+import AlbumBase from "../components/tests/AlbumBase";
 import AlbumSingle from "../components/AlbumSingle";
 
 class AlbumSingleScreen extends PureComponent {
@@ -13,17 +13,15 @@ class AlbumSingleScreen extends PureComponent {
     const { name, title, length, year, background, tracks, trackList } = albumMatch
     return (
       <BaseScreen>
-        <AlbumBase >
-          <AlbumSingle
-            name={name}
-            title={title}
-            year={year}
-            tracks={tracks}
-            length={length}
-            background={background}
-            trackList={trackList}
-          />
-        </AlbumBase>
+        <AlbumSingle
+          name={name}
+          title={title}
+          year={year}
+          tracks={tracks}
+          length={length}
+          background={background}
+          trackList={trackList}
+        />
       </BaseScreen>
     );
   }

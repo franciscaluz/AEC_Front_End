@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import { withRouter, Link } from 'react-router-dom';
 import styled from "styled-components/macro";
-import { albums } from '../constant'
+import { albums } from '../../constant'
 import { Container, Row, Col } from "react-bootstrap";
-import { ReactComponent as Back } from "../assets/icn-back.svg";
+import { ReactComponent as Back } from "../../assets/icn-back.svg";
 
 class AlbumBase extends PureComponent {
 

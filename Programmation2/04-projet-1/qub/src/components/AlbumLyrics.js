@@ -7,13 +7,11 @@ import { Container, Row, Col } from "react-bootstrap";
 class AlbumLyrics extends PureComponent {
 
   render() {
-    const { match, history, location } = this.props;
-    const albumMatch = albums.find(({ id }) => id === match.params.albumId)
-    /* const songMatch = albums.find(({ id }) => id === match.params.lyricsId) */
+    const albumMatch = this.props
+    const { id, idTitle, name, title, background, year, length, tracks, trackList } = albumMatch
     return (
       <Wrapper >
-        <h2>{albumMatch.name}</h2>
-        <h2>{location.pathname}</h2>
+        <h2>{name}</h2>
 
       </Wrapper >
     );

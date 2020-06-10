@@ -117,6 +117,12 @@ h1, h2, h3, h4, h5, h6,
             svg {
                 fill: $white;
             }
+            &:hover {
+                background: $white;
+                svg {
+                    fill: $theme-pink;
+                }
+            }
         }
 
         &.btn-icon-outline-primary {
