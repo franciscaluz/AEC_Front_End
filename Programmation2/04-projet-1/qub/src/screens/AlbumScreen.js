@@ -1,9 +1,7 @@
 import React, { PureComponent } from "react";
 import { withRouter, Link } from 'react-router-dom';
-import styled from "styled-components/macro";
 import { albums } from '../constant';
 import BaseScreen from "./BaseScreen";
-import AlbumBase from "../components/tests/AlbumBase";
 import AlbumSingle from "../components/AlbumSingle";
 
 class AlbumSingleScreen extends PureComponent {
@@ -28,5 +26,3 @@ class AlbumSingleScreen extends PureComponent {
 }
 
 export default AlbumSingleScreen;
-
-const Wrapper = styled.div``

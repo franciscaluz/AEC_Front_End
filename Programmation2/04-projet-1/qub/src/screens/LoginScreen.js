@@ -19,7 +19,7 @@ class LoginScreen extends PureComponent {
                             <LoginForm />
                             <div className='form-link-wrapper'>
                                 <p><LoginModal /></p>
-                                <a href='#' className='white-link'>Créér un compte</a>
+                                Créér un compte
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { withRouter, Link } from 'react-router-dom';
 import styled from "styled-components/macro";
 import { albums } from '../constant';
-import { ReactComponent as Back } from '../assets/icn-back.svg'
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { ReactComponent as Like } from "../assets/icn-like.svg";
 import { ReactComponent as More } from "../assets/icn-more.svg";
@@ -30,9 +29,8 @@ class AlbumSingle extends PureComponent {
                 <li className="">{tracks} Chansons</li>
                 <li className="">{length} min</li>
               </ul>
-              <Link to="/" className='btn btn-outline-primary btn-block'>
-                <Back />
-                  Retour
+              <Link to="/" className='btn btn-outline-primary'>
+                Retour
                 </Link>
             </Col>
             <Col md={7} lg={8} xl={9}>

@@ -1,18 +1,42 @@
 import React, { PureComponent } from "react";
 import { withRouter, Link } from 'react-router-dom';
 import styled from "styled-components/macro";
-import { albums } from '../constant';
 import { Container, Row, Col } from "react-bootstrap";
+import { ReactComponent as Back } from '../assets/icn-back.svg'
 
 class AlbumLyrics extends PureComponent {
 
   render() {
+    const { match, location, history } = this.props;
     const albumMatch = this.props
     const { id, idTitle, name, title, background, year, length, tracks, trackList } = albumMatch
     return (
-      <Wrapper >
-        <h2>{name}</h2>
-
+      <Wrapper>
+        <Container fluid>
+          <Row>
+            <Col md={5} lg={4} xl={3}>
+              <div className="card-img">
+                <div className='img-wrapper' style={{ backgroundImage: background }}></div>
+              </div>
+              <p className="text-uppercase">Album</p>
+              <h1 className="mb-0">{title}</h1>
+              <h5>Par {name}</h5>
+              <ul className="album-info h6">
+                <li className="">{year}</li>
+                <li className="">{tracks} Chansons</li>
+                <li className="">{length} min</li>
+              </ul>
+              <Link to="/album/:albumId" className='btn btn-outline-primary btn-block'>
+                <Back />
+                  Retour
+                </Link>
+            </Col>
+            <Col md={7} lg={8} xl={9}>
+              <div>You are now at {location.pathname}</div>
+              <div>{albumMatch.id}</div>
+            </Col>
+          </Row>
+        </Container>
       </Wrapper >
     );
   }

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Modal, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import { Modal } from "react-bootstrap";
 import styled from "styled-components/macro";
 
 class LoginModal extends PureComponent {
@@ -12,7 +13,7 @@ class LoginModal extends PureComponent {
     render() {
         return (
             <Wrapper>
-                <a href='#' className='white-link' onClick={this.openModal}>Mot de passe oublié?</a>
+                <Link to='#' className='white-link' onClick={this.openModal}>Mot de passe oublié?</Link>
 
                 <Modal show={this.state.isOpen} onHide={this.closeModal} centered>
                     <ModalWrapper>
