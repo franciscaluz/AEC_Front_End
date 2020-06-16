@@ -14,7 +14,6 @@ class LoginModal extends PureComponent {
         return (
             <Wrapper>
                 <Link to='#' className='white-link' onClick={this.openModal}>Mot de passe oublié?</Link>
-
                 <Modal show={this.state.isOpen} onHide={this.closeModal} centered>
                     <ModalWrapper>
                         <Modal.Header closeButton>

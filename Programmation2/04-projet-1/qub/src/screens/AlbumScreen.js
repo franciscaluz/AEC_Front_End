@@ -1,28 +1,24 @@
-import React, { PureComponent } from "react";
-import { withRouter, Link } from 'react-router-dom';
+import React from "react";
+import { withRouter } from 'react-router-dom';
 import { albums } from '../constant';
 import BaseScreen from "./BaseScreen";
 import AlbumSingle from "../components/AlbumSingle";
 
-class AlbumSingleScreen extends PureComponent {
-  render() {
-    const { match } = this.props;
-    const albumMatch = albums.find(({ id }) => id === match.params.albumId)
-    const { name, title, length, year, background, tracks, trackList } = albumMatch
-    return (
-      <BaseScreen>
-        <AlbumSingle
-          name={name}
-          title={title}
-          year={year}
-          tracks={tracks}
-          length={length}
-          background={background}
-          trackList={trackList}
-        />
-      </BaseScreen>
-    );
-  }
+const AlbumScreen = ({ match }) => {
+  const albumMatch = albums.find(({ id }) => id === match.params.albumId)
+  return (
+    <BaseScreen>
+      <AlbumSingle
+        name={albumMatch.name}
+        title={albumMatch.title}
+        year={albumMatch.year}
+        length={albumMatch.length}
+        background={albumMatch.background}
+        tracks={albumMatch.tracks}
+        trackList={albumMatch.trackList}
+      />
+    </BaseScreen>
+  );
 }
 
-export default AlbumSingleScreen;
+export default withRouter(AlbumScreen);

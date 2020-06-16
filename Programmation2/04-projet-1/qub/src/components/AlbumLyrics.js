@@ -1,17 +1,16 @@
 import React, { PureComponent } from "react";
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styled from "styled-components/macro";
-import { Container, Row, Col } from "react-bootstrap";
-import { ReactComponent as Back } from '../assets/icn-back.svg'
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 class AlbumLyrics extends PureComponent {
 
   render() {
-    const { match, location, history } = this.props;
-    const albumMatch = this.props
-    const { id, idTitle, name, title, background, year, length, tracks, trackList } = albumMatch
+    const { name, title, background, year, length, tracks, trackList } = this.props
+
     return (
-      <Wrapper>
+
+      < Wrapper >
         <Container fluid>
           <Row>
             <Col md={5} lg={4} xl={3}>
@@ -26,14 +25,21 @@ class AlbumLyrics extends PureComponent {
                 <li className="">{tracks} Chansons</li>
                 <li className="">{length} min</li>
               </ul>
-              <Link to="/album/:albumId" className='btn btn-outline-primary btn-block'>
-                <Back />
-                  Retour
-                </Link>
+              <Button variant="primary" onClick={() => this.props.history.goBack()}>
+                Revenir à l'album
+              </Button>
             </Col>
             <Col md={7} lg={8} xl={9}>
-              <div>You are now at {location.pathname}</div>
-              <div>{albumMatch.id}</div>
+              <div className='lyrics-wrapper'>
+                <h1>{trackList.song}</h1>
+                <ul className="list-unstyled">
+                  {trackList.lyrics.map((lyrics, index) => (
+                    <li key={index}>
+                      {lyrics}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -69,20 +75,23 @@ const Wrapper = styled.div`
   }
 }
 
-.tracklist-header {
-  margin-bottom: 15px;
-}
+.lyrics-wrapper {
+  li {
+    font-size: 18px
+    margin-bottom: 10px;
+  }
 
-.table {
-  table-layout: fixed;
-  border-collapse: collapse;
+  @media(max-width: 767.98px){
+    margin-top: 30px;
 
-  td, th {
-    &:nth-child(2){
-
+    li {
+      font-size: 13px;
     }
   }
 }
+
+
+
 
 `
 

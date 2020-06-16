@@ -12,8 +12,8 @@ const AppRouter = (props) => {
             <Switch>
                 <Route path="/" exact component={LoginScreen} />
                 <Route path="/home" exact component={HomepageScreen} />
-                <Route path={`/album/:albumId`} component={AlbumScreen} />
-                <Route path={`/lyrics/:lyricsId`} component={AlbumLyricsScreen} />
+                <Route path={`/:albumId`} exact component={AlbumScreen} />
+                <Route path={`/:albumId/:songId`} component={AlbumLyricsScreen} />
             </Switch>
         </Router>
     );

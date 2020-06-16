@@ -5,7 +5,6 @@ import Logo from '../assets/logo-random.svg';
 import loginBackground from '../assets/login-bg.png';
 import LoginModal from '../components/LoginModal'
 
-
 class LoginScreen extends PureComponent {
 
     render() {
@@ -18,8 +17,7 @@ class LoginScreen extends PureComponent {
                             <h3>Connexion</h3>
                             <LoginForm />
                             <div className='form-link-wrapper'>
-                                <p><LoginModal /></p>
-                                Créér un compte
+                                <div><LoginModal /></div>
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import { withRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from "styled-components/macro";
 import { Card } from "react-bootstrap";
 
-const AlbumCardSingle = ({ id, idTitle, name, title, background }) => {
+const AlbumCardSingle = ({ id, name, title, background }) => {
   return (
     <Wrapper className="col" >
-      <Link to={`/album/${id}/${idTitle}`} className='album-card-single'>
+      <Link to={`${id}`} className='album-card-single'>
         <div className='card-img'>
           <div className='img-wrapper' style={{ backgroundImage: background }}></div>
         </div>
@@ -26,7 +26,7 @@ const AlbumCardSingle = ({ id, idTitle, name, title, background }) => {
 }
 
 
-export default withRouter(AlbumCardSingle)
+export default AlbumCardSingle
 
 const Wrapper = styled.div`
 margin-bottom: 30px;
@@ -45,7 +45,6 @@ margin-bottom: 30px;
       transform: translate(0, 0);
     }
   }
-
     .card-body {
         padding: 0;
     }
