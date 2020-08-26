@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $raleway: 'Raleway', sans-serif;
-$super-dark: #19172e;
-$dark: #272447;
-$red: #CC262D;
-$body-color:#333333;
 $white : #ffffff;
 $black : #000000;
 
 body {
     font-family: $raleway;
     font-weight: 300;
-    color: $body-color;
     height: 100%;
 }
 
@@ -19,127 +14,6 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: $raleway !important;
     font-weight: 900;
-    text-transform: uppercase;
     margin-bottom: 2rem;
-}
-
-@media (max-width: 991.98px){
-    h1, .h1 {
-        font-size: 2rem;
-    }
-}
-
-.btn {
-    font-family: $raleway;
-    font-weight: 300;
     text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    min-width: 120px;
-    border-radius: 50px;
-
-    &:focus {
-        outline: 0;
-        box-shadow: none !important;
-    }
-
-    &.btn-primary {
-        background: $red;
-        border-color: $red;
-
-        &:active, &:not(:disabled):not(.disabled):active {
-            background: darken($color: $red, $amount: 10%);
-            border-color: darken($color: $red, $amount: 10%);
-        }
-    }
-    &.btn-icon {
-        min-width: auto;
-        border: none;
-        background-color: inherit;
-        border-radius: 0;
-    }
 }
-
-a {
-    color: $body-color;
-    position: relative;
-    text-decoration: none;
-
-    &.primary-link {
-    &:after {
-        content: '';
-		height: 2px;
-		position: absolute;
-		bottom: -5px;
-		left: 0;
-		width: 0%;
-		background: $red;
-		transition: 0.2s;
-    }
-    &:hover {
-        color: $red;
-        text-decoration: none;
-        &:after {
-        width: 100%;
-        }
-    }
-    }
-}
-
-.page-content {
-    width: 100%;
-    height: auto !important;
-    min-height: calc(100vh - 60px);
-    padding: 50px 0 0;
-    margin: 0 auto;
-}
-
-//FORM
-fieldset {
-    margin-bottom: 15px;
-}
-
-.form-control {
-    border-radius: 0;
-    border-top: 0;
-    border-left:0;
-    border-right: 0;
-    border-bottom: 1px solid #ced4da;
-    padding: .375rem 0; //.375rem .75rem;
-    font-weight: 300;
-
-    &:focus {
-        border-bottom-color: $red; 
-        outline: 0;
-        box-shadow: none;
-    }
-}
-.form-control::placeholder {
-    color: #cccccc;
-}
-
-.form-label {
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 400;
-    font-family: $raleway;
-}
-
-.input-required {
-    color: $red;
-    font-weight: bold;
-}
-
-.input-search {
-    .form-control {
-        border-radius: 50px 0 0 50px;
-        border: 1px solid $red;
-        padding: .375rem .75rem;
-    }
-
-    .btn {
-        min-width: auto !important;
-        padding: .375rem 2rem;
-    }
-}
-

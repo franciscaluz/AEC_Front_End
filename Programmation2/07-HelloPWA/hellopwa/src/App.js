@@ -1,27 +1,16 @@
 import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import logo from './logo.svg';
-import './App.css';
+import HomepageScreen from './screens/HomepageScreen'
 import InstallPWA from './components/InstallPWA';
 
 function App() {
   return (
-    <div className="App">
-      <InstallPWA />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>
-          Hello PWA World!
-        </h2>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          creating a pwa
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Route path="/" exact component={HomepageScreen} />
+      </Switch>
+    </>
   );
 }
 

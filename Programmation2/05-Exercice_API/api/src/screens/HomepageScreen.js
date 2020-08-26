@@ -1,18 +1,14 @@
-import React from "react";
-import styled from "styled-components/macro";
-import BaseScreen from "./BaseScreen";
-
+import React, { useState } from 'react';
+import styled from 'styled-components/macro'
+import { Container, Row, Col } from 'reactstrap';
+import BaseScreen from './BaseScreen';
 
 const HomepageScreen = () => {
-  return (
-    <BaseScreen>
-      <Wrapper>
-
-        <h1>Homepage</h1>
-
-      </Wrapper>
-    </BaseScreen>
-  );
+    return (
+        <BaseScreen>
+            <h2>This is my homepage</h2>
+        </BaseScreen>
+    );
 }
 
 export default HomepageScreen;

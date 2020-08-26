@@ -1,30 +1,23 @@
 import React from 'react';
 import styled from 'styled-components/macro'
-import Navigation from "../components/Navigation";
+import { Container } from 'reactstrap';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+
 
 const BaseScreen = ({ children }) => {
     return (
         <Wrapper>
-            <div className="nav-wrapper">
-                <Navigation />
+            <Navigation />
+            <div className="page-wrapper">
+                <Container>
+                    {children}
+                </Container>
             </div>
-
-            <div className='page-content'>
-                {children}
-            </div>
+            <Footer />
         </Wrapper>
     );
 }
 
 export default BaseScreen;
-
-const Wrapper = styled.div`
-width: 100%;
-
-.nav-wrapper {
-    height: 60px;
-    background: #eeeeee;
-    width: 100%;
-  }
-
-`
+const Wrapper = styled.div``

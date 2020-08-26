@@ -1,12 +1,15 @@
 import React from 'react';
+import styled from 'styled-components/macro'
 import { Container } from 'reactstrap';
+import InstallPWA from '../components/InstallPWA';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 
 const BaseScreen = ({ children }) => {
     return (
-        <div className="App">
+        <Wrapper>
+            <InstallPWA />
             <Navigation />
             <div className="page-wrapper">
                 <Container>
@@ -14,8 +17,9 @@ const BaseScreen = ({ children }) => {
                 </Container>
             </div>
             <Footer />
-        </div>
+        </Wrapper>
     );
 }
 
 export default BaseScreen;
+const Wrapper = styled.div``

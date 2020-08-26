@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import AppRouter from "./Router"
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import HomepageScreen from './screens/HomepageScreen'
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <AppRouter/>
-            </div>
-        );
-    }
+function App() {
+  return (
+    <>
+      <Switch>
+        <Route path="/" exact component={HomepageScreen} />
+      </Switch>
+    </>
+  );
 }
 
 export default App;
