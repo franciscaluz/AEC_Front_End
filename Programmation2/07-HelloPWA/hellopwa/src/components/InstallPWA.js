@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 
 function InstallPWA() {
     return (
-        <Button color="primary" block>
+        <Button color="primary" block id="boutonInstall">
             Installer l'application
         </Button>
     );
