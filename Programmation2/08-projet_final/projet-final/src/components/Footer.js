@@ -1,0 +1,16 @@
+import React from 'react';
+import styled from 'styled-components/macro'
+import { Container } from 'reactstrap';
+
+const Footer = () => {
+    return (
+        <Wrapper>
+            <Container>
+                <p>Projet Final - Francisca Vargas @ copyright.2020</p>
+            </Container>
+        </Wrapper>
+    );
+}
+
+export default Footer;
+const Wrapper = styled.div``
