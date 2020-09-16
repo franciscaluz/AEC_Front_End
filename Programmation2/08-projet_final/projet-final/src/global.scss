@@ -10,6 +10,7 @@ $theme-medium-purple: #6864B9;
 $theme-gray-purple: #EBF2F8;
 $theme-light-purple: #E1E0F2;
 $theme-extra-light-purple: #EFEFF9;
+$theme-extra-light-purple-alt: #F7F6FB;
 $theme-pink: #F6E2EB;
 $theme-light-pink: #FCF8F9;
 $theme-salmon: #FEB1B2;
@@ -63,7 +64,7 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-
+// BUTTONS
 
 .btn {
     display: inline-flex;
@@ -93,6 +94,13 @@ h1, h2, h3, h4, h5, h6,
     &:hover {
         transform: scale(0.95);
     }
+
+    .icon {
+        margin-right: 10px;
+        svg {
+            font-size: 20px;
+        }
+    }
 }
 
 .btn-icon-wrap {
@@ -101,11 +109,23 @@ h1, h2, h3, h4, h5, h6,
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: $theme-extra-light-purple;
-    margin-right: 20px;
+    margin-right: 10px;
     border-radius: 5px;
+    font-size: 20px;
+    color: $theme-salmon;
 }
 
+.btn-theme-primary-alt {
+    background: $theme-blue;
+    border-color: $theme-blue;
+    color: $white;
+}
+
+.btn-theme-secondary-alt {
+    background: $theme-light-blue;
+    border-color: $theme-light-blue;
+    color: $heading-color;
+}
 
 .btn-theme-primary {
     background: $theme-purple;
@@ -117,36 +137,29 @@ h1, h2, h3, h4, h5, h6,
     background: $theme-light-purple;
     border-color: $theme-light-purple;
     color: $theme-purple;
+}
 
-    svg {
-        color: $theme-salmon;
-        font-size: 18px;
+.btn-cta-primary {
+    background: $theme-light-purple;
+    border-color: $theme-light-purple;
+    color: $theme-purple;
+    padding-left: 2px;
+    padding-right: 10px;
+
+    .btn-icon-wrap {
+        background: $theme-extra-light-purple;
     }
 }
 
-.btn-theme-primary-light {
-    background: $theme-light-blue;
-    border-color: $theme-light-blue;
-    color: $heading-color;
-}
-
-.btn-theme-purple-light {
-    background: $theme-light-purple;
-    border-color: $theme-light-purple;
-    color: $heading-color;
+.btn-cta-secondary {
+    background: $theme-extra-light-purple-alt;
+    border-color: $theme-extra-light-purple-alt;
+    color: $theme-purple;
     padding-left: 2px;
+    padding-right: 10px;
 
     .btn-icon-wrap {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: $theme-extra-light-purple;
-        margin-right: 20px;
-        border-radius: 5px;
-        font-size: 20px;
-        color: $theme-salmon;
+        background: $theme-light-pink;
     }
 }
 
@@ -156,7 +169,7 @@ h1, h2, h3, h4, h5, h6,
     color: $heading-color;
 
     &:hover {
-        background: $theme-light-blue;
+        background: whitesmoke;
     }
 }
 
@@ -168,6 +181,7 @@ h1, h2, h3, h4, h5, h6,
     border-color: $theme-blue;
     color: $white;
     padding: 0;
+
     svg {
         fill: #ffffff;
     }

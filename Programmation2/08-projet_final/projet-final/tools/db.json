@@ -1,0 +1,59 @@
+{
+  "characters": [
+    {
+      "name": "Rick Sanchez",
+      "status": "Vivant(e)",
+      "gender": "Homme",
+      "species": "Humain",
+      "type": "--",
+      "origin": "Planète Terre (C-137)",
+      "location": "Planète Terre (Dimension de remplacement)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      "id": 1
+    },
+    {
+      "name": "Morty Smith",
+      "status": "Vivant(e)",
+      "gender": "Homme",
+      "species": "Humain",
+      "type": "",
+      "origin": "Planète Terre (C-137)",
+      "location": "Planète Terre (Dimension de remplacement)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Summer Smith",
+      "status": "Vivant(e)",
+      "gender": "Femme",
+      "species": "Humain",
+      "type": "",
+      "origin": "Planète Terre (Dimension de remplacement)",
+      "location": "Planète Terre (Dimension de remplacement)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Beth Smith",
+      "status": "Vivant(e)",
+      "gender": "Femme",
+      "species": "Humain",
+      "type": "",
+      "origin": "Planète Terre (Dimension de remplacement)",
+      "location": "Planète Terre (Dimension de remplacement)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Jerry Smith",
+      "status": "Vivant(e)",
+      "gender": "Homme",
+      "species": "Humain",
+      "type": "",
+      "origin": "Planète Terre (Dimension de remplacement)",
+      "location": "Planète Terre (Dimension de remplacement)",
+      "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+    }
+  ]
+}

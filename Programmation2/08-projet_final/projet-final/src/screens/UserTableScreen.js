@@ -32,7 +32,7 @@ const UserTableScreen = ({ props }) => {
                         <h1 className="page-title page-title-alt">Modifier la liste des personnages</h1>
 
                     </div>
-                    <Button color="theme-purple-light">
+                    <Button color="cta-primary">
                         <span className="btn-icon-wrap"><FiPlus /></span>
                         Ajouter
                     </Button>
@@ -66,7 +66,7 @@ const UserTableScreen = ({ props }) => {
                                             </div>
                                             <div className="user-grid-buttons">
                                                 <CharacterEditModal />
-                                                <Button color="theme-purple-light">
+                                                <Button color="cta-primary">
                                                     <span className="btn-icon-wrap"><IoIosTrash /></span>
                                                     Supprimer
                                                 </Button>

@@ -30,7 +30,7 @@ const Navigation = () => {
                         <Link to="#" className="btn btn-theme-white">Connexion</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="#" className="btn btn-theme-primary-light">S'enregistrer</Link>
+                        <Link to="#" className="btn btn-theme-secondary-alt">S'enregistrer</Link>
                     </NavItem>
                 </Nav>
             </Navbar>

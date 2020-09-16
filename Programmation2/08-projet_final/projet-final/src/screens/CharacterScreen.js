@@ -3,37 +3,40 @@ import styled from 'styled-components/macro'
 import BaseScreen from './BaseScreen'
 import { withRouter, Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import imgBg from '../assets/images/galaxy.jpg'
-import { FiEdit, FiTrash2, FiEye } from 'react-icons/fi';
+//import { API } from "../constantes";
+import { FiTrash2, FiEye } from 'react-icons/fi';
+import CharacterAddModal from '../components/modals/CharacterAddModal';
 
 const CharacterScreen = (props) => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        async function getData() {
-            const res = await fetch("https://rickandmortyapi.com/api/character/");
-            const data = await res.json();
-            setData(data);
-        }
-        getData();
-    }, []);
+    const [donneesRecues, setDonneesRecues] = useState([]);
 
-    const { results = [] } = data;
-    console.log("results", results);
+    useEffect(() => {
+        async function getPokemon() {
+            try {
+                const response = await fetch("http://localhost:3001/characters");
+                const reponseDeApi = await response.json();
+                setDonneesRecues(reponseDeApi);
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getPokemon();
+    }, []);
 
     return (
         <BaseScreen>
             <Wrapper>
                 <div className="page-header">
                     <h1 className="page-title page-title-alt">Personnages</h1>
-                    <Link to="user-table" className="btn btn-theme-purple-light">
-                        <span className="btn-icon-wrap"><FiEdit /></span>
-                        Ajouter
-                    </Link>
+                    <CharacterAddModal />
                 </div>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 character-row">
 
-                    {results.map(result => {
-                        const { id, name, image, status, origin } = result;
+                    {donneesRecues.map(donneesRecues => {
+                        const { id, name, image, status, origin } = donneesRecues;
                         return (
                             <div key={id} className="col character-col">
                                 <Card>
@@ -47,15 +50,21 @@ const CharacterScreen = (props) => {
                                         </div>
                                         <CardBody>
                                             <CardTitle>
-                                                <h5 className="mb-0">{name}</h5>
+                                                <h3 className="mb-0">{name}</h3>
                                             </CardTitle>
                                             <CardSubtitle>
                                                 <span className="character-page-field-title">Statut:</span> {status} <br />
-                                                <span className="character-page-field-title">Origine:</span> {origin.name}
+                                                <span className="character-page-field-title">Origine:</span> {origin}
                                             </CardSubtitle>
                                             <div className="button-container">
-                                                <Link to={'/character/' + id} className="btn btn-theme-primary"><FiEye /></Link>
-                                                <Button color="theme-secondary"><FiTrash2 /></Button>
+                                                <Link to={'/character/' + id} className="btn btn-cta-primary">
+                                                    <span className="btn-icon-wrap"><FiEye /></span>
+                                                    Voir plus
+                                                </Link>
+                                                <Button color="cta-secondary">
+                                                    <span className="btn-icon-wrap"><FiTrash2 /></span>
+                                                    Supprimer
+                                                </Button>
                                             </div>
                                         </CardBody>
 
@@ -104,25 +113,20 @@ const Wrapper = styled.div`
 }
 
 .card-inner {
-    display: flex;
-    height: 100%;
+
 }
 .card-background {
     position: relative;
     width: 100%;
-    max-width: 100px;
-    height: 100%;
-/*     background-image: url(${imgBg});
-    background-repeat: no-repeat;
-    background-size: cover; */
+    height: 75px;
 
     &:after {
         position: absolute;
         top: 0;
         left: 0;
         content: "";
-        background: #E1E0F2;
-        opacity: 0.5;
+        background: #EFEFF9;
+        opacity: 1;
         width: 100%;
         height: 100%;
     }
@@ -131,7 +135,7 @@ const Wrapper = styled.div`
 .card-image-wrapper {
     position: absolute;
     top: 20px;
-    right: -50px;
+    left: 20px;
     width: 100px;
     z-index: 3;
 
@@ -144,7 +148,7 @@ const Wrapper = styled.div`
 .card-body {
     display: flex;
     flex-direction: column;
-    padding: 140px 1.25rem 1.25rem;
+    padding: 70px 1.25rem 1.25rem;
 }
 
 .card-subtitle {

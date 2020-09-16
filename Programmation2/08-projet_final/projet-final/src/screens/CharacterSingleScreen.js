@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro'
 import BaseScreen from './BaseScreen'
-import { withRouter, useHistory, useParams } from 'react-router-dom'
-import { Row, Col, Button } from 'reactstrap';
+import { withRouter, useParams, Link } from 'react-router-dom'
+import { Row, Col } from 'reactstrap';
 import CharacterEditModal from '../components/modals/CharacterEditModal';
+import { FiArrowLeftCircle } from "react-icons/fi";
 
 const CharacterSingleScreen = () => {
-    const [results, setResults] = useState({})
-
-    const id = useParams().id;
+    const [donneesRecues, setDonneesRecues] = useState({});
+    const characterId = useParams().id;
 
     useEffect(() => {
-        async function getData() {
-            let url = 'https://rickandmortyapi.com/api/character/'
-            const res = await fetch(url + id);
-            const data = await res.json();
-            setResults(data);
+        async function getPokemonInfos() {
+            try {
+                let url = 'http://localhost:3001/characters/'
+                const response = await fetch(url + characterId);
+                const reponseDeApi = await response.json();
+                setDonneesRecues(reponseDeApi);
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
-        getData();
-    }, [id]);
-
-    const history = useHistory();
-    console.log("id : ", id)
-    console.log("name : ", results.name)
+        getPokemonInfos();
+    }, [characterId]);
+    console.log("donneesRecues : " + donneesRecues);
 
     return (
         <BaseScreen>
@@ -31,28 +35,28 @@ const CharacterSingleScreen = () => {
                     <Col sm="6">
                         <div className="character-single-image-wrapper">
                             <div className="image-ratio-1">
-                                <div className="img-wrapper" style={{ backgroundImage: `url(${results.image})` }}></div>
+                                <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
                             </div>
                         </div>
                     </Col>
                     <Col sm="6">
-                        <h2>{results.name} {results.id}</h2>
+                        <h2>{donneesRecues.name} {donneesRecues.id}</h2>
                         <span className="character-page-field-title">Statut</span>
-                        <p>{results.status}</p>
-                        <span className="character-page-field-title">Espèce</span>
-                        <p>{results.species}</p>
-                        <span className="character-page-field-title">Type</span>
-                        <p>{results.type}</p>
+                        <p>{donneesRecues.status}</p>
                         <span className="character-page-field-title">Genre</span>
-                        <p>{results.gender}</p>
+                        <p>{donneesRecues.gender}</p>
+                        <span className="character-page-field-title">Espèce</span>
+                        <p>{donneesRecues.species}</p>
+                        <span className="character-page-field-title">Type</span>
+                        <p>{donneesRecues.type ? donneesRecues.type = "" : "--"}</p>
                         <span className="character-page-field-title">Planète d'origine</span>
-                        <p>{results.location && results.location.name}</p>
+                        <p>{donneesRecues.location}</p>
                         <span className="character-page-field-title">Emplacement</span>
-                        <p>{results.origin && results.origin.name}</p>
+                        <p>{donneesRecues.origin}</p>
                     </Col>
                 </Row>
-                <div>
-                    <Button onClick={() => history.goBack()} className="btn btn-theme-primary">Retour</Button>
+                <div className="button-container">
+                    <Link to="/character" className="btn btn-theme-primary"><span className="icon"><FiArrowLeftCircle /></span>Retour</Link>
                     <CharacterEditModal />
                 </div>
             </Wrapper>
@@ -75,6 +79,13 @@ box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.button-container {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background: 
 }
 
 `
