@@ -3,41 +3,41 @@
     {
       "name": "Rick Sanchez",
       "status": "Vivant(e)",
-      "gender": "Homme",
+      "gender": "Masculin",
       "species": "Humain",
-      "type": "--",
+      "type": "Type",
       "origin": "Planète Terre (C-137)",
       "location": "Planète Terre (Dimension de remplacement)",
       "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
       "id": 1
     },
     {
+      "id": 2,
       "name": "Morty Smith",
       "status": "Vivant(e)",
-      "gender": "Homme",
+      "gender": "Masculin",
       "species": "Humain",
       "type": "",
       "origin": "Planète Terre (C-137)",
       "location": "Planète Terre (Dimension de remplacement)",
-      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-      "id": 2
+      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
     },
     {
-      "id": 3,
       "name": "Summer Smith",
       "status": "Vivant(e)",
-      "gender": "Femme",
+      "gender": "Féminin",
       "species": "Humain",
-      "type": "",
+      "type": "reioureiorueior",
       "origin": "Planète Terre (Dimension de remplacement)",
       "location": "Planète Terre (Dimension de remplacement)",
-      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+      "id": 3
     },
     {
       "id": 4,
       "name": "Beth Smith",
       "status": "Vivant(e)",
-      "gender": "Femme",
+      "gender": "Féminin",
       "species": "Humain",
       "type": "",
       "origin": "Planète Terre (Dimension de remplacement)",
@@ -48,12 +48,56 @@
       "id": 5,
       "name": "Jerry Smith",
       "status": "Vivant(e)",
-      "gender": "Homme",
+      "gender": "Masculin",
       "species": "Humain",
       "type": "",
       "origin": "Planète Terre (Dimension de remplacement)",
       "location": "Planète Terre (Dimension de remplacement)",
       "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+    },
+    {
+      "name": "Squanchy",
+      "status": "",
+      "gender": "",
+      "species": "",
+      "type": "",
+      "origin": "",
+      "location": "",
+      "image": "https://i.pinimg.com/originals/0d/a9/36/0da936165e05585c4f95c641799db250.jpg",
+      "id": 6
+    },
+    {
+      "name": "Some weirdo",
+      "status": "",
+      "gender": "",
+      "species": "",
+      "type": "",
+      "origin": "",
+      "location": "",
+      "image": "https://rickandmortyapi.com/api/character/avatar/23.jpeg",
+      "id": 7
+    },
+    {
+      "name": "some douche",
+      "status": "",
+      "gender": "",
+      "species": "",
+      "type": "",
+      "origin": "",
+      "location": "",
+      "image": "https://rickandmortyapi.com/api/character/avatar/625.jpeg",
+      "id": 8
+    },
+    {
+      "name": "rick again",
+      "status": "",
+      "gender": "",
+      "species": "",
+      "type": "",
+      "origin": "",
+      "location": "",
+      "image": "https://rickandmortyapi.com/api/character/avatar/187.jpeg",
+      "id": 9
     }
   ]
 }

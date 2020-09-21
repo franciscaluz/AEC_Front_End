@@ -2,29 +2,36 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro'
 import BaseScreen from './BaseScreen'
 import { withRouter, Link } from 'react-router-dom';
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 //import { API } from "../constantes";
-import { FiTrash2, FiEye } from 'react-icons/fi';
+import cardBg from '../assets/images/character-bg.svg'
 import CharacterAddModal from '../components/modals/CharacterAddModal';
 
-const CharacterScreen = (props) => {
+const CharacterScreen = () => {
     const [donneesRecues, setDonneesRecues] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    async function getCharacter() {
+        setIsLoading(true)
+        try {
+            const response = await fetch("http://localhost:3001/characters");
+            const reponseDeApi = await response.json();
+            setDonneesRecues(reponseDeApi);
+            setIsLoading(false);
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+        } catch (error) {
+            console.log(error);
+            setIsLoading(false);
+        }
+    }
 
     useEffect(() => {
-        async function getPokemon() {
-            try {
-                const response = await fetch("http://localhost:3001/characters");
-                const reponseDeApi = await response.json();
-                setDonneesRecues(reponseDeApi);
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getPokemon();
+        getCharacter();
+        return () => { }
     }, []);
+
 
     return (
         <BaseScreen>
@@ -33,43 +40,36 @@ const CharacterScreen = (props) => {
                     <h1 className="page-title page-title-alt">Personnages</h1>
                     <CharacterAddModal />
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-xl-3 character-row">
-
-                    {donneesRecues.map(donneesRecues => {
+                <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 character-row">
+                    {!isLoading && donneesRecues.map(donneesRecues => {
                         const { id, name, image, status, origin } = donneesRecues;
                         return (
                             <div key={id} className="col character-col">
-                                <Card>
-                                    <div className="card-inner">
-                                        <div className="card-background">
-                                            <div className="card-image-wrapper">
-                                                <div className="image-ratio-1">
-                                                    <div className="img-wrapper" style={{ backgroundImage: `url(${image})` }}></div>
+                                <Link to={'/character/' + id}>
+                                    <Card>
+                                        <div className="card-inner">
+                                            <div className="card-background">
+                                                <div className="card-image-wrapper">
+                                                    <div className="image-ratio-1">
+                                                        <div className="img-wrapper" style={{ backgroundImage: `url(${image})` }}></div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-character-id">
+                                                    <h4>{id}</h4>
                                                 </div>
                                             </div>
+                                            <CardBody>
+                                                <CardTitle>
+                                                    <h3 className="mb-0">{name}</h3>
+                                                </CardTitle>
+                                                <CardSubtitle>
+                                                    <span className="character-page-field-title">Statut:</span> {status} <br />
+                                                    <span className="character-page-field-title">Origine:</span> {origin}
+                                                </CardSubtitle>
+                                            </CardBody>
                                         </div>
-                                        <CardBody>
-                                            <CardTitle>
-                                                <h3 className="mb-0">{name}</h3>
-                                            </CardTitle>
-                                            <CardSubtitle>
-                                                <span className="character-page-field-title">Statut:</span> {status} <br />
-                                                <span className="character-page-field-title">Origine:</span> {origin}
-                                            </CardSubtitle>
-                                            <div className="button-container">
-                                                <Link to={'/character/' + id} className="btn btn-cta-primary">
-                                                    <span className="btn-icon-wrap"><FiEye /></span>
-                                                    Voir plus
-                                                </Link>
-                                                <Button color="cta-secondary">
-                                                    <span className="btn-icon-wrap"><FiTrash2 /></span>
-                                                    Supprimer
-                                                </Button>
-                                            </div>
-                                        </CardBody>
-
-                                    </div>
-                                </Card>
+                                    </Card>
+                                </Link>
                             </div>
                         )
                     })}
@@ -87,48 +87,59 @@ const Wrapper = styled.div`
 
 .character-col {
     margin-bottom: 30px;
-}
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    height: 100%;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
-    transform: scale(1);
-    transition: all .2s ease;
-    cursor: pointer;
+    a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: #9a9a9a;
+        border-radius: 10px;
+        box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
+        transform: scale(1);
+        transition: all .3s ease;
 
-    &:hover {
-        transform: scale(1.05);
-        box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+        &:hover {
+            text-decoration: none;
+            transform: scale(1.05);
+            box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+        }
     }
 }
 
-.card-inner {
-
+.card {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-image: url(${cardBg});
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
 }
+
 .card-background {
     position: relative;
     width: 100%;
-    height: 75px;
+    height: 91px;
+}
 
-    &:after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "";
-        background: #EFEFF9;
-        opacity: 1;
-        width: 100%;
-        height: 100%;
+.card-character-id {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 29px;
+    min-width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #604CA5;
+    border-radius: 10px;
+
+    h4 {
+        margin-bottom: 0;
+        color: #fff;
     }
 }
 
@@ -148,7 +159,7 @@ const Wrapper = styled.div`
 .card-body {
     display: flex;
     flex-direction: column;
-    padding: 70px 1.25rem 1.25rem;
+    padding: 50px 1.25rem 1.25rem;
 }
 
 .card-subtitle {
@@ -159,6 +170,12 @@ const Wrapper = styled.div`
 .button-container {
     .btn:first-of-type {
         margin-right: 10px;
+    }
+}
+
+@media(max-width: 767.98px) {
+    .page-header {
+        flex: direction: column;
     }
 }
 

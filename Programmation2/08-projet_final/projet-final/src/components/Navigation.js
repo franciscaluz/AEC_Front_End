@@ -19,8 +19,8 @@ const Navigation = () => {
                             <Link to="/character" className="dropdown-item">
                                 Personnages
                                 </Link>
-                            <DropdownItem>Planètes</DropdownItem>
-                            <DropdownItem>Episodes</DropdownItem>
+                            <DropdownItem disabled>Planètes</DropdownItem>
+                            <DropdownItem disabled>Episodes</DropdownItem>
                         </DropdownMenu>
                     </UncontrolledDropdown>
 
@@ -63,6 +63,10 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: end;
     flex: 0 1 30%;
+
+    .btn {
+        pointer-events: none;
+    }
 }
 
 .nav-link {

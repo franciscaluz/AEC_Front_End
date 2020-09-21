@@ -1,38 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom'
+import React, { useState } from "react";
+import { useParams, withRouter } from 'react-router-dom'
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
-import { FiEdit, FiXCircle } from 'react-icons/fi';
+import { FiEdit, FiX } from 'react-icons/fi';
+//import Default from "../../assets/images/default-empty.jpeg"
 //import { API } from "../../constantes";
 import { toast } from "react-toastify"
 
 const CharacterEditModal = (props) => {
-    const { className } = props;
+    const { donneesRecues, getCharacterInfos } = props;
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-    const closeBtn = <button className="close" onClick={toggle}><FiXCircle /></button>;
-
-    const [donneesRecues, setDonneesRecues] = useState({ id: "", name: '', status: "", gender: "", species: "", type: "", origin: "", location: "", image: "" });
+    const closeBtn = <button className="close" onClick={toggle}><FiX /></button>;
     const characterId = useParams().id;
-    //const [photos, setPhotos] = useState("");
+    const [photos, setPhotos] = useState("");
 
-    useEffect(() => {
-        async function getPokemonInfos() {
-            try {
-                let url = 'http://localhost:3001/characters/'
-                const response = await fetch(url + characterId);
-                const reponseDeApi = await response.json();
-                setDonneesRecues(reponseDeApi);
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getPokemonInfos();
-    }, [characterId]);
-
-    async function editPokemon(nom, statut, genre, espece, type, origine, emplacement, photo, id) {
+    async function editCharacter(nom, statut, genre, espece, type_espece, origine, emplacement, photo, id) {
         try {
             let url = 'http://localhost:3001/characters/'
             const response = await fetch(url + characterId, {
@@ -44,16 +26,16 @@ const CharacterEditModal = (props) => {
                     status: statut,
                     gender: genre,
                     species: espece,
-                    type: type,
+                    type: type_espece,
                     origin: origine,
                     location: emplacement,
                     image: photo,
                 })
             });
             if (response.ok) {
-                props.history.push("/");
+                props.history.push(`/character/${characterId}`);
                 toast.success("Modification du personnage " + nom);
-
+                getCharacterInfos()
                 return response;
             }
             throw new Error('Request failed!');
@@ -70,18 +52,19 @@ const CharacterEditModal = (props) => {
         const statut = document.getElementById('statut_personnage').value;
         const genre = document.getElementById('genre_personnage').value;
         const espece = document.getElementById('espece_personnage').value;
-        const type = document.getElementById('type_personnage').value;
+        const type_espece = document.getElementById('type_personnage').value;
         const origine = document.getElementById('origine_personnage').value;
         const emplacement = document.getElementById('emplacement_personnage').value;
         const photo = document.getElementById('photo_personnage').value;
 
-        editPokemon(nom, statut, genre, espece, type, origine, emplacement, photo);
+        editCharacter(nom, statut, genre, espece, type_espece, origine, emplacement, photo);
+        toggle()
     }
 
-    /*     function handlePhoto(event) {
-            const photos = document.getElementById('photo_personnage').value;
-            setPhotos(photos);
-        } */
+    function handlePhoto(event) {
+        const photos = document.getElementById('photo_personnage').value;
+        setPhotos(photos);
+    }
 
     return (
         <>
@@ -89,16 +72,28 @@ const CharacterEditModal = (props) => {
                 <span className="btn-icon-wrap"><FiEdit /></span>
                 Modifier
             </Button>
-            <Modal isOpen={modal} toggle={toggle} className={className}>
+            <Modal isOpen={modal} toggle={toggle} className="custom-modal-form" size="lg">
                 <Form>
                     <ModalHeader toggle={toggle} close={closeBtn}>Modifier le personnage</ModalHeader>
                     <ModalBody>
                         <Row form>
                             <Col md={12}>
-                                <FormGroup>
-                                    <Label for="photo_personnage">Photo</Label>
-                                    <Input type="url" id="photo_personnage" name="photo_personnage" defaultValue={donneesRecues.image} placeholder="Entrez une URL valide" />
-                                </FormGroup>
+                                <div className="modal-form-photo-wrapper">
+                                    <div className="modal-character-image-wrapper">
+                                        <div className="image-ratio-1">
+                                            {photos ?
+                                                <div className="img-wrapper" style={{ backgroundImage: `url(${photos})` }}></div>
+                                                : donneesRecues.image !== "" && <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
+                                            }
+                                        </div>
+                                    </div>
+                                    {/*                                     {photos ? <img src={photos} alt="" className="img-fluid" /> : donneesRecues.image !== "" && <img src={donneesRecues.image} alt="" className="img-fluid" />} */}
+
+                                    <FormGroup className="w-100">
+                                        <Label for="photo_personnage">Photo</Label>
+                                        <Input type="url" id="photo_personnage" name="photo_personnage" defaultValue={donneesRecues.image} onBlur={handlePhoto} placeholder="Entrez une URL valide" />
+                                    </FormGroup>
+                                </div>
                             </Col>
                             <Col md={12}>
                                 <FormGroup>
@@ -154,4 +149,4 @@ const CharacterEditModal = (props) => {
     );
 }
 
-export default CharacterEditModal;
+export default withRouter(CharacterEditModal);

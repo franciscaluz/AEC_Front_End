@@ -17,8 +17,7 @@ const HomepageScreen = () => {
                                 <h1 className="display-4">Le grand Wiki de la série Rick & Morty</h1>
                                 <p>Retrouvez toute la documentation de la série partagée gratuitement par nos utilisateurs et contribuez vous-même à l'enrichir en publiant ou modifiant de nouvelles informations!</p>
                                 <div className="button-container">
-                                    <Link to="/character" className="btn btn-theme-primary-alt">Voir les personnages</Link>
-                                    <Link to="#" className="btn btn-theme-secondary-alt">Voir les planètes</Link>
+                                    <Link to="/character" className="btn btn-theme-primary-alt">Voir les informations</Link>
                                 </div>
                             </div>
                         </div>
