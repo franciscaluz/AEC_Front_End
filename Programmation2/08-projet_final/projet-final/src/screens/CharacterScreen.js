@@ -9,39 +9,33 @@ import CharacterAddModal from '../components/modals/CharacterAddModal';
 
 const CharacterScreen = () => {
     const [donneesRecues, setDonneesRecues] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        getCharacter();
+    }, []);
 
     async function getCharacter() {
-        setIsLoading(true)
         try {
             const response = await fetch("http://localhost:3001/characters");
             const reponseDeApi = await response.json();
             setDonneesRecues(reponseDeApi);
-            setIsLoading(false);
             if (!response.ok) {
                 throw Error(response.statusText);
             }
         } catch (error) {
             console.log(error);
-            setIsLoading(false);
         }
     }
-
-    useEffect(() => {
-        getCharacter();
-        return () => { }
-    }, []);
-
 
     return (
         <BaseScreen>
             <Wrapper>
                 <div className="page-header">
                     <h1 className="page-title page-title-alt">Personnages</h1>
-                    <CharacterAddModal />
+                    <CharacterAddModal getCharacter={getCharacter} />
                 </div>
                 <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 character-row">
-                    {!isLoading && donneesRecues.map(donneesRecues => {
+                    {donneesRecues.map(donneesRecues => {
                         const { id, name, image, status, origin } = donneesRecues;
                         return (
                             <div key={id} className="col character-col">

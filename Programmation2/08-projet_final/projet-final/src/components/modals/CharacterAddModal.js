@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 import { FiPlus, FiX } from 'react-icons/fi'
 //import { API } from "../../constantes";
 import { toast } from "react-toastify"
 import Default from "../../assets/images/default-empty.jpeg"
+import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 const CharacterAddModal = (props) => {
     const { getCharacter } = props;
     const [modal, setModal] = useState(false);
+    const [state, setState] = useState({})
     const toggle = () => setModal(!modal);
     const closeBtn = <button className="close" onClick={toggle}><FiX /></button>;
     const [photos, setPhotos] = useState("");
@@ -38,7 +40,8 @@ const CharacterAddModal = (props) => {
             if (response.ok) {
                 history.push("/character");
                 toast.success("Ajout du personnage " + nom);
-                getCharacter()
+                console.log("response", response)
+                getCharacter();
                 return response;
             }
             throw new Error('Request failed!');
@@ -48,9 +51,13 @@ const CharacterAddModal = (props) => {
         }
     }
 
-    function handleAdd(event) {
-        event.preventDefault();
+    function handlePhoto(event) {
+        const photos = document.getElementById('photo_personnage').value;
+        setPhotos(photos);
+    }
 
+    function handleValidSubmit(event, values) {
+        event.preventDefault();
         const nom = document.getElementById('nom_personnage').value;
         const statut = document.getElementById('statut_personnage').value;
         const genre = document.getElementById('genre_personnage').value;
@@ -64,10 +71,13 @@ const CharacterAddModal = (props) => {
         toggle();
     }
 
-    function handlePhoto(event) {
-        const photos = document.getElementById('photo_personnage').value;
-        setPhotos(photos);
+    function handleInvalidSubmit(event, errors, values) {
+        setState({
+            nom_personnage: values.nom_personnage,
+            error: true
+        });
     }
+
 
     return (
         <div className="modal-add-wrapper">
@@ -77,7 +87,7 @@ const CharacterAddModal = (props) => {
             </Button>
             <Modal isOpen={modal} toggle={toggle} className="custom-modal-form" size="lg">
                 <ModalWrapper>
-                    <Form>
+                    <AvForm onValidSubmit={handleValidSubmit} onInvalidSubmit={handleInvalidSubmit}>
                         <ModalHeader toggle={toggle} close={closeBtn}>Ajouter un personnage</ModalHeader>
                         <ModalBody>
                             <Row form>
@@ -101,7 +111,7 @@ const CharacterAddModal = (props) => {
                                 <Col md={12}>
                                     <FormGroup>
                                         <Label for="nom_personnage">Nom complet<span className="form-required">*</span></Label>
-                                        <Input type="text" name="nom_personnage" id="nom_personnage" placeholder="Entrez le prénom et le nom" required />
+                                        <AvField type="text" name="nom_personnage" id="nom_personnage" placeholder="Entrez le prénom et le nom" required />
                                         <FormFeedback>Ce champ est requis</FormFeedback>
                                     </FormGroup>
                                 </Col>
@@ -145,9 +155,9 @@ const CharacterAddModal = (props) => {
                         </ModalBody>
                         <ModalFooter>
                             <Button color="theme-secondary" onClick={toggle}>Annuler</Button>
-                            <Button color="theme-primary" type="submit" onClick={handleAdd}>Ajouter</Button>
+                            <Button color="theme-primary" type="submit">Ajouter</Button>
                         </ModalFooter>
-                    </Form>
+                    </AvForm>
                 </ModalWrapper>
             </Modal>
         </div>

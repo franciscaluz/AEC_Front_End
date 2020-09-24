@@ -12,6 +12,7 @@ const CharacterSingleScreen = () => {
     const [donneesRecues, setDonneesRecues] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const characterId = useParams().id;
+    /* const {id: characterId} = useParams() */
 
     async function getCharacterInfos() {
         setIsLoading(true)

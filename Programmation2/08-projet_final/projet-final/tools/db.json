@@ -1,15 +1,15 @@
 {
   "characters": [
     {
+      "id": 1,
       "name": "Rick Sanchez",
       "status": "Vivant(e)",
       "gender": "Masculin",
       "species": "Humain",
-      "type": "Type",
+      "type": "",
       "origin": "Planète Terre (C-137)",
       "location": "Planète Terre (Dimension de remplacement)",
-      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-      "id": 1
+      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
     },
     {
       "id": 2,
@@ -23,15 +23,15 @@
       "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
     },
     {
+      "id": 3,
       "name": "Summer Smith",
       "status": "Vivant(e)",
       "gender": "Féminin",
       "species": "Humain",
-      "type": "reioureiorueior",
+      "type": "",
       "origin": "Planète Terre (Dimension de remplacement)",
       "location": "Planète Terre (Dimension de remplacement)",
-      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-      "id": 3
+      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
     },
     {
       "id": 4,
@@ -56,48 +56,59 @@
       "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
     },
     {
-      "name": "Squanchy",
+      "name": "",
       "status": "",
       "gender": "",
       "species": "",
       "type": "",
       "origin": "",
       "location": "",
-      "image": "https://i.pinimg.com/originals/0d/a9/36/0da936165e05585c4f95c641799db250.jpg",
+      "image": "",
       "id": 6
     },
     {
-      "name": "Some weirdo",
+      "name": "qqqq",
       "status": "",
       "gender": "",
       "species": "",
       "type": "",
       "origin": "",
       "location": "",
-      "image": "https://rickandmortyapi.com/api/character/avatar/23.jpeg",
+      "image": "",
       "id": 7
     },
     {
-      "name": "some douche",
+      "name": "am da bess",
       "status": "",
       "gender": "",
       "species": "",
       "type": "",
       "origin": "",
       "location": "",
-      "image": "https://rickandmortyapi.com/api/character/avatar/625.jpeg",
+      "image": "",
       "id": 8
     },
     {
-      "name": "rick again",
-      "status": "",
-      "gender": "",
-      "species": "",
-      "type": "",
-      "origin": "",
-      "location": "",
-      "image": "https://rickandmortyapi.com/api/character/avatar/187.jpeg",
+      "name": "a",
+      "status": "c",
+      "gender": "b",
+      "species": "d",
+      "type": "e",
+      "origin": "f",
+      "location": "g",
+      "image": "",
       "id": 9
+    },
+    {
+      "name": "fuck",
+      "status": "ficl",
+      "gender": "ficl",
+      "species": "fc",
+      "type": "fuck",
+      "origin": "fuck",
+      "location": "fuck",
+      "image": "",
+      "id": 10
     }
   ]
 }
