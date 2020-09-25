@@ -13,4 +13,11 @@ const Footer = () => {
 }
 
 export default Footer;
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+@media(max-width:767.98px){
+    p{
+        font-size: 12px;
+    }
+}
+
+`
