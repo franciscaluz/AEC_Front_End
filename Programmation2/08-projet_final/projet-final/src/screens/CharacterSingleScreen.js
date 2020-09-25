@@ -121,28 +121,12 @@ box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
     align-items: center;
 
     .btn:first-of-type {
-        margin-right: 15px;
+        margin-left: 10px;
     }
 }
 
-@media (max-width: 767.98px) {
-    .button-container {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-
-        .btn {
-            width: 100%;
-        }
-    }
-
-    .button-container-cta-wrapper {
-        .btn {
-            &:first-of-type {
-                margin-right:0;
-                margin-bottom: 10px;
-            }
-        }
-    }
+@media(max-width: 767.98px) {
+    padding: 15px;
 }
 
 `

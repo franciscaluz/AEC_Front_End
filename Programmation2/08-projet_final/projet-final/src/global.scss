@@ -44,16 +44,24 @@ h1, h2, h3, h4, h5, h6,
     padding: 60px 0;
     height: auto !important;
     min-height: calc(100vh - 100px);
+
+    @media(max-width: 991.98px) {
+        padding: 30px 0px;
+    }
 }
 
 .page-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 60px;
 
     .page-title {
         margin-bottom: 0 !important;
+    }
+
+    @media(max-width: 767.98px){
+        margin-bottom: 30px;
     }
 }
 
@@ -177,6 +185,23 @@ button:focus {
     .btn-icon-wrap {
         background: $theme-extra-light-purple;
     }
+
+    &:hover {
+        color: $theme-purple;
+    }
+
+    @media(max-width: 767.98px){
+        padding: 0;
+
+        .desktop-text {
+            display: none;
+        }
+
+        .btn-icon-wrap {
+            background: $theme-light-purple;
+            margin-right: 0;
+        }
+    }
 }
 
 .btn-cta-secondary {
@@ -188,6 +213,23 @@ button:focus {
 
     .btn-icon-wrap {
         background: $theme-light-pink;
+    }
+
+    &:hover {
+        color: $theme-purple;
+    }
+
+    @media(max-width: 767.98px){
+        padding: 0;
+
+        .desktop-text {
+            display: none;
+        }
+
+        .btn-icon-wrap {
+            background: $theme-extra-light-purple-alt;
+            margin-right: 0;
+        }
     }
 }
 
@@ -350,9 +392,18 @@ button:focus {
 
     .modal-footer {
         border-top: none;
+        padding: 1rem 30px;
     }
 
     @media(max-width: 767.98px) {
+        .modal-header{
+            justify-content: flex-start;
+        }
+
+        .modal-body {
+            padding: 1rem 15px;
+        }
+
         .modal-form-photo-wrapper {
             flex-direction: column;
             align-items: flex-start;
@@ -370,6 +421,7 @@ button:focus {
             }
         }
         .modal-footer {
+            padding: 1rem 15px;
             flex-direction: column-reverse;
             .btn {
                 width: 100%;

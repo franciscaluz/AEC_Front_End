@@ -59,5 +59,25 @@ const Wrapper = styled.div`
         margin-right: 15px;
     }
 }
+@media(max-width: 991.98px) {
+    .homepage-text-wrapper {
+        h1 {
+            font-size: 36px;
+        }
+    }
+}
+
+@media(max-width: 767.98px) {
+    .homepage-text-wrapper {
+        padding-bottom: 60px;
+
+        h1 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+}
 
 `

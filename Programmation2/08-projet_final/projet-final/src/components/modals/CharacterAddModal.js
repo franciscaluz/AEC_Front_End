@@ -81,7 +81,7 @@ const CharacterAddModal = (props) => {
         <div className="modal-add-wrapper">
             <Button color="cta-primary" onClick={toggle}>
                 <span className="btn-icon-wrap"><FiPlus /></span>
-                Ajouter
+                <span className="desktop-text">Ajouter</span>
             </Button>
             <Modal isOpen={modal} toggle={toggle} className="custom-modal-form" size="lg">
                 <ModalWrapper>

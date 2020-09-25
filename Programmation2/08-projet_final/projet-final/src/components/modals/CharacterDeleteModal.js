@@ -35,7 +35,7 @@ const CharacterDeleteModal = (props) => {
         <div className="modal-delete-wrapper">
             <Button color="cta-secondary" onClick={toggle}>
                 <span className="btn-icon-wrap"><FiTrash2 /></span>
-                Supprimer
+                <span className="desktop-text">Supprimer</span>
             </Button>
             <Modal isOpen={modal} toggle={toggle} className="custom-modal-form">
                 <ModalWrapper>
@@ -63,9 +63,25 @@ const ModalWrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 0 5%;
+
     img {
         max-width: 125px;
         margin-right: 30px;   
+    }
+
+    @media(max-width:575.98px) {
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        img{
+            margin-right:0;
+            margin-bottom: 15px;
+        }
     }
 }
 

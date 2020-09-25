@@ -69,7 +69,7 @@ const CharacterEditModal = (props) => {
         <>
             <Button color="cta-primary" onClick={toggle}>
                 <span className="btn-icon-wrap"><FiEdit /></span>
-                Modifier
+                <span className="desktop-text">Modifier</span>
             </Button>
             <Modal isOpen={modal} toggle={toggle} className="custom-modal-form" size="lg">
                 <Form>
