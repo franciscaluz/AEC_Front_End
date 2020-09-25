@@ -6,6 +6,7 @@ import { Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 //import { API } from "../constantes";
 import cardBg from '../assets/images/character-bg.svg'
 import CharacterAddModal from '../components/modals/CharacterAddModal';
+import Default from "../assets/images/default-empty.jpeg"
 
 const CharacterScreen = () => {
     const [donneesRecues, setDonneesRecues] = useState([]);
@@ -45,7 +46,10 @@ const CharacterScreen = () => {
                                             <div className="card-background">
                                                 <div className="card-image-wrapper">
                                                     <div className="image-ratio-1">
-                                                        <div className="img-wrapper" style={{ backgroundImage: `url(${image})` }}></div>
+                                                        {image === '' ?
+                                                            <div className="img-wrapper" style={{ backgroundImage: `url(${Default})` }}></div>
+                                                            : <div className="img-wrapper" style={{ backgroundImage: `url(${image})` }}></div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div className="card-character-id">

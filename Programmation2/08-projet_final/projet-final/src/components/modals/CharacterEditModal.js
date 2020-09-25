@@ -87,7 +87,6 @@ const CharacterEditModal = (props) => {
                                             }
                                         </div>
                                     </div>
-                                    {/*                                     {photos ? <img src={photos} alt="" className="img-fluid" /> : donneesRecues.image !== "" && <img src={donneesRecues.image} alt="" className="img-fluid" />} */}
 
                                     <FormGroup className="w-100">
                                         <Label for="photo_personnage">Photo</Label>

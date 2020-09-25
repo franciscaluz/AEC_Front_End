@@ -54,61 +54,6 @@
       "origin": "Planète Terre (Dimension de remplacement)",
       "location": "Planète Terre (Dimension de remplacement)",
       "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg"
-    },
-    {
-      "name": "",
-      "status": "",
-      "gender": "",
-      "species": "",
-      "type": "",
-      "origin": "",
-      "location": "",
-      "image": "",
-      "id": 6
-    },
-    {
-      "name": "qqqq",
-      "status": "",
-      "gender": "",
-      "species": "",
-      "type": "",
-      "origin": "",
-      "location": "",
-      "image": "",
-      "id": 7
-    },
-    {
-      "name": "am da bess",
-      "status": "",
-      "gender": "",
-      "species": "",
-      "type": "",
-      "origin": "",
-      "location": "",
-      "image": "",
-      "id": 8
-    },
-    {
-      "name": "a",
-      "status": "c",
-      "gender": "b",
-      "species": "d",
-      "type": "e",
-      "origin": "f",
-      "location": "g",
-      "image": "",
-      "id": 9
-    },
-    {
-      "name": "fuck",
-      "status": "ficl",
-      "gender": "ficl",
-      "species": "fc",
-      "type": "fuck",
-      "origin": "fuck",
-      "location": "fuck",
-      "image": "",
-      "id": 10
     }
   ]
 }

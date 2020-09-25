@@ -7,6 +7,7 @@ import CharacterEditModal from '../components/modals/CharacterEditModal';
 import { FiArrowLeftCircle } from "react-icons/fi";
 import singleCharacterBg from '../assets/images/character-single-bg.svg'
 import CharacterDeleteModal from '../components/modals/CharacterDeleteModal';
+import Default from "../assets/images/default-empty.jpeg"
 
 const CharacterSingleScreen = () => {
     const [donneesRecues, setDonneesRecues] = useState({});
@@ -46,7 +47,10 @@ const CharacterSingleScreen = () => {
                         <Col md="6">
                             <div className="character-single-image-wrapper">
                                 <div className="image-ratio-1">
-                                    <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
+                                    {donneesRecues.image === "" ?
+                                        <div className="img-wrapper" style={{ backgroundImage: `url(${Default})` }}></div>
+                                        : <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
+                                    }
                                 </div>
                             </div>
                         </Col>

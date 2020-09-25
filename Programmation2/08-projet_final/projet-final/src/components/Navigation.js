@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
+import NavigationModal from './modals/NavigationModal'
 import { Navbar, NavbarBrand, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 const Navigation = () => {
@@ -10,10 +11,10 @@ const Navigation = () => {
                 <NavbarBrand href="/">
                     Wik<span> & </span>Morty
                 </NavbarBrand>
-                <Nav className="navbar-center" navbar>
+                <Nav className="navbar-center d-none d-lg-flex" navbar>
                     <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret>
-                            Menu
+                            Informations
                             </DropdownToggle>
                         <DropdownMenu right>
                             <Link to="/character" className="dropdown-item">
@@ -23,9 +24,8 @@ const Navigation = () => {
                             <DropdownItem disabled>Episodes</DropdownItem>
                         </DropdownMenu>
                     </UncontrolledDropdown>
-
                 </Nav>
-                <Nav className="navbar-right" navbar>
+                <Nav className="navbar-right d-none d-lg-flex" navbar>
                     <NavItem>
                         <Link to="#" className="btn btn-theme-white">Connexion</Link>
                     </NavItem>
@@ -33,6 +33,9 @@ const Navigation = () => {
                         <Link to="#" className="btn btn-theme-secondary-alt">S'enregistrer</Link>
                     </NavItem>
                 </Nav>
+                <div className="navigation-mobile-modal-wrapper d-lg-none">
+                    <NavigationModal />
+                </div>
             </Navbar>
         </Wrapper>
     );
@@ -40,6 +43,12 @@ const Navigation = () => {
 
 export default Navigation;
 const Wrapper = styled.div`
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .navbar-brand {
     font-size: 22px;
     text-transform: uppercase;
@@ -61,7 +70,7 @@ const Wrapper = styled.div`
 
 .navbar-right {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     flex: 0 1 30%;
 
     .btn {

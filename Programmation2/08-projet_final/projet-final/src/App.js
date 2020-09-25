@@ -4,7 +4,6 @@ import HomepageScreen from './screens/HomepageScreen'
 import PageNotFound from './screens/PageNotFound'
 import CharacterScreen from './screens/CharacterScreen';
 import CharacterSingleScreen from './screens/CharacterSingleScreen';
-import UserTableScreen from './screens/UserTableScreen';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,8 +14,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={HomepageScreen} />
         <Route path="/character" exact component={CharacterScreen} />
-        <Route path="/character/:id"><CharacterSingleScreen /></Route>
-        <Route path="/user-table" component={UserTableScreen} />
+        <Route path="/character/:id" component={CharacterSingleScreen} />
         <Route component={PageNotFound} />
       </Switch>
     </>

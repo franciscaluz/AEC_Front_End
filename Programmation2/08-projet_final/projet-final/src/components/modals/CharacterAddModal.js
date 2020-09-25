@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { FiPlus, FiX } from 'react-icons/fi'
 //import { API } from "../../constantes";
 import { toast } from "react-toastify"
@@ -74,10 +74,9 @@ const CharacterAddModal = (props) => {
     function handleInvalidSubmit(event, errors, values) {
         setState({
             nom_personnage: values.nom_personnage,
-            error: true
+            errors: true,
         });
     }
-
 
     return (
         <div className="modal-add-wrapper">
@@ -111,8 +110,9 @@ const CharacterAddModal = (props) => {
                                 <Col md={12}>
                                     <FormGroup>
                                         <Label for="nom_personnage">Nom complet<span className="form-required">*</span></Label>
-                                        <AvField type="text" name="nom_personnage" id="nom_personnage" placeholder="Entrez le prénom et le nom" required />
-                                        <FormFeedback>Ce champ est requis</FormFeedback>
+                                        <AvField type="text" name="nom_personnage" id="nom_personnage" placeholder="Entrez le prénom et le nom" required
+                                            errorMessage="Ce champs est requis"
+                                        />
                                     </FormGroup>
                                 </Col>
                                 <Col md={6}>
