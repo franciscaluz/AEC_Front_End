@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, withRouter } from 'react-router-dom'
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiEdit, FiX } from 'react-icons/fi';
-//import Default from "../../assets/images/default-empty.jpeg"
+import Default from "../../assets/images/default-empty.jpeg"
 //import { API } from "../../constantes";
 import { toast } from "react-toastify"
 
@@ -81,9 +81,11 @@ const CharacterEditModal = (props) => {
                                 <div className="modal-form-photo-wrapper">
                                     <div className="modal-character-image-wrapper">
                                         <div className="image-ratio-1">
-                                            {photos ?
-                                                <div className="img-wrapper" style={{ backgroundImage: `url(${photos})` }}></div>
-                                                : donneesRecues.image !== "" && <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
+                                            {photos
+                                                ? <div className="img-wrapper" style={{ backgroundImage: `url(${photos})` }}></div>
+                                                : donneesRecues.image !== ""
+                                                    ? <div className="img-wrapper" style={{ backgroundImage: `url(${donneesRecues.image})` }}></div>
+                                                    : <div className="img-wrapper" style={{ backgroundImage: `url(${Default})` }}></div>
                                             }
                                         </div>
                                     </div>
