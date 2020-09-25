@@ -3,7 +3,7 @@ import { withRouter, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { FiPlus, FiX } from 'react-icons/fi'
-//import { API } from "../../constantes";
+import { API } from "../../constantes";
 import { toast } from "react-toastify"
 import Default from "../../assets/images/default-empty.jpeg"
 import { AvForm, AvField } from 'availity-reactstrap-validation';
@@ -19,12 +19,11 @@ const CharacterAddModal = (props) => {
 
     async function addCharacter(nom, statut, genre, espece, type, origine, emplacement, photo, id) {
         try {
-            let url = 'http://localhost:3001/characters/'
-            const response = await fetch(url, {
+            const response = await fetch(API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    id: id,
+                    /* id: id, */
                     name: nom,
                     status: statut,
                     gender: genre,

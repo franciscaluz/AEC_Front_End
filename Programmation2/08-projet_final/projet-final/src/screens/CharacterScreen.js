@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import BaseScreen from './BaseScreen'
 import { withRouter, Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
-//import { API } from "../constantes";
+import { API } from "../constantes";
 import cardBg from '../assets/images/character-bg.svg'
 import CharacterAddModal from '../components/modals/CharacterAddModal';
 import Default from "../assets/images/default-empty.jpeg"
@@ -17,7 +17,7 @@ const CharacterScreen = () => {
 
     async function getCharacter() {
         try {
-            const response = await fetch("http://localhost:3001/characters");
+            const response = await fetch(API);
             const reponseDeApi = await response.json();
             setDonneesRecues(reponseDeApi);
             if (!response.ok) {
@@ -36,11 +36,11 @@ const CharacterScreen = () => {
                     <CharacterAddModal getCharacter={getCharacter} />
                 </div>
                 <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 character-row">
-                    {donneesRecues.map(donneesRecues => {
-                        const { id, name, image, status, origin } = donneesRecues;
+                    {donneesRecues.map((donneesRecues, index) => {
+                        const { _id, name, image, status, origin } = donneesRecues;
                         return (
-                            <div key={id} className="col character-col">
-                                <Link to={'/character/' + id}>
+                            <div key={_id} className="col character-col">
+                                <Link to={'/character/' + _id}>
                                     <Card>
                                         <div className="card-inner">
                                             <div className="card-background">
@@ -53,7 +53,7 @@ const CharacterScreen = () => {
                                                     </div>
                                                 </div>
                                                 <div className="card-character-id">
-                                                    <h4>{id}</h4>
+                                                    <h4>{index + 1}</h4>
                                                 </div>
                                             </div>
                                             <CardBody>

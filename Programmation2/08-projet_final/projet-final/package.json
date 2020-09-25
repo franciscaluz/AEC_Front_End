@@ -20,10 +20,8 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "run-p start:dev start:api",
+    "start": "start:dev",
     "start:dev": "react-scripts start",
-    "prestart:api": "node tools/createMockDb.js",
-    "start:api": "node tools/apiServer.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

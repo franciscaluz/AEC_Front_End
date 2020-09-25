@@ -3,7 +3,7 @@ import { useParams, withRouter } from 'react-router-dom'
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiEdit, FiX } from 'react-icons/fi';
 import Default from "../../assets/images/default-empty.jpeg"
-//import { API } from "../../constantes";
+import { API } from "../../constantes";
 import { toast } from "react-toastify"
 
 const CharacterEditModal = (props) => {
@@ -16,12 +16,11 @@ const CharacterEditModal = (props) => {
 
     async function editCharacter(nom, statut, genre, espece, type_espece, origine, emplacement, photo, id) {
         try {
-            let url = 'http://localhost:3001/characters/'
-            const response = await fetch(url + characterId, {
+            const response = await fetch(API + characterId, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    id: id,
+                    /* id: id, */
                     name: nom,
                     status: statut,
                     gender: genre,

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro'
-import BaseScreen from './BaseScreen'
 import { withRouter, useParams, Link } from 'react-router-dom'
+import { API } from "../constantes";
+import BaseScreen from './BaseScreen'
 import { Row, Col } from 'reactstrap';
 import CharacterEditModal from '../components/modals/CharacterEditModal';
 import { FiArrowLeftCircle } from "react-icons/fi";
@@ -18,8 +19,7 @@ const CharacterSingleScreen = () => {
     async function getCharacterInfos() {
         setIsLoading(true)
         try {
-            let url = 'http://localhost:3001/characters/'
-            const response = await fetch(url + characterId);
+            const response = await fetch(API + characterId);
             const reponseDeApi = await response.json();
             setDonneesRecues(reponseDeApi);
             setIsLoading(false)
@@ -101,10 +101,6 @@ box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
     .image-ratio-1 {
         border-radius: 100%;
     }
-}
-
-.character-single-infos-wrapper {
-
 }
 
 .character-page-field-title {

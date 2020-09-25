@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FiTrash2, FiX } from 'react-icons/fi'
 import deleteImg from '../../assets/images/morty-snout.png'
-//import { API } from "../../constantes";
+import { API } from "../../constantes";
 import { toast } from "react-toastify"
 
 const CharacterDeleteModal = (props) => {
@@ -15,8 +15,7 @@ const CharacterDeleteModal = (props) => {
 
     async function removeCharacter() {
         try {
-            let url = 'http://localhost:3001/characters/'
-            const response = await fetch(url + characterId, {
+            const response = await fetch(API + characterId, {
                 method: 'delete',
             });
             if (response.ok) {
