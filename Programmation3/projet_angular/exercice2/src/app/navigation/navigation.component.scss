@@ -1,0 +1,13 @@
+.navigation-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .navbar {
+        display: inline-flex;
+        align-items: center;
+        list-style: none;
+        margin-right: 0;
+        margin-left: auto;
+    }
+}

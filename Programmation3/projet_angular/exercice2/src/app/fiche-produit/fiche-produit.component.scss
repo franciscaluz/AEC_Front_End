@@ -1,0 +1,19 @@
+.fiche-produit-wrapper {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    
+    img {
+        margin-right: 15px;
+    }
+
+    .fiche-produit-details {
+        flex-grow: 1;
+    }
+    .fiche-produit-price {
+        flex: 0 1 30%;
+    }
+}
