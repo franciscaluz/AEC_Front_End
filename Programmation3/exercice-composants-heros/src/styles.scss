@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+$montserrat: "Montserrat", sans-serif;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: $montserrat;
+  font-weight: 300;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $montserrat;
+  font-weight: 700;
+}
+
+.mat-body,
+.mat-body-1,
+.mat-typography {
+  font-family: $montserrat !important;
+  font-weight: 300;
+}
+
+.page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.section-page {
+  align-content: stretch;
+  background-color: lavender;
+  margin-bottom: 30px;
+  padding: 30px;
+}

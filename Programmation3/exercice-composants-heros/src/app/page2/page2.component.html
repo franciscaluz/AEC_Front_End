@@ -1,0 +1,16 @@
+<section class="section-page section-page2">
+    <mat-grid-list cols="4" rowHeight="100px" gutterSize= '15px'>
+        <mat-grid-tile rowspan='3' colspan='1'>
+            <app-recherche></app-recherche>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan='1' colspan='3'>
+            <app-hero [nom]="hero1"></app-hero>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan='1' colspan='3'>
+            <app-hero [nom]="hero2"></app-hero>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan='1' colspan='3'>
+            <app-hero [nom]="hero3"></app-hero>
+        </mat-grid-tile>
+    </mat-grid-list>
+</section>

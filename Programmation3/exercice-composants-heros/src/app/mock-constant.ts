@@ -1,0 +1,1 @@
+export const TabHero : string[] = ['hero1', 'hero2', 'hero3'];
