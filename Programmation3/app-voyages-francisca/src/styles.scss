@@ -1,0 +1,77 @@
+$playfair: "Playfair Display", serif;
+$roboto: "Roboto", sans-serif;
+
+body {
+  font-family: $roboto;
+  background: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $playfair;
+  font-weight: 600 !important;
+}
+
+.mat-toolbar,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6 {
+  font-family: $playfair;
+  font-weight: 500;
+}
+h1 {
+  font-size: 3.2em !important;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1140px;
+  height: auto !important;
+  min-height: calc(100vh - 60px);
+  margin: 0 auto;
+}
+
+//MIXINS
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eeeeee;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.aspect-ratio-rect {
+  @include aspect-ratio(16, 9);
+}

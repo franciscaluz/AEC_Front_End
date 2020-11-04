@@ -1,0 +1,24 @@
+.home-header-carousel-img-wrapper {
+  max-height: 500px;
+
+  .img-wrapper {
+    background-image: url(../../assets/images/travel-photo.jpg);
+  }
+}
+
+.home-header-carousel-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home-header-carousel-caption {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+}

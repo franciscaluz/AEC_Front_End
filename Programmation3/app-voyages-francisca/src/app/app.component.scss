@@ -1,0 +1,31 @@
+.sidenav {
+  width: 300px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.sidenav .mat-toolbar {
+  background: #000000;
+  color: #ffffff;
+}
+
+.mat-toolbar-single-row {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.mat-list-item {
+  color: #ffffff;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
