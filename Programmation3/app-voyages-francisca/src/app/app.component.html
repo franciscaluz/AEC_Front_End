@@ -1,21 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport>
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-     <a href> whatever</a>
+    <mat-nav-list class="secondary-toolbar">
+      <a href="">Accueil</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
-      <h6>Horizons Voyages</h6>
-      <button
-      type="button"
-      aria-label="Toggle sidenav"
-      mat-icon-button
-      (click)="drawer.toggle()">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
+      <mat-toolbar-row>
+        1234, rue Saint-Pierre, Montreal, Quebec H2I2K3
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <h6>Horizons Voyages</h6>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </mat-toolbar-row>
     </mat-toolbar>
     <app-accueil></app-accueil>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

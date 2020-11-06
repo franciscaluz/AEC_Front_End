@@ -3,38 +3,51 @@
         <div class="home-header-carousel-img-wrapper aspect-ratio-rect">
             <div class="img-wrapper">
                 <div class="home-header-carousel-overlay">
-                        <div class="home-header-carousel-caption">
+                    <div class="home-header-carousel-caption">
                         <h1>Un gros Titre</h1>
                         <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt obcaecati impedit, hic natus modi ipsum omnis est nam explicabo fugiat facere nemo voluptatibus id consequatur assumenda error! Quo, soluta.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt obcaecati impedit, hic
+                            natus modi ipsum omnis est nam explicabo fugiat facere nemo voluptatibus id consequatur
+                            assumenda error! Quo, soluta.
                         </p>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
     <div class="home-header-toolbox">
         <div class=page-container>
-            <mat-grid-list cols="4" rowHeight="100px" gutterSize= '15px'>
-                <mat-grid-tile rowspan='1' colspan='1'>
+
+            <ul>
+                <li>
                     <mat-icon aria-hidden="false" aria-label="airplanemode_active icon">airplanemode_active</mat-icon>
-                    <h6>Voyages</h6>
-                </mat-grid-tile>
-                <mat-grid-tile rowspan='1' colspan='1'>
-                    <mat-icon aria-hidden="false" aria-label="restaurant_menu icon">restaurant_menu</mat-icon>
-                    <h6>Tours Gourmet</h6>
-                </mat-grid-tile>
-                <mat-grid-tile rowspan='1' colspan='1'>
+                    <span>Voyages</span>
+                </li>
+                <li>
+                    <mat-icon aria-hidden="false" aria-label="beach_access icon">beach_access</mat-icon>
+                    <span>Forfaits</span>
+                </li>
+                <li>
                     <mat-icon aria-hidden="false" aria-label="event icon">event</mat-icon>
-                    <h6>Réservations</h6>
-                </mat-grid-tile>
-                <mat-grid-tile rowspan='1' colspan='1'>
+                    <span>Réservations</span>
+                </li>
+                <li>
                     <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon>
-                    <h6>Paiements</h6>
-                </mat-grid-tile>
-            </mat-grid-list>
+                    <span>Paiements</span>
+                </li>
+            </ul>
         </div>
+    </div>
+</section>
+<section class="home-forfaits">
+    <div class="page-container">
+        <h2>Forfaits Vedette</h2>
+        <app-liste-forfaits></app-liste-forfaits>
+    </div>
+</section>
+<section class="home-services">
+    <div class="page-container">
+        <h2>Nos Services</h2>
     </div>
 </section>

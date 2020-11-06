@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Forfaits } from '../forfaits'
 
 @Component({
   selector: 'app-forfait',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forfait.component.scss']
 })
 export class ForfaitComponent implements OnInit {
+  @Input() forfait: Forfaits;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.forfait);
   }
 
 }
