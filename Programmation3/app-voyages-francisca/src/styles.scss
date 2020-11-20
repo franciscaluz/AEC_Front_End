@@ -13,24 +13,12 @@ body {
   font-weight: 300;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $playfair;
   font-weight: 600 !important;
   margin-top: 0;
   margin-bottom: 0.5em;
 }
-
 
 .mat-toolbar h6 {
   font-family: $playfair;
@@ -45,11 +33,15 @@ h6 {
   font-size: 1em;
 }
 
+p {
+  margin-top: 0;
+}
+
 .mat-drawer-container {
   background: #ffffff;
 }
 
-// BUTTONS 
+// BUTTONS
 .mat-button {
   box-sizing: border-box;
   position: relative;
@@ -84,6 +76,12 @@ h6 {
   margin: 0 auto;
 }
 
+//  CARDS
+
+.mat-card-header-text {
+  margin: 0 !important;
+  width: 100%;
+}
 
 //MIXINS
 
@@ -108,7 +106,12 @@ h6 {
     background-size: cover;
   }
 }
+.aspect-ratio-1 {
+  @include aspect-ratio(1, 1);
+}
 
 .aspect-ratio-rect {
   @include aspect-ratio(16, 9);
 }
+
+

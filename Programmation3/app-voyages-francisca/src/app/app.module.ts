@@ -19,6 +19,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+import { VedettePipe } from './vedette.pipe';
+import { ForfaitMiniComponent } from './forfait-mini/forfait-mini.component';
+import { ListeForfaitsMiniComponent } from './liste-forfaits-mini/liste-forfaits-mini.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gestion-forfaits.component';
 
 
 @NgModule({
@@ -29,6 +37,11 @@ import { MatCardModule } from '@angular/material/card';
     ForfaitComponent,
     AccueilComponent,
     NavComponent,
+    VedettePipe,
+    ForfaitMiniComponent,
+    ListeForfaitsMiniComponent,
+    SearchFormComponent,
+    FormGestionForfaitsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +55,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

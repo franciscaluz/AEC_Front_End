@@ -1,0 +1,19 @@
+.liste-forfaits-mini {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 -15px;
+
+  .app-forfait-mini {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .liste-forfait-mini-wrapper {
+    flex: 0 0 calc(100% / 3 - 30px);
+    max-width: calc(100% / 3 - 30px);
+    padding: 0 15px;
+  }
+}

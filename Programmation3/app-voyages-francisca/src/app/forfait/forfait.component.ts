@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Forfaits } from '../forfaits'
+import { Forfaits } from '../forfaits';
 
 @Component({
   selector: 'app-forfait',
