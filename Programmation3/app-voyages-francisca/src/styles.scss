@@ -61,19 +61,40 @@ p {
   border-radius: 4px;
   overflow: visible;
 }
+
 .mat-primary {
   background-color: $green;
   .mat-button-wrapper {
     color: #ffffff;
   }
-
 }
+
+// LAYOUT
 
 .page-container {
   width: 100%;
   max-width: 1140px;
   height: auto !important;
   margin: 0 auto;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 2.5em;
+  text-align: center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -1em;
+    right:0;
+    left: 0;
+    margin: 0 auto;
+    width: 100px;
+    height: 5px;
+    background-color: #1ED2AF;
+  }
 }
 
 //  CARDS

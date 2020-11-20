@@ -29,9 +29,10 @@
     display: flex;
     width: 100%;
     list-style: none;
-    padding-left: none;
+    padding-left: 0;
     margin: 0;
   }
+
   li {
     display: flex;
     align-items: center;
@@ -39,13 +40,15 @@
     flex-grow: 1;
     padding: 1.5em 0;
   }
+
   .material-icons {
     margin-bottom: 0.25em;
     font-size: 35px;
   }
+
   .mat-icon {
     width: 35px;
-    height: 35px;;
+    height: 35px;
   }
 
   span {
@@ -58,23 +61,4 @@
 .home-forfaits {
   padding: 3em;
   text-align: center;
-  h2 {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-    margin-bottom: 0.5em;
-    text-align: center;
-
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: -1em;
-      right:0;
-      left: 0;
-      margin: 0 auto;
-      width: 100px;
-      height: 5px;
-      background-color: #1ED2AF;
-    }
-  }
 }

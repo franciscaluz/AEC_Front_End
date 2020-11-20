@@ -78,25 +78,23 @@
 
   @media(max-width: 991.98px) {
     .forfait-mini-promo {
-      left: 0;
+      left: 0.5em;
       right: auto;
-      bottom: 0.5em;
-      height: 20px;
-      border-radius: 0;
+      height: auto;
+      min-height: 20px;
+      padding: 0.5em;
 
       span {
         text-transform: none;
       }
       .text-lg {
-        //display: inline-block;
         font-size: 14px;
+        font-weight: 500;
       }
-
     }
 
     .forfait-mini-header {
       flex-direction: column-reverse;
     }
   }
-
 }
