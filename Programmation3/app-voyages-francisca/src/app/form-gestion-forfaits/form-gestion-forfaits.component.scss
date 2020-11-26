@@ -1,0 +1,25 @@
+.gestion-forfaits {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  .mat-form-field {
+    flex: 0 1 calc(50% - 30px);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: calc(50% - 30px);
+    padding: 0 15px;
+    text-align: left;
+  }
+
+  @media(max-width: 767.98px) {
+    .mat-form-field {
+      flex: 0 1 calc(100% - 30px);
+      width: 100%;
+      max-width: calc(100% - 30px);
+    }
+  }
+}

@@ -59,6 +59,13 @@
 }
 
 .home-forfaits {
-  padding: 3em;
-  text-align: center;
+  padding: 3em 0;
+}
+
+.section-forfaits {
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

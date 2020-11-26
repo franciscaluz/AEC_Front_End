@@ -1,60 +1,75 @@
 <section class="home-header">
-    <div class="home-header-carousel">
-        <div class="home-header-carousel-img-wrapper aspect-ratio-rect">
-            <div class="img-wrapper">
-                <div class="home-header-carousel-overlay">
-                    <div class="home-header-carousel-caption">
-                        <h1>Lorem Ipsum</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt obcaecati impedit, hic
-                            natus modi ipsum omnis est nam explicabo fugiat facere nemo voluptatibus id consequatur
-                            assumenda error! Quo, soluta.
-                        </p>
-                    </div>
+  <div class="home-header-carousel">
+    <div class="home-header-carousel-img-wrapper aspect-ratio-rect">
+      <div class="img-wrapper">
+        <div class="home-header-carousel-overlay">
+          <div class="home-header-carousel-caption">
+            <h1>Lorem Ipsum</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt obcaecati impedit, hic
+              natus modi ipsum omnis est nam explicabo fugiat facere nemo voluptatibus id consequatur
+              assumenda error! Quo, soluta.
+            </p>
+          </div>
 
-                </div>
-            </div>
         </div>
+      </div>
     </div>
-    <div class="home-header-toolbox">
-        <div class=page-container>
+  </div>
+  <div class="home-header-toolbox">
+    <div class=page-container>
 
-            <ul>
-                <li>
-                    <mat-icon aria-hidden="false" aria-label="airplanemode_active icon">airplanemode_active</mat-icon>
-                    <span>Voyages</span>
-                </li>
-                <li>
-                    <mat-icon aria-hidden="false" aria-label="beach_access icon">beach_access</mat-icon>
-                    <span>Forfaits</span>
-                </li>
-                <li>
-                    <mat-icon aria-hidden="false" aria-label="event icon">event</mat-icon>
-                    <span>Réservations</span>
-                </li>
-                <li>
-                    <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon>
-                    <span>Paiements</span>
-                </li>
-            </ul>
-        </div>
+      <ul>
+        <li>
+          <mat-icon aria-hidden="false" aria-label="airplanemode_active icon">airplanemode_active</mat-icon>
+          <span>Voyages</span>
+        </li>
+        <li>
+          <mat-icon aria-hidden="false" aria-label="beach_access icon">beach_access</mat-icon>
+          <span>Forfaits</span>
+        </li>
+        <li>
+          <mat-icon aria-hidden="false" aria-label="event icon">event</mat-icon>
+          <span>Réservations</span>
+        </li>
+        <li>
+          <mat-icon aria-hidden="false" aria-label="credit_card icon">credit_card</mat-icon>
+          <span>Paiements</span>
+        </li>
+      </ul>
     </div>
+  </div>
 </section>
-<section class="home-forfaits">
-    <div class="page-container">
-        <h2 class="section-title">Forfaits Vedette</h2>
-        <app-liste-forfaits-mini></app-liste-forfaits-mini>
-    </div>
-</section>
-<section class="home-forfaits">
-    <div class="page-container">
-      <h2 class="section-title">Forfaits</h2>
-      <app-liste-forfaits></app-liste-forfaits>
-    </div>
-</section>
-<section>
+
+<section class="home-forfaits section-forfaits-vedette">
+
   <div class="page-container">
+    <div class="section-header">
+      <h2 class="section-title">Forfaits Vedette</h2>
+    </div>
+
+    <app-liste-forfaits-mini></app-liste-forfaits-mini>
+
+  </div>
+</section>
+
+<section class="home-forfaits section-forfaits">
+
+  <div class="page-container">
+    <div class="section-header">
+      <h2 class="section-title">Nos Forfaits</h2>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet asperiores autem cupiditate dolores eaque facere fuga ipsam nihil quas, quasi rem? Adipisci delectus harum incidunt maxime nesciunt sit, soluta!</p>
+
+
+    <app-forfaits></app-forfaits>
+
+  </div>
+</section>
+
+<section class="section-admin-add">
+  <div class="page-container">
+    <h2 class="section-title">Ajouter Forfaits</h2>
     <app-form-gestion-forfaits></app-form-gestion-forfaits>
   </div>
-
 </section>

@@ -1,7 +1,62 @@
 <form action="" class="gestion-forfaits">
 
   <mat-form-field>
-    <mat-label>Input</mat-label>
+    <mat-label>Pays de Destination</mat-label>
+    <input matInput type="text" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Ville de Destination</mat-label>
     <input matInput>
   </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Ville de Départ</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nom de l'Hôtel</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Adresse de l'Hôtel</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nombre de Chambres</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date de Départ</mat-label>
+    <input matInput [matDatepicker]="departure">
+    <mat-datepicker-toggle matSuffix [for]="departure"></mat-datepicker-toggle>
+    <mat-datepicker #departure></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date de Retour</mat-label>
+    <input matInput [matDatepicker]="arrival">
+    <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
+    <mat-datepicker #arrival></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Prix</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <div class="button-container">
+
+    <button type="button" mat-button color="accent">
+      Annuler
+    </button>
+
+    <button type="submit" mat-button color="primary">
+      Ajouter
+    </button>
+  </div>
 </form>

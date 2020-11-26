@@ -20,13 +20,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { VedettePipe } from './vedette.pipe';
 import { ForfaitMiniComponent } from './forfait-mini/forfait-mini.component';
 import { ListeForfaitsMiniComponent } from './liste-forfaits-mini/liste-forfaits-mini.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gestion-forfaits.component';
+import { ForfaitsComponent } from './forfaits/forfaits.component';
 
 
 @NgModule({
@@ -42,6 +49,7 @@ import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gesti
     ListeForfaitsMiniComponent,
     SearchFormComponent,
     FormGestionForfaitsComponent,
+    ForfaitsComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +65,13 @@ import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gesti
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,18 @@
     <div class="page-wrapper">
         <h1 id="app" class="blink">{{message}}</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem beatae blanditiis culpa debitis esse in inventore itaque neque officia, quam quia quis ratione reprehenderit saepe totam unde! Necessitatibus, recusandae!</p>
+        <div id="myData">
+            <h3> {{firstname}}</h3>
+            <h3> {{lastname}}</h3>
+            <p>{{mydetails()}}</p>
+        </div>
+        <div id="vm">
+            {{moncalcul}}
+        </div>
+
+
     </div>
+
     <div w3-include-html="includes/footer.html"></div>
 </div>
 
@@ -27,7 +38,35 @@
     data: {
       message: "Bienvenue sur mon site",
     },
-  })
+  });
+
+  var myData = new Vue ({
+    el: "#myData",
+    data: {
+      firstname : "Francisca",
+      lastname : "Vargas",
+      message: "mon message",
+    },
+    methods: {
+      mydetails: function () {
+        return this.message = "Bienvenue sur mon site";
+      },
+    },
+  });
+
+  var vm = new Vue ({
+    el: "#vm",
+    data: {
+      nombre: 4
+    },
+    computed: {
+      moncalcul () {
+        return this.nombre + 10;
+      },
+    },
+  });
+
+
 </script>
 <script src="assets/js/dynamic.js"></script>
 <script>

@@ -4,6 +4,7 @@ $roboto: "Roboto", sans-serif;
 $green: #1ED2AF;
 $marine: #2D3E50;
 $black: #000000;
+$body-color: #1a1a1a;
 $light-gray: #fafafa;
 $white: #ffffff;
 
@@ -47,7 +48,7 @@ p {
   position: relative;
   cursor: pointer;
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   -webkit-tap-highlight-color: transparent;
   display: inline-block;
   white-space: nowrap;
@@ -60,22 +61,66 @@ p {
   padding: 0 16px;
   border-radius: 4px;
   overflow: visible;
-}
 
-.mat-primary {
-  background-color: $green;
-  .mat-button-wrapper {
-    color: #ffffff;
+  &.mat-primary {
+    background-color: $green;
+    border-color: $green;
+
+    .mat-button-wrapper {
+      color: #ffffff;
+    }
+  }
+
+  &.mat-accent {
+    background-color: #f5f5f5;
+    border-color: #eeeeee;
+
+    .mat-button-wrapper {
+      color: $body-color;
+    }
   }
 }
+
 
 // LAYOUT
 
 .page-container {
   width: 100%;
-  max-width: 1140px;
   height: auto !important;
-  margin: 0 auto;
+
+  @media (min-width: 0) {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+.section-header {
+  text-align: center;
 }
 
 .section-title {
@@ -96,6 +141,16 @@ p {
     background-color: #1ED2AF;
   }
 }
+
+//FORMS
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background-color: transparent;
+}
+
 
 //  CARDS
 
