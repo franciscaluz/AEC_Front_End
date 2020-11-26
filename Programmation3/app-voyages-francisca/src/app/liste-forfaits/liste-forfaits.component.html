@@ -1,7 +1,7 @@
-<mat-grid-list cols="3" rowHeight="600" gutterSize='15px'>
+<div class="forfaits-list">
 
-    <mat-grid-tile rowspan='1' colspan='1' *ngFor="let forfait of forfaits">
+    <div class="forfaits-list-wrapper" *ngFor="let forfait of forfaits">
         <app-forfait [forfait]="forfait"></app-forfait>
-    </mat-grid-tile>
+    </div>
 
-</mat-grid-list>
+</div>
