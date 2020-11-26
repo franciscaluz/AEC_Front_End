@@ -1,0 +1,26 @@
+<mat-drawer-container class="example-container" autosize>
+
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+
+    <h6>Affiner vos recherches</h6>
+
+    <app-search-form></app-search-form>
+
+    <p>Lorem, ipsum dolor sit amet consectetur.</p>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+    <div class="button-container">
+      <button type="button" mat-button color="accent" (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false" aria-label="Example filter_list icon">filter_list</mat-icon>
+        Filtrer
+      </button>
+    </div>
+
+    <app-liste-forfaits></app-liste-forfaits>
+
+  </div>
+
+</mat-drawer-container>
