@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FooterComponent } from './footer/footer.component';
 import { ListeForfaitsComponent } from './liste-forfaits/liste-forfaits.component';
 import { ForfaitComponent } from './forfait/forfait.component';
@@ -20,6 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -34,6 +36,7 @@ import { ListeForfaitsMiniComponent } from './liste-forfaits-mini/liste-forfaits
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gestion-forfaits.component';
 import { ForfaitsComponent } from './forfaits/forfaits.component';
+import { StarRatingsComponent } from './star-ratings/star-ratings.component';
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import { ForfaitsComponent } from './forfaits/forfaits.component';
     SearchFormComponent,
     FormGestionForfaitsComponent,
     ForfaitsComponent,
+    StarRatingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { ForfaitsComponent } from './forfaits/forfaits.component';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -71,6 +76,7 @@ import { ForfaitsComponent } from './forfaits/forfaits.component';
     MatCheckboxModule,
     MatRadioModule,
     MatAutocompleteModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],

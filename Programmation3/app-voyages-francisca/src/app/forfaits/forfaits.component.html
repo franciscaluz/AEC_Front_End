@@ -1,3 +1,10 @@
+<div class="button-container">
+  <button type="button" mat-button color="accent" (click)="drawer.toggle()">
+    <mat-icon aria-hidden="false" aria-label="Example filter_list icon">filter_list</mat-icon>
+    Filtrer
+  </button>
+</div>
+
 <mat-drawer-container class="forfaits-container">
 
   <mat-drawer #drawer class="forfaits-sidenav" mode="side">
@@ -35,13 +42,6 @@
   </mat-drawer>
 
   <div class="forfaits-content">
-
-    <div class="button-container">
-      <button type="button" mat-button color="accent" (click)="drawer.toggle()">
-        <mat-icon aria-hidden="false" aria-label="Example filter_list icon">filter_list</mat-icon>
-        Filtrer
-      </button>
-    </div>
 
     <app-liste-forfaits></app-liste-forfaits>
 

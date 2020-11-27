@@ -1,12 +1,40 @@
 .forfait-card {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  overflow: hidden;
 
   .forfait-card-image-wrapper {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
     display: block;
     width: 100%;
-    margin-right: 30px;
+  }
+
+  .forfait-card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .forfait-card-body {
+    flex-grow: 1;
+    margin-bottom: auto;
+    padding: 15px 30px;
+  }
+
+  .forfait-card-date {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .forfait-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    background: #f5f5f5;
+    padding: 1em 30px;
   }
 
 }

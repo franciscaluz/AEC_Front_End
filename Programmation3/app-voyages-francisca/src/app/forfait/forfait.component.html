@@ -1,18 +1,42 @@
 <div class="forfait-card">
 
-  <div class="forfait-card-image-wrapper aspect-ratio-rect">
-    <div class="img-wrapper"> <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"></div>
+  <div class="forfait-card-image-wrapper aspect-ratio-1">
+    <div class="img-wrapper" style="background-image: url({{forfait.photo}})"></div>
   </div>
 
   <div class="forfait-card-content">
-    <h3>{{forfait.hotel.nom}}</h3>
-    <p>{{forfait.ville_destination}}, {{forfait.pays_destination}}</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur deleniti expedita maiores maxime nesciunt ullam voluptatibus! Animi architecto delectus distinctio dolorum ipsum iste minima quibusdam vero! Alias aliquid dolores quam.</p>
-    <p>
-      {{forfait.hotel.etoile}} {{forfait.prix}}
-    </p>
-    <div class="button-container">
-      <button mat-button color="primary">Voir Plus</button>
+    <div class="forfait-card-body">
+      <h3>{{forfait.hotel.nom}}       {{forfait.hotel.etoile}}</h3>
+      <p>{{forfait.ville_destination}}, {{forfait.pays_destination}}</p>
+      <p class="forfait-card-date">
+        <span><strong>Départ le : </strong>{{forfait.date_depart}}</span><br>
+        <span><strong>Retour le : </strong>{{forfait.date_retour}}</span>
+      </p>
+      <p>
+        <span *ngFor="let caracteristique of forfait.hotel.caracteristiques">{{caracteristique}},&nbsp;</span>
+      </p>
+
+    </div>
+    <div class="forfait-card-footer">
+
+      <div class="forfait-card-price">
+        <ng-container
+          *ngIf="forfait.rabais===0; then priceBlock else promoBlock">
+        </ng-container>
+
+        <ng-template #priceBlock>
+          <span><strong>${{forfait.prix}}</strong></span>
+        </ng-template>
+
+        <ng-template #promoBlock>
+          <span class="forfait-mini-new-price"><strong>${{forfait.prix}}</strong></span>
+          <span class="forfait-mini-old-price">${{forfait.prix}}</span>
+        </ng-template>
+
+      </div>
+      <div class="button-container">
+        <button mat-button color="primary">Voir Plus</button>
+      </div>
     </div>
   </div>
 </div>

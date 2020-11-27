@@ -1,52 +1,83 @@
 <form action="" class="gestion-forfaits">
 
-  <mat-form-field>
-    <mat-label>Pays de Destination</mat-label>
-    <input matInput type="text" required>
-  </mat-form-field>
+  <!--  <mat-form-field>-->
+  <!--    <mat-label>Enter your email</mat-label>-->
+  <!--    <input matInput placeholder="pat@example.com" required-->
+  <!--           [ngModel]="email" name="controleEmail" #controleEmail="ngModel"-->
+  <!--    >-->
+  <!--        <mat-error *ngIf="controleEmail.hasError('required')">-->
+  <!--          {{champsObligatoire}}-->
+  <!--        </mat-error>-->
+  <!--  </mat-form-field>-->
+
 
   <mat-form-field>
     <mat-label>Ville de Destination</mat-label>
-    <input matInput>
+    <input matInput type="text" required
+           [ngModel]="villeDestination" name="controleVilleDestination" #controleVilleDestination="ngModel"
+    >
+    <mat-error *ngIf="controleVilleDestination.hasError('required')">
+      {{champsObligatoire}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Pays de Destination</mat-label>
+    <input matInput type="text" required
+           [ngModel]="paysDestination" name="controlePaysDestination" #controlePaysDestination="ngModel"
+    >
+    <mat-error *ngIf="controlePaysDestination.hasError('required')">
+      {{champsObligatoire}}
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Ville de Départ</mat-label>
-    <input matInput>
+    <input matInput type="text" required
+           [ngModel]="villeDepart" name="controleVilleDepart" #controleVilleDepart="ngModel"
+    >
+    <mat-error *ngIf="controleVilleDepart.hasError('required')">
+      {{champsObligatoire}}
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Nom de l'Hôtel</mat-label>
-    <input matInput>
+    <input matInput type="text" required
+           [ngModel]="nomHotel" name="controleNomHotel" #controleNomHotel="ngModel"
+    >
+    <mat-error *ngIf="controleNomHotel.hasError('required')">
+      {{champsObligatoire}}
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Adresse de l'Hôtel</mat-label>
-    <input matInput>
+    <input matInput placeholder="N° et nom de rue" required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Nombre de Chambres</mat-label>
-    <input matInput>
+    <input matInput type="number" required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Date de Départ</mat-label>
-    <input matInput [matDatepicker]="departure">
+    <input matInput [matDatepicker]="departure" required>
     <mat-datepicker-toggle matSuffix [for]="departure"></mat-datepicker-toggle>
     <mat-datepicker #departure></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Date de Retour</mat-label>
-    <input matInput [matDatepicker]="arrival">
+    <input matInput [matDatepicker]="arrival" required>
     <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
     <mat-datepicker #arrival></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Prix</mat-label>
-    <input matInput>
+    <input matInput type="number" required>
   </mat-form-field>
 
   <div class="button-container">
