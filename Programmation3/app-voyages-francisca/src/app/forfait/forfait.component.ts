@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Forfaits } from '../forfaits';
+import {FORFAITS} from "../mock-forfaits";
 
 @Component({
   selector: 'app-forfait',
@@ -14,5 +15,8 @@ export class ForfaitComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.forfait);
   }
-
+  // getRatings() {
+  //   const totalStars = 5;
+  //   const total = totalStars.valueOf() - this.forfait.hotel.etoile.valueOf();
+  // }
 }
