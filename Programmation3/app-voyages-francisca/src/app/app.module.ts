@@ -5,14 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FooterComponent } from './footer/footer.component';
-import { ListeForfaitsComponent } from './liste-forfaits/liste-forfaits.component';
-import { ForfaitComponent } from './forfait/forfait.component';
-import { AccueilComponent } from './accueil/accueil.component';
-import { NavComponent } from './nav/nav.component';
-
 import { LayoutModule } from '@angular/cdk/layout';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,14 +22,22 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
 
+import { FooterComponent } from './footer/footer.component';
+import { ListeForfaitsComponent } from './liste-forfaits/liste-forfaits.component';
+import { ForfaitComponent } from './forfait/forfait.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { NavComponent } from './nav/nav.component';
 import { VedettePipe } from './vedette.pipe';
 import { ForfaitMiniComponent } from './forfait-mini/forfait-mini.component';
 import { ListeForfaitsMiniComponent } from './liste-forfaits-mini/liste-forfaits-mini.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gestion-forfaits.component';
 import { ForfaitsComponent } from './forfaits/forfaits.component';
-import { StarRatingsComponent } from './star-ratings/star-ratings.component';
+import { RatingsPipe } from './ratings.pipe';
+
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { StarRatingsComponent } from './star-ratings/star-ratings.component';
     SearchFormComponent,
     FormGestionForfaitsComponent,
     ForfaitsComponent,
-    StarRatingsComponent,
+    RatingsPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,8 @@ import { StarRatingsComponent } from './star-ratings/star-ratings.component';
     MatRadioModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    MatButtonToggleModule,
+    MatDialogModule,
 
   ],
   providers: [],

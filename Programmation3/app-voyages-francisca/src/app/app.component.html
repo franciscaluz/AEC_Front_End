@@ -1,9 +1,41 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="main-navigation sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport>
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list class="secondary-toolbar">
-      <a href="">Accueil</a>
-    </mat-nav-list>
+    <mat-toolbar>
+      <div class="sidenav-toolbar-inner">
+        <mat-nav-list>
+          <mat-list-item role="listitem">
+            <mat-icon aria-label="account_circle icon">account_circle</mat-icon>
+            Bienvenue Username
+          </mat-list-item>
+          <div mat-subheader>Menu</div>
+          <mat-list-item>
+            <a href="">Accueil</a>
+          </mat-list-item>
+          <mat-list-item>
+            <a href="">Forfaits</a>
+          </mat-list-item>
+          <mat-list-item>
+            <a href="">Réservations</a>
+          </mat-list-item>
+
+          <div mat-subheader>Admin</div>
+          <mat-list-item>
+            <a href="">Gestion Administrative</a>
+          </mat-list-item>
+
+          <div mat-subheader>Compte</div>
+          <mat-list-item>
+            <a href="">Connexion</a>
+          </mat-list-item>
+          <mat-list-item>
+            <a href="">Déconnexion</a>
+          </mat-list-item>
+          <mat-list-item>
+            <a href="">Créer un compte</a>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-toolbar>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>

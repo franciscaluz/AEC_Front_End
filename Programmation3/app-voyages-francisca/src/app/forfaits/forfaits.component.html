@@ -1,38 +1,107 @@
-<div class="button-container">
-  <button type="button" mat-button color="accent" (click)="drawer.toggle()">
+<div class="forfaits-button-container">
+  <button type="button" mat-raised-button color="accent" (click)="drawer.toggle()">
     <mat-icon aria-hidden="false" aria-label="Example filter_list icon">filter_list</mat-icon>
-    Filtrer
+    Affinez vos recherches
   </button>
 </div>
 
 <mat-drawer-container class="forfaits-container">
 
-  <mat-drawer #drawer class="forfaits-sidenav" mode="side">
+  <mat-drawer #drawer class="forfaits-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'">
     <div class="forfaits-inner">
       <form action="">
-        <h6>Affiner vos recherches</h6>
 
         <app-search-form></app-search-form>
 
         <fieldset>
-
           <legend class="forfaits-title">
             Critères de recherche
           </legend>
 
-          <mat-checkbox>Formule tout inclus</mat-checkbox>
-          <mat-checkbox>Vue sur plage</mat-checkbox>
-          <mat-checkbox>Piscine</mat-checkbox>
-          <mat-checkbox>Wifi Gratuit</mat-checkbox>
-          <mat-checkbox>Animaux acceptés</mat-checkbox>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="custom-toggle-group" multiple>
+            <mat-button-toggle value="italic">
+              <mat-icon aria-hidden="false" aria-label="beach icon">beach_access</mat-icon>
+              Accès Plage
+            </mat-button-toggle>
+            <mat-button-toggle value="underline">
+              <mat-icon aria-hidden="false" aria-label="pool icon">pool</mat-icon>
+              Accès Piscine
+            </mat-button-toggle>
+            <mat-button-toggle value="underline">
+              <mat-icon aria-hidden="false" aria-label="waves icon">waves</mat-icon>
+              Vue sur mer
+            </mat-button-toggle>
+            <mat-button-toggle value="underline">
+              <mat-icon aria-hidden="false" aria-label="garden icon">local_florist</mat-icon>
+              Vue sur jardin
+            </mat-button-toggle>
+            <mat-button-toggle value="bold">
+              <mat-icon aria-hidden="false" aria-label="free_breakfast icon">free_breakfast</mat-icon>
+              Petit-déjeuner inclus
+            </mat-button-toggle>
+            <mat-button-toggle value="bold">
+              <mat-icon aria-hidden="false" aria-label="all_inclusive icon">all_inclusive</mat-icon>
+              Formule tout inclus
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="wifi icon">wifi</mat-icon>
+              WiFi Gratuit
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="kitchen icon">kitchen</mat-icon>
+              Mini-bar
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="emoji_food_beverage icon">emoji_food_beverage</mat-icon>
+              Machine à thé/café
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="ac_unit icon">ac_unit</mat-icon>
+              Air climatisé
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="accessible icon">accessible</mat-icon>
+              Acessibilité
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="local_parking icon">local_parking</mat-icon>
+              Stationnement
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="airport_shuttle icon">airport_shuttle</mat-icon>
+              Navette aéroport
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="restaurant icon">restaurant</mat-icon>
+              Restaurant
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="local_bar icon">local_bar</mat-icon>
+              Bar
+            </mat-button-toggle>
+
+            <mat-button-toggle value="wifi">
+              <mat-icon aria-hidden="false" aria-label="spa icon">spa</mat-icon>
+              Spa
+            </mat-button-toggle>
+
+
+
+          </mat-button-toggle-group>
         </fieldset>
 
         <div class="button-container">
           <button type="reset" mat-button color="accent">
             Réinitialiser
-          </button>
-          <button type="submit" mat-button color="primary">
-            Trier
           </button>
         </div>
 

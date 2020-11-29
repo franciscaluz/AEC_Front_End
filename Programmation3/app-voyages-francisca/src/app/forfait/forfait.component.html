@@ -1,49 +1,78 @@
 <div class="forfait-card">
 
-  <div class="forfait-card-image-wrapper aspect-ratio-1">
-    <div class="img-wrapper" style="background-image: url({{forfait.photo}})"></div>
-  </div>
-
   <div class="forfait-card-content">
+
+    <div class="forfait-card-image-wrapper aspect-ratio-1">
+      <div class="img-wrapper" style="background-image: url({{forfait.photo}})"></div>
+    </div>
+
     <div class="forfait-card-body">
-      <h3>{{forfait.hotel.nom}}
-        <div *ngFor="let item of [].constructor(forfait.hotel.etoile);">
-          <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
+
+      <div class="forfait-card-header">
+        <div class="forfait-card-title">
+
+          <h3>
+            {{forfait.hotel.nom}}
+          </h3>
+
+          <mat-icon aria-hidden="false" aria-label="stars icon" *ngIf="forfait.vedette === true" class="forfait-card-category-vedette">
+            stars
+          </mat-icon>
         </div>
 
+        <div class="star-ratings">
+          <mat-icon aria-hidden="false" aria-label="Example star icon" color="primary"
+                    *ngFor="let item of [].constructor(forfait.hotel.etoile);"
+          >
+            star
+          </mat-icon>
+        </div>
 
-      </h3>
+      </div>
+
       <p>{{forfait.ville_destination}}, {{forfait.pays_destination}}</p>
+
       <p class="forfait-card-date">
-        <span><strong>Départ le : </strong>{{forfait.date_depart}}</span><br>
+        <span><strong>Départ le : </strong>{{forfait.date_depart}}</span>
+        &nbsp;|&nbsp;
         <span><strong>Retour le : </strong>{{forfait.date_retour}}</span>
       </p>
+
       <p>
         <span *ngFor="let caracteristique of forfait.hotel.caracteristiques">{{caracteristique}},&nbsp;</span>
       </p>
 
+      <p class="forfait-card-category">
+        <span *ngIf="forfait.vedette === true" class="forfait-card-category-vedette">Forfait vedette</span>
+        <span *ngIf="forfait.rabais !== 0" class="forfait-card-category-promotion">En promotion</span>
+      </p>
+
     </div>
-  </div>
-</div>
-
-<div class="forfait-card-footer">
-
-  <div class="forfait-card-price">
-    <ng-container
-      *ngIf="forfait.rabais===0; then priceBlock else promoBlock">
-    </ng-container>
-
-    <ng-template #priceBlock>
-      <span><strong>${{forfait.prix}}</strong></span>
-    </ng-template>
-
-    <ng-template #promoBlock>
-      <span class="forfait-mini-new-price"><strong>${{forfait.prix}}</strong></span>
-      <span class="forfait-mini-old-price">${{forfait.prix}}</span>
-    </ng-template>
 
   </div>
-  <div class="button-container">
-    <button mat-button color="primary">Voir Plus</button>
+
+  <div class="forfait-card-footer">
+
+    <div class="forfait-card-price">
+      <ng-container
+        *ngIf="forfait.rabais===0; then priceBlock else promoBlock">
+      </ng-container>
+
+      <ng-template #priceBlock>
+        <span class="forfait-price"><strong>${{forfait.prix}}</strong></span>
+      </ng-template>
+
+      <ng-template #promoBlock>
+        <span class="forfait-price"><strong>${{forfait.prix}}</strong></span>
+        <span class="forfait-old-price">${{forfait.prix}}</span>
+      </ng-template>
+
+    </div>
+
+    <div class="button-container">
+      <button mat-button color="primary">Voir Plus</button>
+    </div>
+
   </div>
+
 </div>

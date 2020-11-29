@@ -6,19 +6,31 @@ $marine: #2D3E50;
 $black: #000000;
 $body-color: #1a1a1a;
 $light-gray: #fafafa;
+$medium-gray: #E1E1E1;
 $white: #ffffff;
+
+.mat-primary {
+  color: $green !important;
+}
 
 body {
   font-family: $roboto;
   background: #ffffff;
+  color: $body-color;
+  font-size: 16px;
   font-weight: 300;
+
+  @media(max-width: 575.98px) {
+    font-size: 14px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $playfair;
-  font-weight: 600 !important;
   margin-top: 0;
   margin-bottom: 0.5em;
+  color: $body-color !important;
+  font-family: $playfair;
+  font-weight: 600 !important;
 }
 
 .mat-toolbar h6 {
@@ -40,10 +52,11 @@ p {
 
 .mat-drawer-container {
   background: #ffffff;
+  color: $body-color;
 }
 
 // BUTTONS
-.mat-button {
+.mat-button, .mat-raised-button {
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
@@ -62,6 +75,12 @@ p {
   border-radius: 4px;
   overflow: visible;
 
+  .mat-button-wrapper {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
   &.mat-primary {
     background-color: $green;
     border-color: $green;
@@ -72,8 +91,8 @@ p {
   }
 
   &.mat-accent {
-    background-color: #f5f5f5;
-    border-color: #eeeeee;
+    background-color: $light-gray;
+    border-color: $medium-gray;
 
     .mat-button-wrapper {
       color: $body-color;
@@ -81,35 +100,73 @@ p {
   }
 }
 
+.mat-button-toggle-group {
+  &.custom-toggle-group {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 0;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+
+    .mat-button-toggle {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: row;
+      width: 100%;
+      border: none !important;
+      text-align: left;
+
+      button.mat-button-toggle-button {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        width: 100%;
+        border: none;
+        text-align: left;
+      }
+    }
+
+    .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+      display: flex !important;
+      align-items: center;
+      width: 100% !important;
+      color: $body-color;
+      line-height: 35px;
+
+      .mat-icon {
+        font-size: 1em;
+        width: auto;
+        height: auto;
+        margin-right: 1em;
+      }
+    }
+  }
+}
 
 // LAYOUT
 
 .page-container {
-  width: 100%;
   height: auto !important;
-
-  @media (min-width: 0) {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
 
   @media (min-width: 576px) {
     max-width: 540px;
-    margin: 0 auto;
-    padding: 0 15px;
   }
 
   @media (min-width: 768px) {
     max-width: 720px;
-    margin: 0 auto;
-    padding: 0 15px;
   }
 
   @media (min-width: 992px) {
     max-width: 960px;
-    margin: 0 auto;
-    padding: 0 15px;
   }
 
   @media (min-width: 1200px) {
@@ -149,8 +206,20 @@ p {
   text-align: left;
   width: 100%;
   background-color: transparent;
-}
 
+  .mat-form-field-flex {
+    color: $body-color;
+  }
+
+  &.mat-focused {
+    .mat-form-field-label {
+      color: $body-color !important;
+    }
+    .mat-form-field-ripple {
+      background: $green;
+    }
+  }
+}
 
 //  CARDS
 
@@ -188,6 +257,16 @@ p {
 
 .aspect-ratio-rect {
   @include aspect-ratio(16, 9);
+}
+
+// MAIN NAVIGATION
+.main-navigation {
+  .sidenav-toolbar-inner {
+    .mat-list-item-content {
+      padding: 0 !important;
+      width: 100%;
+    }
+  }
 }
 
 

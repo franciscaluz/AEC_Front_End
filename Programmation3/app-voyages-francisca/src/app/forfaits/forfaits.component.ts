@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-forfaits',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forfaits.component.scss']
 })
 export class ForfaitsComponent implements OnInit {
-
-  constructor() { }
-  showFiller = false;
+  mobileQuery: MediaQueryList;
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 991.98px)');
+    // this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    // this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+  showFiller = true;
   ngOnInit(): void {
   }
 

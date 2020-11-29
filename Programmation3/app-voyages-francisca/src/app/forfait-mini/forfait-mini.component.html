@@ -1,4 +1,5 @@
 <div class="forfait-mini">
+
   <div class="forfait-mini-image-wrapper aspect-ratio-rect">
     <div class="img-wrapper" style="background-image: url({{forfait.photo}})"></div>
     <div class="forfait-mini-promo" *ngIf="forfait.rabais !==0">
@@ -6,11 +7,14 @@
       <span class="text-lg">-{{forfait.rabais}}%</span>
     </div>
   </div>
+
   <div class="forfait-mini-header">
+
     <div class="forfait-mini-infos">
       <h3>{{forfait.hotel.nom}}</h3>
       <p>{{forfait.ville_destination}}, {{forfait.pays_destination}}</p>
     </div>
+
     <div class="forfait-mini-ratings">
       <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
       <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
@@ -20,7 +24,9 @@
     </div>
 
   </div>
-  <div class="forfait-mini-body">
+
+  <div class="forfait-mini-footer">
+
     <div class="forfait-mini-price">
 
       <ng-container

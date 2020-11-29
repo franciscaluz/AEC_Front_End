@@ -9,16 +9,12 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-    
-    menuItems = ['accueil', 'forfaits'];  
-    
-
+    menuItems = ['accueil', 'forfaits', 'reservations'];
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }

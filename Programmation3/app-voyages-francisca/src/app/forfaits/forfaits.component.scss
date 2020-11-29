@@ -1,15 +1,19 @@
+.forfaits-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
 .forfaits-container {
 
-  .forfaits-inner {
-    padding: 0 15px;
+  .forfaits-sidenav {
+    border-right: none;
+  }
 
-    .mat-checkbox {
-      //transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-      //cursor: pointer;
-      //-webkit-tap-highlight-color: transparent;
-      display: block;
-      margin-bottom: 1em;
-    }
+  .forfaits-inner {
+    height: 100%;
+    padding: 0 15px;
   }
 
   .forfaits-title {
@@ -25,5 +29,16 @@
 
     }
   }
+  @media (max-width: 991.98px) {
+    position: relative;
 
+    .forfaits-sidenav {
+      position: absolute;
+      z-index: 4;
+
+      &.mat-drawer-opened ~ .mat-drawer-content  {
+        margin-left: 0 !important;
+      }
+    }
+  }
 }
