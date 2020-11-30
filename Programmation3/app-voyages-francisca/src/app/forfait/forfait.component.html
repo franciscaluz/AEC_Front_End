@@ -38,9 +38,9 @@
         <span>Retour le : {{forfait.date_retour}}</span>
       </p>
 
-      <ul class="forfait-card-list">
-        <li *ngFor="let caracteristique of forfait.hotel.caracteristiques">{{caracteristique}}</li>
-      </ul>
+      <p class="forfait-card-details">
+        <span *ngFor="let caracteristique of forfait.hotel.caracteristiques">{{caracteristique}}</span>
+      </p>
 
       <p class="forfait-card-category">
         <span *ngIf="forfait.vedette === true" class="forfait-card-category-vedette">Forfait vedette</span>

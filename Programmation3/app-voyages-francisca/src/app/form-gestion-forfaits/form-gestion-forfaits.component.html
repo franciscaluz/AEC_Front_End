@@ -1,87 +1,150 @@
 <form action="" class="gestion-forfaits">
+  <fieldset>
+    <legend>Informations Forfait</legend>
+    <mat-form-field>
+      <mat-label>Ville de Destination</mat-label>
+      <input matInput type="text" required
+             [ngModel]="villeDestination" name="controleVilleDestination" #controleVilleDestination="ngModel"
+      >
+      <mat-error *ngIf="controleVilleDestination.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <!--  <mat-form-field>-->
-  <!--    <mat-label>Enter your email</mat-label>-->
-  <!--    <input matInput placeholder="pat@example.com" required-->
-  <!--           [ngModel]="email" name="controleEmail" #controleEmail="ngModel"-->
-  <!--    >-->
-  <!--        <mat-error *ngIf="controleEmail.hasError('required')">-->
-  <!--          {{champsObligatoire}}-->
-  <!--        </mat-error>-->
-  <!--  </mat-form-field>-->
+    <mat-form-field>
+      <mat-label>Pays de Destination</mat-label>
+      <input matInput type="text" required
+             [ngModel]="paysDestination" name="controlePaysDestination" #controlePaysDestination="ngModel"
+      >
+      <mat-error *ngIf="controlePaysDestination.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
+    <mat-form-field class="mat-form-field-full-width">
+      <mat-label>Ville de Départ</mat-label>
+      <input matInput type="text" required
+             [ngModel]="villeDepart" name="controleVilleDepart" #controleVilleDepart="ngModel"
+      >
+      <mat-error *ngIf="controleVilleDepart.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Ville de Destination</mat-label>
-    <input matInput type="text" required
-           [ngModel]="villeDestination" name="controleVilleDestination" #controleVilleDestination="ngModel"
-    >
-    <mat-error *ngIf="controleVilleDestination.hasError('required')">
-      {{champsObligatoire}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date de Départ</mat-label>
+      <input matInput [matDatepicker]="departure" required
+             [ngModel]="dateDepart" name="controleNomHotel" #controleDateDepart="ngModel"
+      >
+      <mat-datepicker-toggle matSuffix [for]="departure"></mat-datepicker-toggle>
+      <mat-datepicker #departure></mat-datepicker>
+      <mat-error *ngIf="controleDateDepart.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Pays de Destination</mat-label>
-    <input matInput type="text" required
-           [ngModel]="paysDestination" name="controlePaysDestination" #controlePaysDestination="ngModel"
-    >
-    <mat-error *ngIf="controlePaysDestination.hasError('required')">
-      {{champsObligatoire}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date de Retour</mat-label>
+      <input matInput [matDatepicker]="arrival" required
+             [ngModel]="dateRetour" name="controleNomHotel" #controleDateRetour="ngModel"
+      >
+      <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
+      <mat-datepicker #arrival></mat-datepicker>
+      <mat-error *ngIf="controleDateRetour.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Ville de Départ</mat-label>
-    <input matInput type="text" required
-           [ngModel]="villeDepart" name="controleVilleDepart" #controleVilleDepart="ngModel"
-    >
-    <mat-error *ngIf="controleVilleDepart.hasError('required')">
-      {{champsObligatoire}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field class="mat-form-field-full-width">
+      <mat-label>Prix</mat-label>
+      <input matInput type="number" min="0" step=".01" required
+             [ngModel]="prix" name="controleNomHotel" #controlePrix="ngModel"
+      >
+      <span matSuffix>&nbsp;$</span>
+      <mat-error *ngIf="controlePrix.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Nom de l'Hôtel</mat-label>
-    <input matInput type="text" required
-           [ngModel]="nomHotel" name="controleNomHotel" #controleNomHotel="ngModel"
-    >
-    <mat-error *ngIf="controleNomHotel.hasError('required')">
-      {{champsObligatoire}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rabais</mat-label>
+      <mat-select required [ngModel]="rabais" name="controleNomHotel" #controleRabais="ngModel">
+        <mat-option>Choississez une option</mat-option>
+        <mat-option value="true">Oui</mat-option>
+        <mat-option value="False">Non</mat-option>
+      </mat-select>
+      <mat-error *ngIf="controleRabais.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Adresse de l'Hôtel</mat-label>
-    <input matInput placeholder="N° et nom de rue" required>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Montant Rabais</mat-label>
+      <input matInput type="number" min="0" required
+             [ngModel]="rabaisPourcentage" name="controleNomHotel" #controleRabaisPourcentage="ngModel"
+      >
+      <span matSuffix>&nbsp;%</span>
+      <mat-error *ngIf="controleRabaisPourcentage.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Nombre de Chambres</mat-label>
-    <input matInput type="number" required>
-  </mat-form-field>
+    <div class="form-col-12 custom-radio-group">
+      <label>Forfait vedette? </label>
+      <mat-radio-group required>
+        <mat-radio-button value="true" required>Oui</mat-radio-button>
+        <mat-radio-button value="false" required>Non</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-  <mat-form-field>
-    <mat-label>Date de Départ</mat-label>
-    <input matInput [matDatepicker]="departure" required>
-    <mat-datepicker-toggle matSuffix [for]="departure"></mat-datepicker-toggle>
-    <mat-datepicker #departure></mat-datepicker>
-  </mat-form-field>
+  </fieldset>
 
-  <mat-form-field>
-    <mat-label>Date de Retour</mat-label>
-    <input matInput [matDatepicker]="arrival" required>
-    <mat-datepicker-toggle matSuffix [for]="arrival"></mat-datepicker-toggle>
-    <mat-datepicker #arrival></mat-datepicker>
-  </mat-form-field>
+  <fieldset>
 
-  <mat-form-field>
-    <mat-label>Prix</mat-label>
-    <input matInput type="number" required>
-  </mat-form-field>
+    <legend>Informations Hôtel</legend>
 
-  <div class="button-container">
+    <mat-form-field>
+      <mat-label>Nom de l'Hôtel</mat-label>
+      <input matInput type="text" required
+             [ngModel]="nomHotel" name="controleNomHotel" #controleNomHotel="ngModel"
+      >
+      <mat-error *ngIf="controleNomHotel.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
 
+    <mat-form-field>
+      <mat-label>Adresse de l'Hôtel</mat-label>
+      <input type="text" matInput placeholder="Numéro, nom de rue, ville code postal, region, pays" required
+             [ngModel]="adresseHotel" name="controleNomHotel" #controleAdresseHotel="ngModel"
+      >
+      <mat-error *ngIf="controleAdresseHotel.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre de Chambres</mat-label>
+      <input matInput type="number" required min="1"
+             [ngModel]="nbChambre" name="controleNomHotel" #controleNbChambre="ngModel"
+      >
+      <mat-error *ngIf="controleNbChambre.hasError('required')">
+        {{champsObligatoire}}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-col-6">
+      <div>Nombre d'étoiles</div>
+      <mat-slider
+        thumbLabel
+        tickInterval="1"
+        min="0"
+        max="5">
+        required
+      </mat-slider>
+    </div>
+  </fieldset>
+  <div class="button-container right">
     <button type="button" mat-button color="accent">
       Annuler
     </button>

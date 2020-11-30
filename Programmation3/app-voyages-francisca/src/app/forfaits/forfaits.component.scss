@@ -3,6 +3,14 @@
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 2em;
+
+  @media(max-width:575.98px){
+    justify-content: flex-start;
+
+    .mat-raised-button {
+      width: 100%;
+    }
+  }
 }
 
 .forfaits-container {

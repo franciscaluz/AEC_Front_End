@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { FooterComponent } from './footer/footer.component';
 import { ListeForfaitsComponent } from './liste-forfaits/liste-forfaits.component';
@@ -37,8 +38,6 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { FormGestionForfaitsComponent } from './form-gestion-forfaits/form-gestion-forfaits.component';
 import { ForfaitsComponent } from './forfaits/forfaits.component';
 import { RatingsPipe } from './ratings.pipe';
-
-
 
 @NgModule({
   declarations: [
@@ -81,6 +80,7 @@ import { RatingsPipe } from './ratings.pipe';
     ReactiveFormsModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatSliderModule,
 
   ],
   providers: [],

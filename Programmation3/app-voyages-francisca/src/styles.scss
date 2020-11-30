@@ -28,7 +28,7 @@ body {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
-  color: $body-color !important;
+  color: $body-color;
   font-family: $playfair;
   font-weight: 600 !important;
 }
@@ -91,11 +91,15 @@ p {
   }
 
   &.mat-accent {
+    color: $body-color;
     background-color: $light-gray;
     border-color: $medium-gray;
 
     .mat-button-wrapper {
       color: $body-color;
+    }
+    .mat-button-focus-overlay {
+      background-color: $body-color !important;
     }
   }
 }
@@ -189,17 +193,51 @@ p {
   &:after {
     content: '';
     position: absolute;
-    bottom: -1em;
+    bottom: -0.5em;
     right:0;
     left: 0;
     margin: 0 auto;
     width: 100px;
-    height: 5px;
+    height: 2px;
     background-color: #1ED2AF;
+  }
+
+  @media(max-width: 767.98px) {
+    margin-bottom: 1.5em;
+  }
+}
+
+.button-container {
+  button {
+    margin-right: 1em;
+  }
+
+  &.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 }
 
 //FORMS
+
+fieldset {
+  //background: #fafafa;
+  border-radius: 0.25em;
+  border: 1px solid #e1e1e1;
+}
+
+legend {
+  font-size: 0.625em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+label {
+  color: #737373;
+  font-weight: 400;
+}
+
 .mat-form-field {
   display: inline-block;
   position: relative;
@@ -219,6 +257,32 @@ p {
       background: $green;
     }
   }
+}
+
+// radio buttons
+
+.mat-radio-button {
+  margin: 0 12px;
+}
+
+.mat-radio-outer-circle {
+  border-color: #737373;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $green;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $green;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: $green;
+}
+
+.mat-radio-ripple .mat-ripple-element {
+  background-color: $green !important;
 }
 
 //  CARDS

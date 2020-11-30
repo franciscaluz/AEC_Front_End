@@ -64,15 +64,13 @@
     text-transform: uppercase;
   }
 
-  .forfait-card-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+  .forfait-card-details {
 
-    li {
+    span {
+      white-space: normal;
       &:after {
         content: ',';
-        margin-right: 2px;
+        margin-right: 4px;
       }
     }
   }

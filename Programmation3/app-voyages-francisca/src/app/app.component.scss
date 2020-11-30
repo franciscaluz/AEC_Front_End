@@ -74,12 +74,12 @@
     flex-direction: row;
     white-space: nowrap;
 
-    &:first-of-type {
+    &.sidenav-content-row-secondary {
       justify-content: flex-end;
       height: 30px;
       background: #000000;
       color: #fafafa;
-      font-size: 12px;
+      font-size: 0.75em;
       font-weight: 300;
     }
   }
@@ -88,5 +88,13 @@
     position: sticky;
     top: 0;
     z-index: 1;
+  }
+
+  @media (max-width: 575.98px) {
+    .mat-toolbar-row {
+      &.sidenav-content-row-secondary {
+        font-size: 0.5em;
+      }
+    }
   }
 }

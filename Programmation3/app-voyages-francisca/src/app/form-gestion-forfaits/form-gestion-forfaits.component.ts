@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-form-gestion-forfaits',
@@ -7,12 +7,21 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form-gestion-forfaits.component.scss']
 })
 export class FormGestionForfaitsComponent implements OnInit {
-  constructor() { }
+  constructor() {}
   champsObligatoire = 'Ce champs est obligatoire.';
   villeDestination: '';
   paysDestination: '';
   villeDepart: '';
   nomHotel: '';
+  adresseHotel: '';
+  nbEtoile: '';
+  nbChambre: '';
+  caracteristiques: '';
+  dateDepart: '';
+  dateRetour: '';
+  prix: '';
+  rabais: '';
+  rabaisPourcentage: '';
   ngOnInit(): void {
   }
 }

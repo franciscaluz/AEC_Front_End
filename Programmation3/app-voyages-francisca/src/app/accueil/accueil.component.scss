@@ -25,6 +25,10 @@
       padding: 15px;
       color: #ffffff;
       text-align: center;
+
+      h1 {
+        color: #ffffff;
+      }
     }
 
     @media (max-width: 767.98px) {
@@ -97,8 +101,12 @@
   }
 }
 
-.home-forfaits {
+.section-home {
   padding: 3em 0;
+
+  @media(max-width: 767.98px) {
+    padding: 1em 0;
+  }
 }
 
 .section-forfaits {
