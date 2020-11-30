@@ -64,6 +64,19 @@
     text-transform: uppercase;
   }
 
+  .forfait-card-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li {
+      &:after {
+        content: ',';
+        margin-right: 2px;
+      }
+    }
+  }
+
   .forfait-card-category {
     display: none;
     span {
@@ -116,6 +129,7 @@
         width: 100%;
         height: 2px;
         background: #1ED2AF;
+        transform: translateY(-50%);
       }
     }
   }
