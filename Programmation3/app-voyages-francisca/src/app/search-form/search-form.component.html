@@ -1,5 +1,117 @@
-<mat-form-field>
-  <mat-label>Rechercher</mat-label>
-  <input matInput type="search" placeholder="Mots-Clés">
-  <mat-icon matSuffix>search</mat-icon>
-</mat-form-field>
+<form action="">
+
+  <mat-form-field>
+    <mat-label>Rechercher</mat-label>
+    <input
+      matInput type="text"
+      placeholder="Mots-Clés"
+      [matAutocomplete]="auto"
+      [formControl]="myControl"
+    >
+    <mat-icon matSuffix>search</mat-icon>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <fieldset>
+    <legend class="forfaits-title">
+      Critères de recherche
+    </legend>
+
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="custom-toggle-group" multiple>
+
+      <mat-button-toggle value="italic">
+        <mat-icon aria-hidden="false" aria-label="beach icon">beach_access</mat-icon>
+        Accès Plage
+      </mat-button-toggle>
+
+      <mat-button-toggle value="underline">
+        <mat-icon aria-hidden="false" aria-label="pool icon">pool</mat-icon>
+        Accès Piscine
+      </mat-button-toggle>
+
+      <mat-button-toggle value="underline">
+        <mat-icon aria-hidden="false" aria-label="waves icon">waves</mat-icon>
+        Vue sur mer
+      </mat-button-toggle>
+
+      <mat-button-toggle value="underline">
+        <mat-icon aria-hidden="false" aria-label="garden icon">local_florist</mat-icon>
+        Vue sur jardin
+      </mat-button-toggle>
+
+      <mat-button-toggle value="bold">
+        <mat-icon aria-hidden="false" aria-label="free_breakfast icon">free_breakfast</mat-icon>
+        Petit-déjeuner inclus
+      </mat-button-toggle>
+
+      <mat-button-toggle value="bold">
+        <mat-icon aria-hidden="false" aria-label="all_inclusive icon">all_inclusive</mat-icon>
+        Formule tout inclus
+      </mat-button-toggle>
+
+      <mat-button-toggle value="wifi">
+        <mat-icon aria-hidden="false" aria-label="wifi icon">wifi</mat-icon>
+        WiFi Gratuit
+      </mat-button-toggle>
+
+      <mat-button-toggle value="wifi">
+        <mat-icon aria-hidden="false" aria-label="kitchen icon">kitchen</mat-icon>
+        Mini-bar
+      </mat-button-toggle>
+
+      <mat-button-toggle value="wifi">
+        <mat-icon aria-hidden="false" aria-label="emoji_food_beverage icon">emoji_food_beverage</mat-icon>
+        Machine à thé/café
+      </mat-button-toggle>
+
+      <mat-button-toggle value="wifi">
+        <mat-icon aria-hidden="false" aria-label="ac_unit icon">ac_unit</mat-icon>
+        Air climatisé
+      </mat-button-toggle>
+
+      <mat-button-toggle value="wifi">
+        <mat-icon aria-hidden="false" aria-label="accessible icon">accessible</mat-icon>
+        Acessibilité
+      </mat-button-toggle>
+
+      <mat-button-toggle>
+        <mat-icon aria-hidden="false" aria-label="local_parking icon">local_parking</mat-icon>
+        Stationnement
+      </mat-button-toggle>
+
+      <mat-button-toggle>
+        <mat-icon aria-hidden="false" aria-label="airport_shuttle icon">airport_shuttle</mat-icon>
+        Navette aéroport
+      </mat-button-toggle>
+
+      <mat-button-toggle>
+        <mat-icon aria-hidden="false" aria-label="restaurant icon">restaurant</mat-icon>
+        Restaurant
+      </mat-button-toggle>
+
+      <mat-button-toggle>
+        <mat-icon aria-hidden="false" aria-label="local_bar icon">local_bar</mat-icon>
+        Bar
+      </mat-button-toggle>
+
+      <mat-button-toggle>
+        <mat-icon aria-hidden="false" aria-label="spa icon">spa</mat-icon>
+        Spa
+      </mat-button-toggle>
+
+    </mat-button-toggle-group>
+
+  </fieldset>
+
+  <div class="button-container">
+    <button type="reset" mat-button color="accent">
+      Réinitialiser
+    </button>
+  </div>
+
+</form>

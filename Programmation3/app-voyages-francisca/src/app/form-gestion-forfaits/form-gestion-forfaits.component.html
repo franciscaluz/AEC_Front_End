@@ -55,25 +55,13 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="mat-form-field-full-width">
+    <mat-form-field>
       <mat-label>Prix</mat-label>
       <input matInput type="number" min="0" step=".01" required
              [ngModel]="prix" name="controleNomHotel" #controlePrix="ngModel"
       >
-      <span matSuffix>&nbsp;$</span>
+      <span matPrefix>$&nbsp;</span>
       <mat-error *ngIf="controlePrix.hasError('required')">
-        {{champsObligatoire}}
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Rabais</mat-label>
-      <mat-select required [ngModel]="rabais" name="controleNomHotel" #controleRabais="ngModel">
-        <mat-option>Choississez une option</mat-option>
-        <mat-option value="true">Oui</mat-option>
-        <mat-option value="False">Non</mat-option>
-      </mat-select>
-      <mat-error *ngIf="controleRabais.hasError('required')">
         {{champsObligatoire}}
       </mat-error>
     </mat-form-field>
@@ -81,10 +69,10 @@
     <mat-form-field>
       <mat-label>Montant Rabais</mat-label>
       <input matInput type="number" min="0" required
-             [ngModel]="rabaisPourcentage" name="controleNomHotel" #controleRabaisPourcentage="ngModel"
+             [ngModel]="rabais" name="controleNomHotel" #controleRabais="ngModel"
       >
-      <span matSuffix>&nbsp;%</span>
-      <mat-error *ngIf="controleRabaisPourcentage.hasError('required')">
+      <span matPrefix>%&nbsp;</span>
+      <mat-error *ngIf="controleRabais.hasError('required')">
         {{champsObligatoire}}
       </mat-error>
     </mat-form-field>
@@ -134,7 +122,7 @@
     </mat-form-field>
 
     <div class="form-col-6">
-      <div>Nombre d'étoiles</div>
+      <mat-label>Nombre d'étoiles</mat-label>
       <mat-slider
         thumbLabel
         tickInterval="1"
@@ -143,6 +131,102 @@
         required
       </mat-slider>
     </div>
+
+    <div class="form-col-12">
+      <fieldset>
+        <legend class="forfaits-title">
+          Caractéristiques
+        </legend>
+
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="custom-toggle-list" multiple>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="beach icon">beach_access</mat-icon>
+            Accès Plage
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="pool icon">pool</mat-icon>
+            Accès Piscine
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="waves icon">waves</mat-icon>
+            Vue sur mer
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="garden icon">local_florist</mat-icon>
+            Vue sur jardin
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="free_breakfast icon">free_breakfast</mat-icon>
+            Petit-déjeuner inclus
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="all_inclusive icon">all_inclusive</mat-icon>
+            Formule tout inclus
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="wifi icon">wifi</mat-icon>
+            WiFi Gratuit
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="kitchen icon">kitchen</mat-icon>
+            Mini-bar
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="emoji_food_beverage icon">emoji_food_beverage</mat-icon>
+            Machine à thé/café
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="ac_unit icon">ac_unit</mat-icon>
+            Air climatisé
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="accessible icon">accessible</mat-icon>
+            Acessibilité
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="local_parking icon">local_parking</mat-icon>
+            Stationnement
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="airport_shuttle icon">airport_shuttle</mat-icon>
+            Navette aéroport
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="restaurant icon">restaurant</mat-icon>
+            Restaurant
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="local_bar icon">local_bar</mat-icon>
+            Bar
+          </mat-button-toggle>
+
+          <mat-button-toggle>
+            <mat-icon aria-hidden="false" aria-label="spa icon">spa</mat-icon>
+            Spa
+          </mat-button-toggle>
+
+        </mat-button-toggle-group>
+
+      </fieldset>
+
+    </div>
+
+
   </fieldset>
   <div class="button-container right">
     <button type="button" mat-button color="accent">

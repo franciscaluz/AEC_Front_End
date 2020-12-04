@@ -21,7 +21,6 @@ export class FormGestionForfaitsComponent implements OnInit {
   dateRetour: '';
   prix: '';
   rabais: '';
-  rabaisPourcentage: '';
   ngOnInit(): void {
   }
 }

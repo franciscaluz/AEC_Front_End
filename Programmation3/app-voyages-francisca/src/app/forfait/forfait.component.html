@@ -21,6 +21,7 @@
         </div>
 
         <div class="star-ratings">
+
           <mat-icon aria-hidden="false" aria-label="Example star icon" color="primary"
                     *ngFor="let item of [].constructor(forfait.hotel.etoile);"
           >
@@ -63,7 +64,7 @@
       </ng-template>
 
       <ng-template #promoBlock>
-        <span class="forfait-price"><strong>${{forfait.prix}}</strong></span>
+        <span class="forfait-price"><strong>${{forfait.prix * (100 - forfait.rabais) / 100}}</strong></span>
         <span class="forfait-old-price">${{forfait.prix}}</span>
       </ng-template>
 

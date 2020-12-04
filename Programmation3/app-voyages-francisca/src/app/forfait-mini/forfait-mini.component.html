@@ -16,11 +16,11 @@
     </div>
 
     <div class="forfait-mini-ratings">
-      <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
-      <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
-      <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
-      <mat-icon aria-hidden="false" aria-label="Example star icon">star</mat-icon>
-      <mat-icon aria-hidden="false" aria-label="Example star_outline icon">star_outline</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example star icon" color="primary"
+                *ngFor="let item of [].constructor(forfait.hotel.etoile);">
+        star
+      </mat-icon>
+<!--      <mat-icon aria-hidden="false" aria-label="Example star_outline icon">star_outline</mat-icon>-->
     </div>
 
   </div>
@@ -39,11 +39,11 @@
 
       <ng-template #promoBlock>
         <span class="forfait-mini-old-price">${{forfait.prix}}</span>
-        <span class="forfait-mini-new-price"><strong>${{forfait.prix}}</strong></span>
+        <span class="forfait-mini-new-price"><strong>${{forfait.prix * (100 - forfait.rabais) / 100}}</strong></span>
       </ng-template>
 
     </div>
-    <!--    <button mat-button color="primary">Voir plus</button>-->
-  </div>
-</div>
 
+  </div>
+
+</div>

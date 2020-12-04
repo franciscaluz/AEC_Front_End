@@ -6,8 +6,12 @@
   margin-right: -15px;
 
   fieldset {
-    width: 100%;
+    width: auto;
     margin-bottom: 30px;
+
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
   }
 
   legend {
@@ -17,6 +21,7 @@
   .mat-slider-horizontal {
     width: 100%;
   }
+
   .form-col-6,
   .mat-form-field {
     flex: 0 1 calc(50% - 30px);
@@ -38,6 +43,19 @@
     width: 100%;
     max-width: calc(100% - 30px);
     padding: 1.25em 15px;
+  }
+
+  .button-container {
+    margin: 30px 0;
+  }
+
+  .mat-slider {
+    height: 20px;
+    min-width: 100%;
+    width: 100%;
+  }
+
+  @media(max-width: 767.98px) {
   }
 
   @media(max-width: 767.98px) {
