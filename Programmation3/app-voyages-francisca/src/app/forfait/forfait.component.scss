@@ -65,12 +65,18 @@
   }
 
   .forfait-card-details {
-
     span {
       white-space: normal;
       &:after {
         content: ',';
         margin-right: 4px;
+      }
+
+      &:last-of-type {
+        &:after {
+          content: '.';
+          margin-right: 0;
+        }
       }
     }
   }

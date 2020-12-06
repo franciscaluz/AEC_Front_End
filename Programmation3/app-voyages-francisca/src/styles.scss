@@ -50,6 +50,10 @@ p {
   margin-top: 0;
 }
 
+.text-sm {
+  font-size: 12px;
+}
+
 .mat-drawer-container {
   background: #ffffff;
   color: $body-color;
@@ -268,7 +272,6 @@ p {
 //FORMS
 
 fieldset {
-  //background: #fafafa;
   border-radius: 0.25em;
   border: 1px solid #e1e1e1;
 }
@@ -280,15 +283,16 @@ legend {
 }
 
 label {
-  color: #737373;
-  font-weight: 400;
+  color: #757575;
 }
 
 .mat-form-field {
-  display: inline-block;
   position: relative;
-  text-align: left;
+  display: inline-block;
   width: 100%;
+  font-family: $roboto;
+  font-weight: 400;
+  text-align: left;
   background-color: transparent;
 
   .mat-form-field-flex {

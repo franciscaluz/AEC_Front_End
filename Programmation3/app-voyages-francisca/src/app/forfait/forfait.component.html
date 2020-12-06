@@ -34,13 +34,16 @@
       <p>{{forfait.ville_destination}}, {{forfait.pays_destination}}</p>
 
       <p class="forfait-card-date">
-        <span>Départ le : {{forfait.date_depart}}</span>
-        &nbsp;|&nbsp;
-        <span>Retour le : {{forfait.date_retour}}</span>
+        <span>Vol à partir de : {{forfait.ville_depart}}</span><br>
+        <span>Départ le : {{forfait.date_depart}}&nbsp;|&nbsp;Retour le : {{forfait.date_retour}}</span>
       </p>
 
       <p class="forfait-card-details">
         <span *ngFor="let caracteristique of forfait.hotel.caracteristiques">{{caracteristique}}</span>
+      </p>
+
+      <p class="forfait-card-details">
+        <span *ngFor="let activite of forfait.hotel.activites">{{activite}}</span>
       </p>
 
       <p class="forfait-card-category">
