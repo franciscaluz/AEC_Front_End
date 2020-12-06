@@ -14,13 +14,77 @@
     <div class="page-wrapper">
         <h1 id="app" class="blink">{{message}}</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem beatae blanditiis culpa debitis esse in inventore itaque neque officia, quam quia quis ratione reprehenderit saepe totam unde! Necessitatibus, recusandae!</p>
+
         <div id="myData">
             <h3> {{firstname}}</h3>
             <h3> {{lastname}}</h3>
             <p>{{mydetails()}}</p>
         </div>
+
         <div id="vm">
-            {{moncalcul}}
+            <p>{{moncalcul}}</p>
+        </div>
+
+        <h6>Exercice 1.2</h6>
+        <div id="monmessage">
+            <p>{{message}} avec directive</p>
+            <p>
+                <span v-text="message"></span>
+                <span>sans directive</span>
+            </p>
+        </div>
+
+        <h6>Exercice 1.3</h6>
+        <div id="maDate">
+            <p>{{getMaDate}}</p>
+        </div>
+
+        <h6>Exercice 1.4</h6>
+        <div id="maTemperature">
+            <p>
+                <input type="checkbox" v-model="converter" id="myCheckbox"/>
+                <label for="myCheckbox">Convertir la température</label>
+            </p>
+            <p>Résultat : {{temperatureConvert}}</p>
+        </div>
+
+        <h6>Exercice 1.5</h6>
+        <div id="monParagraphe">
+            <p>
+                <input type="checkbox" v-model="checked" id="myCheckbox2"/>
+                <label for="myCheckbox2">Afficher le paragraphe ?</label>
+            </p>
+            <p v-bind:class="affichage">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus culpa dignissimos dolore dolores doloribus eaque, eius ex fuga maiores minima, neque odio officia placeat quae quam ratione similique unde?</p>
+        </div>
+
+        <h6>Exercice 1.6</h6>
+        <div id="monGroupeRadio">
+            <p>
+                <input type="radio" v-model="selected" id="radio-blue" value="blue" name="couleur"/>
+                <label for="radio-blue">Convertir en bleu</label>
+                <input type="radio" v-model="selected" id="radio-red" value="red" name="couleur"/>
+                <label for="radio-red">Convertir en rouge</label>
+            </p>
+            <p v-bind:class="cls">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus culpa dignissimos dolore dolores doloribus eaque, eius ex fuga maiores minima, neque odio officia placeat quae quam ratione similique unde?
+            </p>
+        </div>
+
+        <h6>Exercice 1.7</h6>
+        <div id="vShow">
+            <p v-if="Math.random() > 1"> Tu me vois</p>
+            <p v-else>Tu ne me vois pas</p>
+            <h5 v-show="item">Salut</h5>
+        </div>
+
+        <h6>Exercice 1.8</h6>
+        <div id="maListe">
+            <ul>
+                <li v-for="item in items">
+                    <input type="checkbox" v-on:click="completeTask(item)" id=""/>
+                    <label for="" v-bind:class="{task_completed : isActive(item.completed)}">{{item.name}}</label>
+                </li>
+            </ul>
         </div>
 
 
@@ -62,6 +126,107 @@
     computed: {
       moncalcul () {
         return this.nombre + 10;
+      },
+    },
+  });
+
+  var monmessage = new Vue ({
+    el: "#monmessage",
+    data: {
+      message: "Salut!",
+    },
+  });
+
+  var maDate = new Vue ({
+    el: "#maDate",
+    data: {
+      date: new Date(),
+    },
+    computed: {
+      getMaDate() {
+        return this.date.getFullYear();
+      },
+    },
+  });
+
+  var maTemperature = new Vue ({
+    el: "#maTemperature",
+    data: {
+      temperatureC : 32,
+      converter: false,
+    },
+    computed: {
+      temperatureConvert() {
+        let tempConvert;
+        if(this.converter) {
+          tempConvert = this.temperatureC * (9.0 / 5) + 32 + " F";
+        }else {
+          tempConvert = this.temperatureC + " C";
+        }
+        return tempConvert;
+      },
+    },
+  });
+
+  var monParagraphe = new Vue ({
+    el: "#monParagraphe",
+    data: {
+      checked: false,
+    },
+    computed: {
+      affichage() {
+        let maClasse = '';
+        if (this.checked === false) {
+          maClasse = 'hidden';
+        } else if (this.checked === true) {
+          maClasse = 'visible';
+        }
+        return maClasse;
+      }
+    }
+  });
+
+  var monGroupeRadio = new Vue ({
+    el: "#monGroupeRadio",
+    data: {
+      selected: 'blue',
+    },
+    computed: {
+      cls() {
+        let maClasse = '';
+        if (this.selected === "blue") {
+          maClasse = 'text-blue';
+        } else if (this.selected === 'red') {
+          maClasse = 'text-red';
+        }
+        return maClasse;
+      }
+    }
+  });
+
+  var vShow = new Vue ({
+    el: "#vShow",
+    data: {
+      item: true,
+      showModal : true,
+    },
+  });
+
+  var maListe = new Vue ({
+    el: "#maListe",
+    data: {
+      items: [
+        {id: 1, name:"ma premiere tâche", completed: false },
+        {id: 2, name:"ma seconde tâche", completed: false },
+        {id: 3, name:"ma troisième tâche", completed: false },
+      ],
+    },
+    methods: {
+      completeTask(task) {
+        task.completed = !task.completed;
+      },
+      isActive(completed) {
+        return completed;
       },
     },
   });

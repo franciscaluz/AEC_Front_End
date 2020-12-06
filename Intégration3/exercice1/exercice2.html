@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice2</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class="page-container">
+    <div w3-include-html="includes/header.html"></div>
+    <div class="page-wrapper">
+       <h1>Exercice 2</h1>
+
+        <h6>Exercice 2.1 en classe</h6>
+        <div id="app">
+            <input type="text" v-bind:value="message"/>
+            <label>{{ message | isValue}}</label>
+        </div>
+
+        <h6>Exercice 2.2 en classe</h6>
+        <div id="monEvent">
+            <input type="text" v-bind:value="message"/>
+            <label>{{ message | isValue}}</label>
+        </div>
+
+    </div>
+
+    <div w3-include-html="includes/footer.html"></div>
+</div>
+
+
+</body>
+</html>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: '',
+    },
+    filters: {
+      isValue: function (message) {
+        if( message === 'celsius') {
+          return "C°";
+        } else if( message === 'fahrenheit') {
+          return "F°";
+        } else if( message === 'dollar') {
+          return "$CAD";
+        } else {
+          return "";
+        }
+      }
+    }
+  });
+  // Vue.filters('monFiltre', function (value) {});
+</script>
+<script src="assets/js/dynamic.js"></script>
+<script>
+  includeHTML();
+</script>

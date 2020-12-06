@@ -79,3 +79,24 @@ a {
     animation: blink 1s step-start 0s infinite;
     -webkit-animation: blink 1s step-start 0s infinite;
 }
+
+/* HELPERS */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.task_completed {
+    color: green;
+}
