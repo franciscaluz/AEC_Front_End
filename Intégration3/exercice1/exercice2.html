@@ -12,7 +12,7 @@
 <div class="page-container">
     <div w3-include-html="includes/header.html"></div>
     <div class="page-wrapper">
-       <h1>Exercice 2</h1>
+        <h1>Exercice 2</h1>
 
         <h6>Exercice 2.1 en classe</h6>
         <div id="app">
@@ -24,6 +24,12 @@
         <div id="monEvent">
             <input type="text" v-bind:value="message"/>
             <label>{{ message | isValue}}</label>
+        </div>
+
+
+        <div id="exercice4">
+            <h1>{{ title }}</h1>
+            <users></users>
         </div>
 
     </div>
@@ -55,6 +61,79 @@
     }
   });
   // Vue.filters('monFiltre', function (value) {});
+
+
+  Vue.component("users", {
+    data: function () {
+      return {
+        users: [
+          {
+            firstname: "John",
+            lastname: "Doe",
+            email: "john@email.com",
+          },
+          {
+            firstname: "Jane",
+            lastname: "Doe",
+            email: "jane@email.com",
+          },
+        ],
+      };
+    },
+    template: `<div>
+                    <ul>
+                      <li v-for="user in users">
+                        {{user.firstname}} {{user.lastname}}
+                        <userDetails
+                        v-bind:email="user.email"
+                        ></userDetails>
+                      </li>
+                    </ul>
+                  </div>`,
+  });
+  Vue.component("userDetails", {
+    data: function () {
+      return {
+        phoneNumber: "555 444 1234",
+        email: "john.doe@test.com",
+      };
+    },
+    template: `<div>
+                    phoneNumber: {{phoneNumber}}<br/>
+                    email: {{email}}
+                    <adressDetails></adressDetails>
+                  </div>`,
+  });
+  Vue.component("adressDetails", {
+    data: function () {
+      return {
+        adresses: [
+          {
+            streetNumber: "1",
+            streetName: "broadway",
+            city: "St John",
+            province: "NE",
+            postalCode: "A1A 1A1",
+          },
+        ],
+      };
+    },
+    template: `<div>
+                    <ul>
+                      <li v-for="adress in adresses">
+                        {{ adress.streetNumber }}, {{ adress.streetName }}<br/>
+                        {{ adress.city }}, {{ adress.province }}<br/>
+                        {{ adress.postalCode }}<br/>
+                      </li>
+                    </ul>
+                  </div>`,
+  });
+  let vm = new Vue({
+    el: "#exercice4",
+    data: {
+      title: "my users",
+    },
+  });
 </script>
 <script src="assets/js/dynamic.js"></script>
 <script>
